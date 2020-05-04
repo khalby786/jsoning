@@ -1,8 +1,8 @@
-// developer dependencies
-const express = require("express");
-const app = express();
+// // developer dependencies
+// const express = require("express");
+// const app = express();
 
-app.use(express.json());
+// app.use(express.json());
 
 const fs = require("fs");
 var db = require('/app/database.json');
@@ -10,17 +10,12 @@ var db = require('/app/database.json');
 module.exports = {
   
   set: function(key, value) {
-    // try {
-    //   db.key;
-    // } catch {
-    //   throw new Error("Key already exists!")
-    // }
-    // let data = { key: key, value: value };
-    // data = JSON.stringify(data);
-    // fs.appendFileSync("database.json", data)
     console.log(db);
-    db.all[key] = value;
-    fs.writeFileSync("database.json", db);
+    db[key] = value;
+    fs.writeFile("database.json", JSON.stringify(db), function(err) {
+      if (err) throw err;
+      console.log("Written!");
+    });
     console.log("Value successfully set");
   },
   
@@ -34,10 +29,18 @@ module.exports = {
     let data = fs.readFileSync("database.json");
     data = JSON.parse(data);
     return data;
+  },
+  
+  delete: function() {
+    // not yet
   }
   
 };
 
-app.listen(process.env.PORT, function() {
-  console.log(`Listening carefully on port ${process.env.PORT}`);
-});
+// app.get("/db", (req, res) => {
+//   res.sendFile(__dirname + "/database.json");
+// })
+
+// app.listen(process.env.PORT, function() {
+//   console.log(`Listening carefully on port ${process.env.PORT}`);
+// });
