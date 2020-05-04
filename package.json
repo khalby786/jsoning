@@ -1,10 +1,10 @@
 {
   "name": "jsoning",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A simple key-value JSON-based persistant lightweight database.",
   "main": "server.js",
   "scripts": {
-    "start": "node tests/index.js"
+    "start": "node tests/test.js"
   },
   "dependencies": {
   },

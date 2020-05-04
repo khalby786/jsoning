@@ -1,16 +1,17 @@
-// // developer dependencies
+// developer dependencies
 // const express = require("express");
 // const app = express();
 
-// app.use(express.json());
+const db = require('/app/server.js');
 
-const fs = require("fs");
-const jsoning = require('/jsoning.js');
+let all = db.all();
+console.log(all);
 
-module.exports = jsoning;
+db.set("en", "db");
 
 // app.get("/db", (req, res) => {
-//   res.sendFile(__dirname + "/database.json");
+//   console.log(__dirname);
+//   res.sendFile("/app/database.json");
 // })
 
 // app.listen(process.env.PORT, function() {
