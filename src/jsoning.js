@@ -13,7 +13,6 @@ class Jsoning {
 
     set(key, value) {
         var db = require(this.database);
-        console.log(db);
         db[key] = value;
         fs.writeFile("database.json", JSON.stringify(db), function(err) {
             if (err) throw err;
@@ -27,6 +26,24 @@ class Jsoning {
         let data = fs.readFileSync(this.database);
         data = JSON.parse(data);
         return data;
+    }
+    
+    push (key, value) {
+        if (typeof db[key] !== Array) { throw new Error("type of key is not Array") }
+        if (typeof value !== Array){
+            db[key].push(value)
+            fs.writeFile("database.json", JSON.stringify(db), function(err) {
+                if (err) throw err;
+                console.log("Written!");
+            });
+            return true;
+        }
+        value.forEach(val => db[key].push(val))
+        fs.writeFile("database.json", JSON.stringify(db), function(err) {
+            if (err) throw err;
+            console.log("Written!");
+        });
+        return true;
     }
 }
 
