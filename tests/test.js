@@ -11,6 +11,7 @@ console.log(all);
 
 database.set("en", "db");
 database.set("foo", "bar");
+database.set("chro", "venter");
 
 app.get("/db", (req, res) => {
   console.log(__dirname);

@@ -15,7 +15,7 @@ class Jsoning {
         var db = require(this.database);
         console.log(db);
         db[key] = value;
-        fs.appendFile("database.json", JSON.stringify(db), function(err) {
+        fs.writeFile("database.json", JSON.stringify(db), function(err) {
             if (err) throw err;
             console.log("Written!");
         });
