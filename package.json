@@ -1,7 +1,7 @@
 {
-  "name": "json-db",
+  "name": "jsoning",
   "version": "0.0.1",
-  "description": "A simple Node app built on Express, instantly up and running.",
+  "description": "A simple key-value JSON-based persistant lightweight database.",
   "main": "server.js",
   "scripts": {
     "start": "node tests/index.js"
@@ -19,8 +19,7 @@
   },
   "license": "MIT",
   "keywords": [
-    "node",
-    "glitch",
-    "express"
+    "json",
+    "database"
   ]
 }

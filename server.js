@@ -17,6 +17,7 @@ module.exports = {
       console.log("Written!");
     });
     console.log("Value successfully set");
+    return true;
   },
   
   get: function(key) {

@@ -7,7 +7,7 @@ const db = require('/app/server.js');
 let all = db.all();
 console.log(all);
 
-db.set("foo", "bar");
+db.set("en", "db");
 
 // app.get("/db", (req, res) => {
 //   console.log(__dirname);
