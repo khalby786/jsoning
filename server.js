@@ -3,35 +3,23 @@ const express = require("express");
 const app = express();
 
 const fs = require("fs");
+var db = require('database.json');
 
 module.exports = {
-  new: function(key) {
-    // fs.readFile("database.json", function(err, data) {
-    //   if (err) throw err;
-    //   const 
-    // })
-    const db = require('database.json');
-    console.log(db);
-    
-    // see if it exists
+  
+  
+  set: function(key, value) {
     try {
-      
+      db.key;
     } catch {
-      
+      throw new Error("Key already exists!")
     }
-    fs.appendFile(
-      "database.json",
-      `
-      ${key} {
-
-      }
-      `,
-      function(err) {
-        if (err) throw err;
-        console.log("saved!");
-      }
-    );
+    let data = { key: key, value: value };
+    
+    fs.appendFile("database.json", )
+    console.log("Value successfully set");
   }
+  
 };
 
 app.listen(process.env.PORT, function() {
