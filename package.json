@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node tests/test.js"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "express": "*"
   },

@@ -1,19 +1,22 @@
 // developer dependencies
-// const express = require("express");
-// const app = express();
+const express = require("express");
+const app = express();
 
-const db = require('/app/server.js');
+const db = require('../src/server.js');
 
-let all = db.all();
+let database = new db("/home/khalby786/Documents/jsoning/database.json");
+
+let all = database.all();
 console.log(all);
 
-db.set("en", "db");
+database.set("en", "db");
+database.set("foo", "bar");
 
-// app.get("/db", (req, res) => {
-//   console.log(__dirname);
-//   res.sendFile("/app/database.json");
-// })
+app.get("/db", (req, res) => {
+  console.log(__dirname);
+  res.sendFile("/app/database.json");
+})
 
-// app.listen(process.env.PORT, function() {
-//   console.log(`Listening carefully on port ${process.env.PORT}`);
-// });
+app.listen(process.env.PORT || 4000, function() {
+  console.log(`Listening carefully on port ${process.env.PORT || 4000}`);
+});

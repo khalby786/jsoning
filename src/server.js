@@ -5,7 +5,9 @@
 // app.use(express.json());
 
 const fs = require("fs");
-const jsoning = require('/jsoning.js');
+// var path = require('path');
+// var jsoning = require( path.resolve( __dirname, "./jsoning.js" ) );
+const jsoning = require(__dirname + '/jsoning.js');
 
 module.exports = jsoning;
 
