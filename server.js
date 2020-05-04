@@ -10,14 +10,17 @@ var db = require('/app/database.json');
 module.exports = {
   
   set: function(key, value) {
-    try {
-      db.key;
-    } catch {
-      throw new Error("Key already exists!")
-    }
-    let data = { key: key, value: value };
-    data = JSON.stringify(data);
-    fs.appendFileSync("database.json", data)
+    // try {
+    //   db.key;
+    // } catch {
+    //   throw new Error("Key already exists!")
+    // }
+    // let data = { key: key, value: value };
+    // data = JSON.stringify(data);
+    // fs.appendFileSync("database.json", data)
+    console.log(db);
+    db.all[key] = value;
+    fs.writeFileSync("database.json", db);
     console.log("Value successfully set");
   },
   
@@ -29,7 +32,7 @@ module.exports = {
   
   all: function() {
     let data = fs.readFileSync("database.json");
-    data = JSON.stringify(data);
+    data = JSON.parse(data);
     return data;
   }
   
