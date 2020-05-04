@@ -17,9 +17,12 @@ npm install jsoning
 ```js
 let db = require('jsoning');
 
-db.set("foo", "bar"); // returns true
-db.set("en", "db"); // returns true
+let database = new db("/home/khalby786/Documents/jsoning/database.json");
 
-let all = db.all();
-console.log(all); // { "foo": "bar", "en": "db" }
+database.set("en", "db");
+database.set("foo", "bar");
+database.set("chro", "venter");
+
+let all = database.all();
+console.log(all); // {"en":"db","foo":"bar","chro":"venter"}
 ```
