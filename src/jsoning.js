@@ -17,7 +17,6 @@ class Jsoning {
         console.log(db);
         db[key] = value;
         fs.writeFileSync(resolve(__dirname, this.database), JSON.stringify(db));
-        console.log("Value successfully set");
         return true;
     }
 
