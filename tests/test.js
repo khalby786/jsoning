@@ -4,14 +4,16 @@ const app = express();
 
 const db = require('../src/server.js');
 
-let database = new db("/home/khalby786/Documents/jsoning/database.json");
-
-let all = database.all();
-console.log(all);
+let database = new db("database.json");
 
 database.set("en", "db");
 database.set("foo", "bar");
 database.set("chro", "venter");
+// let set = database.set("wakanda", "forever");
+// console.log(set);
+
+let all = database.all();
+console.log(all);
 
 app.get("/db", (req, res) => {
   console.log(__dirname);

@@ -4,7 +4,8 @@
   "description": "A simple key-value JSON-based persistant lightweight database.",
   "main": "server.js",
   "scripts": {
-    "start": "node tests/test.js"
+    "start": "node src/server.js",
+    "test": "node tests/test.js"
   },
   "dependencies": {},
   "devDependencies": {
