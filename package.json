@@ -5,17 +5,15 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "test": "node tests/test.js"
+    "test": "ava"
   },
   "dependencies": {},
   "devDependencies": {
+    "ava": "^3.8.2",
     "express": "*"
   },
-  "engines": {
-    "node": "12.x"
-  },
   "repository": {
-    "url": "https://glitch.com/edit/#!/hello-express"
+    "url": "https://github.com/khalby786/jsoning"
   },
   "license": "MIT",
   "keywords": [

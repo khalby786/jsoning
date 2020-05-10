@@ -10,6 +10,10 @@ class Jsoning {
             fs.writeFileSync(resolve(__dirname, database), '{}');
             this.database = database;
         }
+        if (err) {
+            throw err;
+        }
+        return true;
     }
 
     set(key, value) {
