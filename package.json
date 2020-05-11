@@ -1,6 +1,6 @@
 {
   "name": "jsoning",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "A simple key-value JSON-based persistent lightweight database.",
   "main": "src/server.js",
   "scripts": {
@@ -23,5 +23,8 @@
   "keywords": [
     "json",
     "database"
-  ]
+  ],
+  "engines": {
+    "node": ">=0.12"
+  }
 }

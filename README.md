@@ -43,6 +43,8 @@ A simple key-value JSON-based persistent lightweight database. It uses JSON file
 npm install jsoning
 ```
 
+View the full documentation [here](https://khalby786.github.io/jsoning).
+
 ## Basic Usage
 
 ```js
@@ -62,7 +64,8 @@ console.log(all); // {"en":"db","foo":"bar","chro":"venter"}
 * [GitHub](https://github.com/khalby786/jsoning)
 * [Discord](https://discord.gg/3v8P9RE)
 * [Glitch](https://glitch.com/~jsoning)
+* [Documentation](https://khalby786.github.io/jsoning)
 
 ---
 
-If you like to support my projects, consider buying me a coffee at [https://www.buymeacoffee.com/khaleelgibran](https://www.buymeacoffee.com/khaleelgibran).
+If you would like to support my projects, consider buying me a donut at [https://www.buymeacoffee.com/khaleelgibran](https://www.buymeacoffee.com/khaleelgibran).
