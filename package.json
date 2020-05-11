@@ -5,14 +5,15 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "test": "ava",
+    "test": "nyc ava",
     "docs:build": "node docs.js"
   },
   "dependencies": {},
   "devDependencies": {
     "ava": "^3.8.2",
     "docma": "^3.2.2",
-    "express": "*"
+    "express": "*",
+    "nyc": "^15.0.1"
   },
   "repository": "khalby786/jsoning",
   "homepage": "https://khalby786.github.io/jsoning",
