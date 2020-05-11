@@ -73,6 +73,7 @@ const config = {
     ],
     base: "/",
     entrance: "content:readme",
+    server: Docma.ServerType.GITHUB
   },
   template: {
     options: {
