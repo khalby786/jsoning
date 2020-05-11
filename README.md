@@ -33,7 +33,7 @@
 
 A simple key-value JSON-based persistent lightweight database. It uses JSON files to modify and write key-value elements as JSON-objects. Recommended for small-scale data stores.
 
-**This package is in heavy WIP. While basic functions work, it is required to not to use this database to store sensitive info, for now.**
+**This package is in heavy WIP. While basic functions work, it is recommended not to use this database package to store sensitive info, for now.**
 
 ## Install
 

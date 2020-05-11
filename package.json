@@ -1,6 +1,6 @@
 {
   "name": "jsoning",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "A simple key-value JSON-based persistent lightweight database.",
   "main": "src/server.js",
   "scripts": {
@@ -14,6 +14,7 @@
     "ava": "^3.8.2",
     "codecov": "^3.6.5",
     "docma": "^3.2.2",
+    "eslint": "^7.0.0",
     "express": "*",
     "nyc": "^15.0.1"
   },
