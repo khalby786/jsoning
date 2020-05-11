@@ -13,6 +13,18 @@
 [![License](https://img.shields.io/npm/l/jsoning.svg)](https://www.npmjs.com/package/jsoning)
 [![NPM Downloads](https://img.shields.io/npm/dt/jsoning.svg)](https://www.npmjs.com/package/jsoning)
 [![NPM Downloads](https://img.shields.io/npm/dm/jsoning.svg)](https://www.npmjs.com/package/jsoning)
+![Pkgreview.dev Reviews](https://img.shields.io/pkgreview/rating/npm/jsoning)
+![Pkgreview.dv Stars](https://img.shields.io/pkgreview/stars/npm/jsoning)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/jsoning)
+![Discord](https://img.shields.io/discord/698841420412354581)
+![npm bundle size](https://img.shields.io/bundlephobia/min/jsoning)
+![GitHub repo size](https://img.shields.io/github/repo-size/khalby786/jsoning)
+![node-current](https://img.shields.io/node/v/jsoning)
+![Website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fkhalby786.github.io%2Fjsoning)
+
+![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fkhalby786.github.io%2Fjsoning)
+![Twitter Follow](https://img.shields.io/twitter/follow/khalby786?style=social)
+
 
 | **Like us a lot?** Help others know why you like us! **Review this package on [pkgreview.dev](https://pkgreview.dev/npm/jsoning)** | ➡   | [![Review us on pkgreview.dev](https://i.ibb.co/McjVMfb/pkgreview-dev.jpg)](https://pkgreview.dev/npm/jsoning) |             
 | ----------------------------------------------------------------------------------------------------------------------------------------- | --- | --------------------------------------------------------------------------------------------------------------------- |
