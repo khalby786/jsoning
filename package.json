@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/server.js",
     "test": "nyc ava",
-    "docs:build": "node docs.js"
+    "docs:build": "node docs.js",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "dependencies": {},
   "devDependencies": {
