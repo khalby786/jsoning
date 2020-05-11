@@ -1,3 +1,6 @@
-node_modules
+node_modules/
 .nyc_output
-coverage
+coverage/
+.glitch-assets
+package-lock.json
+shrinkwrap.yaml
