@@ -71,7 +71,7 @@ const config = {
       { property: "og:description", content: Package.description },
       { property: "og:image", content: "images/jsoning.png" },
     ],
-    base: "/",
+    base: "/jsoning",
     entrance: "content:readme",
     server: Docma.ServerType.GITHUB
   },
