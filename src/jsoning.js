@@ -21,6 +21,16 @@ class Jsoning {
         return true;
     }
 
+    /**
+     * 
+     * Adds an element to a database with the specified value. If element exists, element value is updated.
+     * 
+     * @param {string} key Key of the element to be set.
+     * @param {*} value Value of the element to be set.
+     * 
+     * @returns {boolean} If element is set/updated successfully, returns true, else false.
+     * 
+     */
     set(key, value) {
         var db = require(resolve(__dirname, this.database));
         db[key] = value;
@@ -28,12 +38,27 @@ class Jsoning {
         return true;
     }
 
+    /**
+     * 
+     * Returns all the elements and their values of the JSON database.
+     * 
+     * @returns {Object} The object of all the key-value pairs of the database.
+     * 
+     */
     all() {
         let data = fs.readFileSync(resolve(__dirname, this.database), 'utf-8');
         data = JSON.parse(data);
         return data;
     }
 
+    /**
+     * 
+     * Delete an element from the database based on its key.
+     * 
+     * @param {string} key The key of the element to be deleted.
+     * @returns {Boolean} Returns true if the value exists, else returns false.
+     * 
+     */
     delete(key) {
         let db = JSON.parse(fs.readFileSync(resolve(__dirname, this.database), 'utf-8'));
         if (db[key]) {
@@ -45,6 +70,14 @@ class Jsoning {
         }
     }
 
+    /**
+     * 
+     * Gets the value of an element based on it's key.
+     * 
+     * @param {string} key The key of the element to be fetched.
+     * @returns {*} Returns value, if element exists, else returns false.
+     * 
+     */
     get(key) {
         let db = fs.readFileSync(resolve(__dirname, this.database), 'utf-8');
         db = JSON.parse(db);
