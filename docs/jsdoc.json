@@ -1,0 +1,55 @@
+[
+  {
+    "comment": "/**\n     * \n     * Create a new JSON database or initialise an exisiting database.\n     * \n     * @param {string} database The name of the JSON database to be created or used. \n     * @returns {boolean} Whether an existing JSON file was used or created or the action failed.\n     * \n     */",
+    "meta": {
+      "range": [
+        380,
+        659
+      ],
+      "filename": "jsoning.js",
+      "lineno": 14,
+      "columnno": 4,
+      "path": "/home/khalby786/Documents/jsoning/src",
+      "code": {
+        "id": "astnode100000019",
+        "name": "Jsoning",
+        "type": "MethodDefinition",
+        "paramnames": [
+          "database"
+        ]
+      },
+      "vars": {
+        "": null
+      }
+    },
+    "description": "Create a new JSON database or initialise an exisiting database.",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The name of the JSON database to be created or used.",
+        "name": "database"
+      }
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "boolean"
+          ]
+        },
+        "description": "Whether an existing JSON file was used or created or the action failed."
+      }
+    ],
+    "name": "Jsoning",
+    "longname": "Jsoning",
+    "kind": "class",
+    "scope": "global",
+    "$longname": "Jsoning",
+    "$kind": "constructor",
+    "$docmaLink": "?api#Jsoning"
+  }
+]
