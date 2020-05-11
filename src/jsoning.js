@@ -3,6 +3,14 @@ const { resolve } = require('path');
 
 class Jsoning {
 
+    /**
+     * 
+     * Create a new JSON database or initialise an exisiting database.
+     * 
+     * @param {string} database The name of the JSON database to be created or used. 
+     * @returns {boolean} Whether an existing JSON file was used or created or the action failed.
+     * 
+     */
     constructor(database) {
         if (fs.existsSync(resolve(__dirname, database))) {
             this.database = database;

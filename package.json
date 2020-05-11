@@ -5,16 +5,17 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "test": "ava"
+    "test": "ava",
+    "docs:build": "node docs.js"
   },
   "dependencies": {},
   "devDependencies": {
     "ava": "^3.8.2",
+    "docma": "^3.2.2",
     "express": "*"
   },
-  "repository": {
-    "url": "https://github.com/khalby786/jsoning"
-  },
+  "repository": "khalby786/jsoning",
+  "homepage": "https://khalby786.github.io/jsoning",
   "license": "MIT",
   "keywords": [
     "json",
