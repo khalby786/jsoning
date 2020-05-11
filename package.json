@@ -12,6 +12,7 @@
   "dependencies": {},
   "devDependencies": {
     "ava": "^3.8.2",
+    "codecov": "^3.6.5",
     "docma": "^3.2.2",
     "express": "*",
     "nyc": "^15.0.1"
