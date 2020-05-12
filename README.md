@@ -66,6 +66,15 @@ console.log(all); // {"en":"db","foo":"bar","chro":"venter"}
 * [Glitch](https://glitch.com/~jsoning)
 * [Documentation](https://khalby786.github.io/jsoning)
 
+## Contributors
+
+* [chroventer](https://github.com/chroventer)
+* [Khaleel Gibran](https://khaleelgibran.com) 
+
+## Versioning
+
+This package follows Semantic Versioning. Current version is v`0.3.9`.
+
 ---
 
 If you would like to support my projects, consider buying me a donut at [https://www.buymeacoffee.com/khaleelgibran](https://www.buymeacoffee.com/khaleelgibran).
