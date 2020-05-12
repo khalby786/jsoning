@@ -125,7 +125,7 @@ class Jsoning {
 	 * database.set("foo", "bar");
 	 * database.set("en", "db");
 	 * 
-	 * database.clear(); // {}
+	 * database.clear(); // returns {}
 	 * 
 	 */
 	clear() {
