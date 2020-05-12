@@ -5,11 +5,10 @@ class Jsoning {
 
 	/**
      * 
-     * Create a new JSON database or initialise an exisiting database.
+     * Create a new JSON database or initialize an exisiting database.
      * 
      * @param {string} database The name of the JSON database to be created or used. 
      * @returns {boolean} Whether an existing JSON file was used or created or the action failed.
-	 * 
 	 * @example
 	 * const jsoning = require('jsoning');
 	 * var database = new jsoning("database.json");
@@ -31,9 +30,7 @@ class Jsoning {
      * 
      * @param {string} key Key of the element to be set.
      * @param {*} value Value of the element to be set.
-     * 
      * @returns {boolean} If element is set/updated successfully, returns true, else false.
-     * 
 	 * @example
 	 * database.set("foo", "bar"); 
 	 * database.set("hi", 3);
@@ -57,7 +54,6 @@ class Jsoning {
      * Returns all the elements and their values of the JSON database.
      * 
      * @returns {Object} The object of all the key-value pairs of the database.
-	 * 
 	 * @example
 	 * database.set("foo", "bar");
 	 * database.set("hi", "hello");
@@ -78,7 +74,6 @@ class Jsoning {
      * 
      * @param {string} key The key of the element to be deleted.
      * @returns {Boolean} Returns true if the value exists, else returns false.
-	 * 
 	 * @example
 	 * database.set("ping", "pong");
 	 * database.set("foo", "bar");
@@ -103,7 +98,6 @@ class Jsoning {
      * 
      * @param {string} key The key of the element to be fetched.
      * @returns {*} Returns value, if element exists, else returns false.
-	 * 
 	 * @example
 	 * database.set("food", "pizza");
 	 * 
@@ -127,7 +121,6 @@ class Jsoning {
 	 * Clear the whole JSON database.
 	 * 
 	 * @returns {Boolean} 
-	 * 
 	 * @example 
 	 * database.set("foo", "bar");
 	 * database.set("en", "db");
