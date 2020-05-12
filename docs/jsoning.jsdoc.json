@@ -1,0 +1,328 @@
+[
+  {
+    "comment": "/**\n     * \n     * Create a new JSON database or initialize an exisiting database.\n     * \n     * @param {string} database The name of the JSON database to be created or used. \n     * @returns {boolean} Whether an existing JSON file was used or created or the action failed.\n\t * @example\n\t * const jsoning = require('jsoning');\n\t * var database = new jsoning(\"database.json\");\n     * \n     */",
+    "meta": {
+      "range": [
+        476,
+        701
+      ],
+      "filename": "jsoning.js",
+      "lineno": 17,
+      "columnno": 1,
+      "path": "/home/khalby786/Documents/jsoning/src",
+      "code": {
+        "id": "astnode100000019",
+        "name": "Jsoning",
+        "type": "MethodDefinition",
+        "paramnames": [
+          "database"
+        ]
+      },
+      "vars": {
+        "": null
+      }
+    },
+    "description": "Create a new JSON database or initialize an exisiting database.",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The name of the JSON database to be created or used.",
+        "name": "database"
+      }
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "boolean"
+          ]
+        },
+        "description": "Whether an existing JSON file was used or created or the action failed."
+      }
+    ],
+    "examples": [
+      "const jsoning = require('jsoning');\nvar database = new jsoning(\"database.json\");"
+    ],
+    "name": "Jsoning",
+    "longname": "Jsoning",
+    "kind": "class",
+    "scope": "global",
+    "$longname": "Jsoning",
+    "$kind": "constructor",
+    "$docmaLink": "?api=jsoning#Jsoning"
+  },
+  {
+    "comment": "/**\n     * \n     * Returns all the elements and their values of the JSON database.\n     * \n     * @returns {Object} The object of all the key-value pairs of the database.\n\t * @example\n\t * database.set(\"foo\", \"bar\");\n\t * database.set(\"hi\", \"hello\");\n\t * \n\t * let all = database.all();\n\t * console.log(all); // { \"foo\": \"bar\", \"hi\": \"hello\" }\n     * \n     */",
+    "meta": {
+      "range": [
+        1862,
+        1988
+      ],
+      "filename": "jsoning.js",
+      "lineno": 65,
+      "columnno": 1,
+      "path": "/home/khalby786/Documents/jsoning/src",
+      "code": {
+        "id": "astnode100000100",
+        "name": "Jsoning#all",
+        "type": "MethodDefinition",
+        "paramnames": []
+      },
+      "vars": {
+        "": null
+      }
+    },
+    "description": "Returns all the elements and their values of the JSON database.",
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "Object"
+          ]
+        },
+        "description": "The object of all the key-value pairs of the database."
+      }
+    ],
+    "examples": [
+      "database.set(\"foo\", \"bar\");\ndatabase.set(\"hi\", \"hello\");\n\nlet all = database.all();\nconsole.log(all); // { \"foo\": \"bar\", \"hi\": \"hello\" }"
+    ],
+    "name": "all",
+    "longname": "Jsoning#all",
+    "kind": "function",
+    "memberof": "Jsoning",
+    "scope": "instance",
+    "params": [],
+    "$longname": "Jsoning#all",
+    "$kind": "method",
+    "$docmaLink": "?api=jsoning#Jsoning#all"
+  },
+  {
+    "comment": "/**\n\t * \n\t * Clear the whole JSON database.\n\t * \n\t * @returns {Boolean} \n\t * @example \n\t * database.set(\"foo\", \"bar\");\n\t * database.set(\"en\", \"db\");\n\t * \n\t * database.clear(); // {}\n\t * \n\t */",
+    "meta": {
+      "range": [
+        3379,
+        3594
+      ],
+      "filename": "jsoning.js",
+      "lineno": 131,
+      "columnno": 1,
+      "path": "/home/khalby786/Documents/jsoning/src",
+      "code": {
+        "id": "astnode100000225",
+        "name": "Jsoning#clear",
+        "type": "MethodDefinition",
+        "paramnames": []
+      },
+      "vars": {
+        "": null
+      }
+    },
+    "description": "Clear the whole JSON database.",
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "Boolean"
+          ]
+        }
+      }
+    ],
+    "examples": [
+      "database.set(\"foo\", \"bar\");\ndatabase.set(\"en\", \"db\");\n\ndatabase.clear(); // {}"
+    ],
+    "name": "clear",
+    "longname": "Jsoning#clear",
+    "kind": "function",
+    "memberof": "Jsoning",
+    "scope": "instance",
+    "params": [],
+    "$longname": "Jsoning#clear",
+    "$kind": "method",
+    "$docmaLink": "?api=jsoning#Jsoning#clear"
+  },
+  {
+    "comment": "/**\n     * \n     * Delete an element from the database based on its key.\n     * \n     * @param {string} key The key of the element to be deleted.\n     * @returns {Boolean} Returns true if the value exists, else returns false.\n\t * @example\n\t * database.set(\"ping\", \"pong\");\n\t * database.set(\"foo\", \"bar\");\n\t * \n\t * database.delete(\"foo\"); // returns true\n     * \n     */",
+    "meta": {
+      "range": [
+        2362,
+        2622
+      ],
+      "filename": "jsoning.js",
+      "lineno": 84,
+      "columnno": 1,
+      "path": "/home/khalby786/Documents/jsoning/src",
+      "code": {
+        "id": "astnode100000128",
+        "name": "Jsoning#delete",
+        "type": "MethodDefinition",
+        "paramnames": [
+          "key"
+        ]
+      },
+      "vars": {
+        "": null
+      }
+    },
+    "description": "Delete an element from the database based on its key.",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The key of the element to be deleted.",
+        "name": "key"
+      }
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "Boolean"
+          ]
+        },
+        "description": "Returns true if the value exists, else returns false."
+      }
+    ],
+    "examples": [
+      "database.set(\"ping\", \"pong\");\ndatabase.set(\"foo\", \"bar\");\n\ndatabase.delete(\"foo\"); // returns true"
+    ],
+    "name": "delete",
+    "longname": "Jsoning#delete",
+    "kind": "function",
+    "memberof": "Jsoning",
+    "scope": "instance",
+    "$longname": "Jsoning#delete",
+    "$kind": "method",
+    "$docmaLink": "?api=jsoning#Jsoning#delete"
+  },
+  {
+    "comment": "/**\n     * \n     * Gets the value of an element based on it's key.\n     * \n     * @param {string} key The key of the element to be fetched.\n     * @returns {*} Returns value, if element exists, else returns false.\n\t * @example\n\t * database.set(\"food\", \"pizza\");\n\t * \n\t * let food = database.get(\"food\");\n\t * console.log(\"food\") // returns pizza\n     * \n     */",
+    "meta": {
+      "range": [
+        2987,
+        3183
+      ],
+      "filename": "jsoning.js",
+      "lineno": 108,
+      "columnno": 1,
+      "path": "/home/khalby786/Documents/jsoning/src",
+      "code": {
+        "id": "astnode100000182",
+        "name": "Jsoning#get",
+        "type": "MethodDefinition",
+        "paramnames": [
+          "key"
+        ]
+      },
+      "vars": {
+        "": null
+      }
+    },
+    "description": "Gets the value of an element based on it's key.",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "The key of the element to be fetched.",
+        "name": "key"
+      }
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "*"
+          ]
+        },
+        "description": "Returns value, if element exists, else returns false."
+      }
+    ],
+    "examples": [
+      "database.set(\"food\", \"pizza\");\n\nlet food = database.get(\"food\");\nconsole.log(\"food\") // returns pizza"
+    ],
+    "name": "get",
+    "longname": "Jsoning#get",
+    "kind": "function",
+    "memberof": "Jsoning",
+    "scope": "instance",
+    "$longname": "Jsoning#get",
+    "$kind": "method",
+    "$docmaLink": "?api=jsoning#Jsoning#get"
+  },
+  {
+    "comment": "/**\n     * \n     * Adds an element to a database with the specified value. If element exists, element value is updated.\n     * \n     * @param {string} key Key of the element to be set.\n     * @param {*} value Value of the element to be set.\n     * @returns {boolean} If element is set/updated successfully, returns true, else false.\n\t * @example\n\t * database.set(\"foo\", \"bar\"); \n\t * database.set(\"hi\", 3);\n\t * \n\t * database.set(\"en\", \"db\"); // { \"en\": \"db\" }\n\t * database.set(\"en\", \"en\"); // { \"en\": \"en\" }\n\t * \n\t * let set = database.set(\"khaleel\", \"gibran\");\n\t * console.log(set); // returns true\n\t * \n     */",
+    "meta": {
+      "range": [
+        1317,
+        1501
+      ],
+      "filename": "jsoning.js",
+      "lineno": 45,
+      "columnno": 1,
+      "path": "/home/khalby786/Documents/jsoning/src",
+      "code": {
+        "id": "astnode100000059",
+        "name": "Jsoning#set",
+        "type": "MethodDefinition",
+        "paramnames": [
+          "key",
+          "value"
+        ]
+      },
+      "vars": {
+        "": null
+      }
+    },
+    "description": "Adds an element to a database with the specified value. If element exists, element value is updated.",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "description": "Key of the element to be set.",
+        "name": "key"
+      },
+      {
+        "type": {
+          "names": [
+            "*"
+          ]
+        },
+        "description": "Value of the element to be set.",
+        "name": "value"
+      }
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "boolean"
+          ]
+        },
+        "description": "If element is set/updated successfully, returns true, else false."
+      }
+    ],
+    "examples": [
+      "database.set(\"foo\", \"bar\"); \ndatabase.set(\"hi\", 3);\n\ndatabase.set(\"en\", \"db\"); // { \"en\": \"db\" }\ndatabase.set(\"en\", \"en\"); // { \"en\": \"en\" }\n\nlet set = database.set(\"khaleel\", \"gibran\");\nconsole.log(set); // returns true"
+    ],
+    "name": "set",
+    "longname": "Jsoning#set",
+    "kind": "function",
+    "memberof": "Jsoning",
+    "scope": "instance",
+    "$longname": "Jsoning#set",
+    "$kind": "method",
+    "$docmaLink": "?api=jsoning#Jsoning#set"
+  }
+]
