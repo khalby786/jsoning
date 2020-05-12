@@ -68,8 +68,8 @@ console.log(all); // {"en":"db","foo":"bar","chro":"venter"}
 
 ## Contributors
 
-* [chroventer](https://github.com/chroventer)
 * [Khaleel Gibran](https://khaleelgibran.com) 
+* [chroventer](https://github.com/chroventer)
 
 ## Versioning
 
