@@ -4,6 +4,11 @@ const jsoning = require("../src/server.js");
 // new database
 const database = new jsoning("db.json");
 
+test("new database", t => {
+    let db = new jsoning("hello.json");
+    t.is(db.set("foo", "bar"), true, "new database!!!");
+})
+
 test("test started", t => {
     t.pass();
 })
@@ -31,3 +36,10 @@ test("value delete should return false for non-existing element", t => {
 test("value get should return false for non-existing element", t => {
     t.is(database.get("wakanda"), false, "Jsoning#get false test successful!");
 });
+
+test("clear should clear everything", t => {
+    database.set("foo", "bar");
+    database.set("hi", "hello");
+    database.set("en", "db");
+    t.is(database.clear(), true, "Cleared successfully!")
+})

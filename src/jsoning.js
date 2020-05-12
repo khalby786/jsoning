@@ -9,6 +9,10 @@ class Jsoning {
      * 
      * @param {string} database The name of the JSON database to be created or used. 
      * @returns {boolean} Whether an existing JSON file was used or created or the action failed.
+	 * 
+	 * @example
+	 * const jsoning = require('jsoning');
+	 * var database = new jsoning("database.json");
      * 
      */
 	constructor(database) {
@@ -30,6 +34,16 @@ class Jsoning {
      * 
      * @returns {boolean} If element is set/updated successfully, returns true, else false.
      * 
+	 * @example
+	 * database.set("foo", "bar"); 
+	 * database.set("hi", 3);
+	 * 
+	 * database.set("en", "db"); // { "en": "db" }
+	 * database.set("en", "en"); // { "en": "en" }
+	 * 
+	 * let set = database.set("khaleel", "gibran");
+	 * console.log(set); // returns true
+	 * 
      */
 	set(key, value) {
 		var db = require(resolve(__dirname, this.database));
@@ -43,6 +57,13 @@ class Jsoning {
      * Returns all the elements and their values of the JSON database.
      * 
      * @returns {Object} The object of all the key-value pairs of the database.
+	 * 
+	 * @example
+	 * database.set("foo", "bar");
+	 * database.set("hi", "hello");
+	 * 
+	 * let all = database.all();
+	 * console.log(all); // { "foo": "bar", "hi": "hello" }
      * 
      */
 	all() {
@@ -57,6 +78,12 @@ class Jsoning {
      * 
      * @param {string} key The key of the element to be deleted.
      * @returns {Boolean} Returns true if the value exists, else returns false.
+	 * 
+	 * @example
+	 * database.set("ping", "pong");
+	 * database.set("foo", "bar");
+	 * 
+	 * database.delete("foo"); // returns true
      * 
      */
 	delete(key) {
@@ -76,6 +103,12 @@ class Jsoning {
      * 
      * @param {string} key The key of the element to be fetched.
      * @returns {*} Returns value, if element exists, else returns false.
+	 * 
+	 * @example
+	 * database.set("food", "pizza");
+	 * 
+	 * let food = database.get("food");
+	 * console.log("food") // returns pizza
      * 
      */
 	get(key) {
@@ -87,6 +120,26 @@ class Jsoning {
 		} else {
 			return false;
 		}
+	}
+
+	/**
+	 * 
+	 * Clear the whole JSON database.
+	 * 
+	 * @returns {Boolean} 
+	 * 
+	 * @example 
+	 * database.set("foo", "bar");
+	 * database.set("en", "db");
+	 * 
+	 * database.clear(); // {}
+	 * 
+	 */
+	clear() {
+		let cleared = {};
+		fs.writeFileSync(resolve(__dirname, this.database), JSON.stringify(cleared));
+		console.log(JSON.parse(fs.readFileSync(resolve(__dirname, this.database), 'utf-8')));
+		return true;
 	}
 
 }
