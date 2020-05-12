@@ -37,7 +37,7 @@ A simple key-value JSON-based persistent lightweight database. It uses JSON file
 
 ## Install
 
-**Node.js v12.x or greater is required.**
+**Node.js v12.x or greater is required for this package to work.**
 
 ```js
 npm install jsoning
