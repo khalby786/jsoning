@@ -1,14 +1,14 @@
 [
   {
-    "comment": "/**\n     * \n     * Create a new JSON database or initialize an exisiting database.\n     * \n     * @param {string} database The name of the JSON database to be created or used. \n     * @returns {boolean} Whether an existing JSON file was used or created or the action failed.\n\t * @example\n\t * const jsoning = require('jsoning');\n\t * var database = new jsoning(\"database.json\");\n     * \n     */",
+    "comment": "/**\n   *\n   * Create a new JSON database or initialize an exisiting database.\n   *\n   * @param {string} database The name of the JSON database to be created or used.\n   * @returns {boolean} Whether an existing JSON file was used or created or the action failed.\n   * @example\n   * const jsoning = require('jsoning');\n   * var database = new jsoning(\"database.json\");\n   *\n   */",
     "meta": {
       "range": [
-        476,
-        701
+        462,
+        704
       ],
       "filename": "jsoning.js",
-      "lineno": 17,
-      "columnno": 1,
+      "lineno": 16,
+      "columnno": 2,
       "path": "/home/khalby786/Documents/jsoning/src",
       "code": {
         "id": "astnode100000019",
@@ -56,15 +56,15 @@
     "$docmaLink": "?api=jsoning#Jsoning"
   },
   {
-    "comment": "/**\n     * \n     * Returns all the elements and their values of the JSON database.\n     * \n     * @returns {Object} The object of all the key-value pairs of the database.\n\t * @example\n\t * database.set(\"foo\", \"bar\");\n\t * database.set(\"hi\", \"hello\");\n\t * \n\t * let all = database.all();\n\t * console.log(all); // { \"foo\": \"bar\", \"hi\": \"hello\" }\n     * \n     */",
+    "comment": "/**\n   *\n   * Returns all the elements and their values of the JSON database.\n   *\n   * @returns {Object} The object of all the key-value pairs of the database.\n   * @example\n   * database.set(\"foo\", \"bar\");\n   * database.set(\"hi\", \"hello\");\n   *\n   * let all = database.all();\n   * console.log(all); // { \"foo\": \"bar\", \"hi\": \"hello\" }\n   *\n   */",
     "meta": {
       "range": [
-        1862,
-        1988
+        1858,
+        1991
       ],
       "filename": "jsoning.js",
-      "lineno": 65,
-      "columnno": 1,
+      "lineno": 64,
+      "columnno": 2,
       "path": "/home/khalby786/Documents/jsoning/src",
       "code": {
         "id": "astnode100000100",
@@ -101,15 +101,15 @@
     "$docmaLink": "?api=jsoning#Jsoning#all"
   },
   {
-    "comment": "/**\n\t * \n\t * Clear the whole JSON database.\n\t * \n\t * @returns {Boolean} \n\t * @example \n\t * database.set(\"foo\", \"bar\");\n\t * database.set(\"en\", \"db\");\n\t * \n\t * database.clear(); // return {}\n\t * \n\t */",
+    "comment": "/**\n   *\n   * Clear the whole JSON database.\n   *\n   * @returns {Boolean}\n   * @example\n   * database.set(\"foo\", \"bar\");\n   * database.set(\"en\", \"db\");\n   *\n   * database.clear(); // return {}\n   *\n   */",
     "meta": {
       "range": [
-        3386,
-        3601
+        3427,
+        3681
       ],
       "filename": "jsoning.js",
-      "lineno": 131,
-      "columnno": 1,
+      "lineno": 132,
+      "columnno": 2,
       "path": "/home/khalby786/Documents/jsoning/src",
       "code": {
         "id": "astnode100000225",
@@ -145,15 +145,15 @@
     "$docmaLink": "?api=jsoning#Jsoning#clear"
   },
   {
-    "comment": "/**\n     * \n     * Delete an element from the database based on its key.\n     * \n     * @param {string} key The key of the element to be deleted.\n     * @returns {Boolean} Returns true if the value exists, else returns false.\n\t * @example\n\t * database.set(\"ping\", \"pong\");\n\t * database.set(\"foo\", \"bar\");\n\t * \n\t * database.delete(\"foo\"); // returns true\n     * \n     */",
+    "comment": "/**\n   *\n   * Delete an element from the database based on its key.\n   *\n   * @param {string} key The key of the element to be deleted.\n   * @returns {Boolean} Returns true if the value exists, else returns false.\n   * @example\n   * database.set(\"ping\", \"pong\");\n   * database.set(\"foo\", \"bar\");\n   *\n   * database.delete(\"foo\"); // returns true\n   *\n   */",
     "meta": {
       "range": [
-        2362,
-        2622
+        2354,
+        2647
       ],
       "filename": "jsoning.js",
-      "lineno": 84,
-      "columnno": 1,
+      "lineno": 83,
+      "columnno": 2,
       "path": "/home/khalby786/Documents/jsoning/src",
       "code": {
         "id": "astnode100000128",
@@ -202,15 +202,15 @@
     "$docmaLink": "?api=jsoning#Jsoning#delete"
   },
   {
-    "comment": "/**\n     * \n     * Gets the value of an element based on it's key.\n     * \n     * @param {string} key The key of the element to be fetched.\n     * @returns {*} Returns value, if element exists, else returns false.\n\t * @example\n\t * database.set(\"food\", \"pizza\");\n\t * \n\t * let food = database.get(\"food\");\n\t * console.log(\"food\") // returns pizza\n     * \n     */",
+    "comment": "/**\n   *\n   * Gets the value of an element based on it's key.\n   *\n   * @param {string} key The key of the element to be fetched.\n   * @returns {*} Returns value, if element exists, else returns false.\n   * @example\n   * database.set(\"food\", \"pizza\");\n   *\n   * let food = database.get(\"food\");\n   * console.log(\"food\") // returns pizza\n   *\n   */",
     "meta": {
       "range": [
-        2987,
-        3183
+        3001,
+        3217
       ],
       "filename": "jsoning.js",
-      "lineno": 108,
-      "columnno": 1,
+      "lineno": 109,
+      "columnno": 2,
       "path": "/home/khalby786/Documents/jsoning/src",
       "code": {
         "id": "astnode100000182",
@@ -259,15 +259,15 @@
     "$docmaLink": "?api=jsoning#Jsoning#get"
   },
   {
-    "comment": "/**\n     * \n     * Adds an element to a database with the specified value. If element exists, element value is updated.\n     * \n     * @param {string} key Key of the element to be set.\n     * @param {*} value Value of the element to be set.\n     * @returns {boolean} If element is set/updated successfully, returns true, else false.\n\t * @example\n\t * database.set(\"foo\", \"bar\"); \n\t * database.set(\"hi\", 3);\n\t * \n\t * database.set(\"en\", \"db\"); // { \"en\": \"db\" }\n\t * database.set(\"en\", \"en\"); // { \"en\": \"en\" }\n\t * \n\t * let set = database.set(\"khaleel\", \"gibran\");\n\t * console.log(set); // returns true\n\t * \n     */",
+    "comment": "/**\n   *\n   * Adds an element to a database with the specified value. If element exists, element value is updated.\n   *\n   * @param {string} key Key of the element to be set.\n   * @param {*} value Value of the element to be set.\n   * @returns {boolean} If element is set/updated successfully, returns true, else false.\n   * @example\n   * database.set(\"foo\", \"bar\");\n   * database.set(\"hi\", 3);\n   *\n   * database.set(\"en\", \"db\"); // { \"en\": \"db\" }\n   * database.set(\"en\", \"en\"); // { \"en\": \"en\" }\n   *\n   * let set = database.set(\"khaleel\", \"gibran\");\n   * console.log(set); // returns true\n   *\n   */",
     "meta": {
       "range": [
-        1317,
-        1501
+        1312,
+        1505
       ],
       "filename": "jsoning.js",
-      "lineno": 45,
-      "columnno": 1,
+      "lineno": 44,
+      "columnno": 2,
       "path": "/home/khalby786/Documents/jsoning/src",
       "code": {
         "id": "astnode100000059",
@@ -314,7 +314,7 @@
       }
     ],
     "examples": [
-      "database.set(\"foo\", \"bar\"); \ndatabase.set(\"hi\", 3);\n\ndatabase.set(\"en\", \"db\"); // { \"en\": \"db\" }\ndatabase.set(\"en\", \"en\"); // { \"en\": \"en\" }\n\nlet set = database.set(\"khaleel\", \"gibran\");\nconsole.log(set); // returns true"
+      "database.set(\"foo\", \"bar\");\ndatabase.set(\"hi\", 3);\n\ndatabase.set(\"en\", \"db\"); // { \"en\": \"db\" }\ndatabase.set(\"en\", \"en\"); // { \"en\": \"en\" }\n\nlet set = database.set(\"khaleel\", \"gibran\");\nconsole.log(set); // returns true"
     ],
     "name": "set",
     "longname": "Jsoning#set",
