@@ -101,11 +101,11 @@
     "$docmaLink": "?api=jsoning#Jsoning#all"
   },
   {
-    "comment": "/**\n\t * \n\t * Clear the whole JSON database.\n\t * \n\t * @returns {Boolean} \n\t * @example \n\t * database.set(\"foo\", \"bar\");\n\t * database.set(\"en\", \"db\");\n\t * \n\t * database.clear(); // {}\n\t * \n\t */",
+    "comment": "/**\n\t * \n\t * Clear the whole JSON database.\n\t * \n\t * @returns {Boolean} \n\t * @example \n\t * database.set(\"foo\", \"bar\");\n\t * database.set(\"en\", \"db\");\n\t * \n\t * database.clear(); // return {}\n\t * \n\t */",
     "meta": {
       "range": [
-        3379,
-        3594
+        3386,
+        3601
       ],
       "filename": "jsoning.js",
       "lineno": 131,
@@ -132,7 +132,7 @@
       }
     ],
     "examples": [
-      "database.set(\"foo\", \"bar\");\ndatabase.set(\"en\", \"db\");\n\ndatabase.clear(); // {}"
+      "database.set(\"foo\", \"bar\");\ndatabase.set(\"en\", \"db\");\n\ndatabase.clear(); // return {}"
     ],
     "name": "clear",
     "longname": "Jsoning#clear",

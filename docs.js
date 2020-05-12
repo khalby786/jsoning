@@ -3,7 +3,7 @@ const Package = require("./package");
 
 const config = {
   src:  [{jsoning: "./src/jsoning.js"}, {readme: './README.md'}],
-  debug: 16,
+  debug: 31,
   app: {
     title: Package.name,
     meta: [
