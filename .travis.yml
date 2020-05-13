@@ -1,14 +1,12 @@
 language: node_js
 node_js:
   - lts/*
+install:
+  - npm ci
 script:
   - npm run test
   - npm run report-coverage
-  - npm install vuepress --save-dev
-  - npm install vuepress-theme-yuu --save-dev
   - npm run docs:build
-install:
-  - npm ci
 deploy:
   provider: pages
   skip_cleanup: true
