@@ -43,7 +43,7 @@ A simple key-value JSON-based persistent lightweight database. It uses JSON file
 npm install jsoning
 ```
 
-View the full documentation [here](https://khalby786.github.io/jsoning).
+View the full documentation [here](https://jsoning.netlify.app/).
 
 ## Basic Usage
 
@@ -64,7 +64,7 @@ console.log(all); // {"en":"db","foo":"bar","chro":"venter"}
 * [GitHub](https://github.com/khalby786/jsoning)
 * [Discord](https://discord.gg/3v8P9RE)
 * [Glitch](https://glitch.com/~jsoning)
-* [Documentation](https://khalby786.github.io/jsoning)
+* [Documentation](https://jsoning.netlify.app/)
 
 ## Contributors
 
