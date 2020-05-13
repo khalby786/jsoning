@@ -17,9 +17,7 @@
     "docma": "^3.2.2",
     "eslint": "^7.0.0",
     "express": "*",
-    "nyc": "^15.0.1",
-    "vuepress": "^1.5.0",
-    "vuepress-theme-yuu": "^2.3.0"
+    "nyc": "^15.0.1"
   },
   "repository": "khalby786/jsoning",
   "homepage": "https://khalby786.github.io/jsoning",
