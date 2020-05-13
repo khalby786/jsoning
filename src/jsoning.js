@@ -14,6 +14,13 @@ class Jsoning {
    *
    */
   constructor(database) {
+
+    // check for tricks
+    if (typeof database !== "string" || database === "" || database === undefined || database.substr(database.length - 5) !== ".json") {
+      throw new TypeError("Unknown database file name. Make sure to provide a valid JSON database filename.");
+    }
+
+    // use an existing database or create a new one
     if (fs.existsSync(resolve(__dirname, database))) {
       this.database = database;
     } else {
@@ -42,6 +49,12 @@ class Jsoning {
    *
    */
   set(key, value) {
+
+    // check for tricks
+    if (typeof key !== "string" || key == "" || value == "") {
+      throw new TypeError("Invalid key/value for element");
+    }
+
     var db = require(resolve(__dirname, this.database));
     db[key] = value;
     fs.writeFileSync(resolve(__dirname, this.database), JSON.stringify(db));
@@ -81,6 +94,12 @@ class Jsoning {
    *
    */
   delete(key) {
+
+    // check for tricks
+    if (typeof key !== "string" || key == "") {
+      throw new TypeError("Invalid key of element");
+    }
+
     let db = JSON.parse(
       fs.readFileSync(resolve(__dirname, this.database), "utf-8")
     );
@@ -107,6 +126,12 @@ class Jsoning {
    *
    */
   get(key) {
+
+    // look for tricks
+    if (typeof key !== "string" || key == "") {
+      throw new TypeError("Invalid key of element");
+    }
+
     let db = fs.readFileSync(resolve(__dirname, this.database), "utf-8");
     db = JSON.parse(db);
     if (db[key]) {
