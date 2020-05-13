@@ -5,6 +5,8 @@ script:
   - npm run test
   - npm run report-coverage
   - npm run docs:build
+  - npm install vuepress --save-dev
+  - npm install vuepress-theme-yuu --save-dev
 install:
   - npm ci
 deploy:
