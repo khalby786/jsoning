@@ -1,5 +1,5 @@
 const nav = require('./nav.js');
-const sidebar = require('./sidebar');
+// const sidebar = require('./sidebar');
 
 module.exports = {
   base: '/jsoning/',
