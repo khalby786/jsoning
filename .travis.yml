@@ -1,10 +1,12 @@
 language: node_js
-script:
-- npm run test
-- npm run report-coverage
-- npm run docs:build
 node_js:
   - lts/*
+script:
+  - npm run test
+  - npm run report-coverage
+  - npm run docs:build
+install:
+  - npm ci
 deploy:
   provider: pages
   skip_cleanup: true
