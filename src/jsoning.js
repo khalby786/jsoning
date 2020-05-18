@@ -1,6 +1,9 @@
 const fs = require("fs");
 const { resolve } = require("path");
 
+// write files atomically
+var writeFileAtomicSync = require('write-file-atomic').sync;
+
 class Jsoning {
   /**
    *
@@ -57,7 +60,11 @@ class Jsoning {
 
     var db = require(resolve(__dirname, this.database));
     db[key] = value;
-    fs.writeFileSync(resolve(__dirname, this.database), JSON.stringify(db));
+    writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(db));
+    // writeFileAtomic('db.json', JSON.stringify(db), { chown: false }, function(err) {
+    //   if (err) throw err;
+    //   break;
+    // });
     return true;
   }
 
@@ -105,7 +112,7 @@ class Jsoning {
     );
     if (db[key]) {
       delete db[key];
-      fs.writeFileSync(resolve(__dirname, this.database), JSON.stringify(db));
+      writeFileAtomicSync(resolve(__dirname + this.database), JSON.stringify(db));
       return true;
     } else {
       return false;
@@ -156,13 +163,7 @@ class Jsoning {
    */
   clear() {
     let cleared = {};
-    fs.writeFileSync(
-      resolve(__dirname, this.database),
-      JSON.stringify(cleared)
-    );
-    console.log(
-      JSON.parse(fs.readFileSync(resolve(__dirname, this.database), "utf-8"))
-    );
+    writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(cleared), {});
     return true;
   }
 }

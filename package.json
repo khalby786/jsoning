@@ -1,6 +1,6 @@
 {
   "name": "jsoning",
-  "version": "0.3.11",
+  "version": "0.4.11",
   "description": "A simple key-value JSON-based persistent lightweight database.",
   "main": "src/server.js",
   "scripts": {
@@ -10,7 +10,9 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
-  "dependencies": {},
+  "dependencies": {
+    "write-file-atomic": "^3.0.3"
+  },
   "devDependencies": {
     "ava": "^3.8.2",
     "codecov": "^3.6.5",
@@ -20,7 +22,7 @@
     "nyc": "^15.0.1"
   },
   "repository": "khalby786/jsoning",
-  "homepage": "https://khalby786.github.io/jsoning",
+  "homepage": "https://jsoning.netlify.app",
   "license": "MIT",
   "keywords": [
     "json",

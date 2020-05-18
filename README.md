@@ -33,6 +33,8 @@
 
 A simple key-value JSON-based persistent lightweight database. It uses JSON files to modify and write key-value elements as JSON-objects. Recommended for small-scale data stores.
 
+**Prevents JSON corruption of JSON database files by writing to files [atomically](https://github.com/npm/write-file-atomic)!**
+
 **This package is in heavy WIP. While basic functions work, it is recommended not to use this database package to store sensitive info, for now.**
 
 ## Install
@@ -70,15 +72,6 @@ console.log(all); // {"en":"db","foo":"bar","chro":"venter"}
 
 * [Khaleel Gibran](https://khaleelgibran.com) 
 * [chroventer](https://github.com/chroventer)
-
-## Versioning
-
-This package follows Semantic Versioning. Current version is v`0.3.9`.
-
-### To-do
-
-* Prevent JSON corruption
-* Error handling
 
 ---
 

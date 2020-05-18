@@ -18,6 +18,7 @@ test("value set should return true", (t) => {
 });
 
 test("value all should return all", (t) => {
+  console.log(database.all());
   t.deepEqual(database.all(), { khaleel: "gibran" }, "Jsoning#all successful!");
 });
 
