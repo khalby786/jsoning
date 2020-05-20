@@ -21,6 +21,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/khalby786/jsoning)
 ![node-current](https://img.shields.io/node/v/jsoning)
 ![Website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fkhalby786.github.io%2Fjsoning)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkhalby786%2Fjsoning.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkhalby786%2Fjsoning?ref=badge_shield)
 
 ![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fkhalby786.github.io%2Fjsoning)
 ![Twitter Follow](https://img.shields.io/twitter/follow/khalby786?style=social)
@@ -76,3 +77,7 @@ console.log(all); // {"en":"db","foo":"bar","chro":"venter"}
 ---
 
 If you would like to support my projects, consider buying me a donut at [https://www.buymeacoffee.com/khaleelgibran](https://www.buymeacoffee.com/khaleelgibran).
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkhalby786%2Fjsoning.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkhalby786%2Fjsoning?ref=badge_large)
