@@ -61,7 +61,6 @@ class Jsoning {
     var db = require(resolve(__dirname, this.database));
     db[key] = value;
     writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(db), { chown: false });
-    console.log(resolve(__dirname, this.database));
     return true;
   }
 
@@ -110,7 +109,6 @@ class Jsoning {
     if (db[key]) {
       delete db[key];
       writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(db), { chown: false });
-      console.log(resolve(__dirname, this.database));
       return true;
     } else {
       return false;
@@ -162,7 +160,6 @@ class Jsoning {
   clear() {
     let cleared = {};
     writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(cleared), { chown: false });
-    console.log(resolve(__dirname, this.database));
     return true;
   }
 
@@ -213,12 +210,9 @@ class Jsoning {
           throw new Error("Operation not found!");
       }
       db[key] = result;
-      console.log("MATH!!!");
-      console.log(db);
       writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(db), { chown: false, tmpfileCreated: function() {
         console.log("Temporary file created!")
       }});
-      console.log(resolve(__dirname, this.database));
       return true;
     } else {
       // key doesn't exist
