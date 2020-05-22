@@ -28,6 +28,10 @@
     "json",
     "database"
   ],
+  "author": {
+    "name": "Khaleel Gibran",
+    "url": "https://github.com/khalby786/jsoning"
+  },
   "engines": {
     "node": ">=0.12"
   },
