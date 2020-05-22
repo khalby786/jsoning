@@ -31,13 +31,19 @@
 
 ![jsoning](https://cdn.glitch.com/c393fad9-338a-43b4-9a2f-8ba07e26d39d%2Fjsoning.png?v=1589190601684)
 
-A simple key-value JSON-based persistent lightweight database. It uses JSON files to modify and write key-value elements as JSON-objects. Recommended for small-scale data stores.
+✨ A simple key-value JSON-based persistent lightweight database. Recommended for small-scale data stores. ✨
 
-**Prevents JSON corruption of JSON database files by writing to files [atomically](https://github.com/npm/write-file-atomic)!**
+📝 * Uses JSON files to modify and write key-value elements as JSON-objects.
+👌 * **Easy to use** JSON database.
+🚫 * **Prevents JSON corruption** with [atomic file writing](https://github.com/npm/write-file-atomic).
+1️⃣ * Uses only **1** dependency ([`write-file-atomic`](https://github.com/npm/write-file-atomic))
+🕊️ * **Lightweight** package with an unpacked size of **12.1 kB**.
+🖥️ * Requires **Node.js v12.x** or greater
+
 
 **This package is in heavy WIP. While basic functions work, it is recommended not to use this database package to store sensitive info, for now.**
 
-## Install
+## Install 💾
 
 **Node.js v12.x or greater is required for this package to work.**
 
@@ -47,7 +53,7 @@ npm install jsoning
 
 View the full documentation [here](https://jsoning.netlify.app/).
 
-## Basic Usage
+## Basic Usage 📑
 
 ```js
 let jsoning = require('jsoning');
@@ -61,18 +67,18 @@ let all = database.all();
 console.log(all); // {"en":"db","foo":"bar","chro":"venter"}
 ```
 
-## Links
+## Links 🔗
 
 * [GitHub](https://github.com/khalby786/jsoning)
 * [Discord](https://discord.gg/3v8P9RE)
 * [Glitch](https://glitch.com/~jsoning)
 * [Documentation](https://jsoning.netlify.app/)
 
-## Contributors
+## Contributors 👦
 
 * [Khaleel Gibran](https://khaleelgibran.com) 
 * [chroventer](https://github.com/chroventer)
 
 ---
 
-If you would like to support my projects, consider buying me a donut at [https://www.buymeacoffee.com/khaleelgibran](https://www.buymeacoffee.com/khaleelgibran).
+If you would like to support my projects, consider buying me a donut 🍩 at [https://www.buymeacoffee.com/khaleelgibran](https://www.buymeacoffee.com/khaleelgibran).
