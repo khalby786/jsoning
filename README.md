@@ -33,12 +33,12 @@
 
 ✨ A simple key-value JSON-based persistent lightweight database. Recommended for small-scale data stores. ✨
 
-📝 * Uses JSON files to modify and write key-value elements as JSON-objects.
-👌 * **Easy to use** JSON database.
-🚫 * **Prevents JSON corruption** with [atomic file writing](https://github.com/npm/write-file-atomic).
-1️⃣ * Uses only **1** dependency ([`write-file-atomic`](https://github.com/npm/write-file-atomic))
-🕊️ * **Lightweight** package with an unpacked size of **12.1 kB**.
-🖥️ * Requires **Node.js v12.x** or greater
+* 📝 Uses JSON files to modify and write key-value elements as JSON-objects.
+* 👌 **Easy to use** JSON database.
+* 🚫 **Prevents JSON corruption** with [atomic file writing](https://github.com/npm/write-file-atomic).
+* 1️⃣ Uses only **1** dependency ([`write-file-atomic`](https://github.com/npm/write-file-atomic))
+* 🕊️ **Lightweight** package with an unpacked size of **12.1 kB**.
+* 🖥️ Requires **Node.js v12.x** or greater
 
 
 **This package is in heavy WIP. While basic functions work, it is recommended not to use this database package to store sensitive info, for now.**
