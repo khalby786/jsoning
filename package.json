@@ -22,7 +22,7 @@
     "nyc": "^15.0.1"
   },
   "repository": "khalby786/jsoning",
-  "homepage": "https://jsoning.netlify.app",
+  "homepage": "https://jsoning.js.org",
   "license": "MIT",
   "keywords": [
     "json",
