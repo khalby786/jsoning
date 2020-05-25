@@ -20,7 +20,7 @@
 ![npm bundle size](https://img.shields.io/bundlephobia/min/jsoning)
 ![GitHub repo size](https://img.shields.io/github/repo-size/khalby786/jsoning)
 ![node-current](https://img.shields.io/node/v/jsoning)
-![Website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fkhalby786.github.io%2Fjsoning)
+![Website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fjsoning.js.org)
 
 ![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fkhalby786.github.io%2Fjsoning)
 ![Twitter Follow](https://img.shields.io/twitter/follow/khalby786?style=social)
@@ -51,7 +51,7 @@
 npm install jsoning
 ```
 
-View the full documentation [here](https://jsoning.netlify.app/).
+View the full documentation [here](https://jsoning.js.org/).
 
 ## Basic Usage 📑
 
@@ -78,6 +78,10 @@ console.log(all); // {"en":"db","foo":"bar","chro":"venter"}
 
 * [Khaleel Gibran](https://khaleelgibran.com) 
 * [chroventer](https://github.com/chroventer)
+
+## License
+
+This package is open sourced under the [MIT License](https://github.com/khalby786/jsoning/blob/master/LICENSE.md).
 
 ---
 
