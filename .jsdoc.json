@@ -10,12 +10,6 @@
     "plugins": [
         "plugins/markdown"
     ],
-    "templates": {
-        "cleverLinks": false,
-        "monospaceLinks": true,
-        "useLongnameInNav": false,
-        "showInheritedInNav": true
-    },
     "opts": {
         "destination": "./docs/",
         "encoding": "utf8",

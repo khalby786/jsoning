@@ -8,7 +8,7 @@
     "test": "nyc ava",
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "docs:build": "node docs.js",
-    "generate-docs": "jsdoc src/jsoning.js --configure .jsdoc.json --verbose --destination docs -t docs/template/minami"
+    "generate-docs": "jsdoc src/jsoning.js --configure .jsdoc.json --verbose --destination docs -t minami"
   },
   "dependencies": {
     "write-file-atomic": "^3.0.3"
