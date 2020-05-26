@@ -14,5 +14,6 @@
         "recurse": true,
         "verbose": true,
         "template": "./minami"
-    }
+    },
+    "base": "/jsoning/"
 }
