@@ -56,14 +56,16 @@
 
     
 
+    
     <h4 class="name" id="Jsoning"><span class="type-signature"></span>new Jsoning<span class="signature">(database)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    
 
     
 
 
 
 <div class="description">
-    <p>Create a new JSON database or initialize an exisiting database.</p>
+    Create a new JSON database or initialize an exisiting database.
 </div>
 
 
@@ -160,7 +162,7 @@
             
 
             <td class="description last">
-                <p>The name of the JSON database to be created or used.</p>
+                The name of the JSON database to be created or used.
                 
             </td>
         </tr>
@@ -168,6 +170,8 @@
     
     </tbody>
 </table>
+
+
 
 
 
@@ -201,11 +205,13 @@
 
 
 <div class="param-desc">
-    <p>Whether an existing JSON file was used or created or the action failed.</p>
+    Whether an existing JSON file was used or created or the action failed.
 </div>
 
     
 </div>
+
+
 
 
 
@@ -242,14 +248,16 @@ var database = new jsoning("database.json");</code></pre>
 
     
 
+    
     <h4 class="name" id="all"><span class="type-signature"></span>all<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
 
     
 
 
 
 <div class="description">
-    <p>Returns all the elements and their values of the JSON database.</p>
+    Returns all the elements and their values of the JSON database.
 </div>
 
 
@@ -316,6 +324,8 @@ var database = new jsoning("database.json");</code></pre>
 
 
 
+
+
 <div class="section-returns">
 <h5>Returns:</h5>
 
@@ -335,11 +345,13 @@ var database = new jsoning("database.json");</code></pre>
 
 
 <div class="param-desc">
-    <p>The object of all the key-value pairs of the database.</p>
+    The object of all the key-value pairs of the database.
 </div>
 
     
 </div>
+
+
 
 
 
@@ -361,14 +373,16 @@ console.log(all); // { "foo": "bar", "hi": "hello" }</code></pre>
 
     
 
+    
     <h4 class="name" id="clear"><span class="type-signature"></span>clear<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
 
     
 
 
 
 <div class="description">
-    <p>Clear the whole JSON database.</p>
+    Clear the whole JSON database.
 </div>
 
 
@@ -435,6 +449,8 @@ console.log(all); // { "foo": "bar", "hi": "hello" }</code></pre>
 
 
 
+
+
 <div class="section-returns">
 <h5>Returns:</h5>
 
@@ -458,6 +474,8 @@ console.log(all); // { "foo": "bar", "hi": "hello" }</code></pre>
 
 
 
+
+
 <div class="section-examples">
 <h5>Example</h5>
 
@@ -475,14 +493,16 @@ database.clear(); // return {}</code></pre>
 
     
 
+    
     <h4 class="name" id="delete"><span class="type-signature"></span>delete<span class="signature">(key)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    
 
     
 
 
 
 <div class="description">
-    <p>Delete an element from the database based on its key.</p>
+    Delete an element from the database based on its key.
 </div>
 
 
@@ -579,7 +599,7 @@ database.clear(); // return {}</code></pre>
             
 
             <td class="description last">
-                <p>The key of the element to be deleted.</p>
+                The key of the element to be deleted.
                 
             </td>
         </tr>
@@ -587,6 +607,8 @@ database.clear(); // return {}</code></pre>
     
     </tbody>
 </table>
+
+
 
 
 
@@ -620,11 +642,13 @@ database.clear(); // return {}</code></pre>
 
 
 <div class="param-desc">
-    <p>Returns true if the value exists, else returns false.</p>
+    Returns true if the value exists, else returns false.
 </div>
 
     
 </div>
+
+
 
 
 
@@ -645,14 +669,16 @@ database.delete("foo"); // returns true</code></pre>
 
     
 
+    
     <h4 class="name" id="get"><span class="type-signature"></span>get<span class="signature">(key)</span><span class="type-signature"> &rarr; {*}</span></h4>
+    
 
     
 
 
 
 <div class="description">
-    <p>Gets the value of an element based on it's key.</p>
+    Gets the value of an element based on it's key.
 </div>
 
 
@@ -749,7 +775,7 @@ database.delete("foo"); // returns true</code></pre>
             
 
             <td class="description last">
-                <p>The key of the element to be fetched.</p>
+                The key of the element to be fetched.
                 
             </td>
         </tr>
@@ -757,6 +783,8 @@ database.delete("foo"); // returns true</code></pre>
     
     </tbody>
 </table>
+
+
 
 
 
@@ -790,11 +818,13 @@ database.delete("foo"); // returns true</code></pre>
 
 
 <div class="param-desc">
-    <p>Returns value, if element exists, else returns false.</p>
+    Returns value, if element exists, else returns false.
 </div>
 
     
 </div>
+
+
 
 
 
@@ -815,14 +845,16 @@ console.log("food") // returns pizza</code></pre>
 
     
 
+    
     <h4 class="name" id="set"><span class="type-signature"></span>set<span class="signature">(key, value)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    
 
     
 
 
 
 <div class="description">
-    <p>Adds an element to a database with the specified value. If element exists, element value is updated.</p>
+    Adds an element to a database with the specified value. If element exists, element value is updated.
 </div>
 
 
@@ -919,7 +951,7 @@ console.log("food") // returns pizza</code></pre>
             
 
             <td class="description last">
-                <p>Key of the element to be set.</p>
+                Key of the element to be set.
                 
             </td>
         </tr>
@@ -945,7 +977,7 @@ console.log("food") // returns pizza</code></pre>
             
 
             <td class="description last">
-                <p>Value of the element to be set.</p>
+                Value of the element to be set.
                 
             </td>
         </tr>
@@ -953,6 +985,8 @@ console.log("food") // returns pizza</code></pre>
     
     </tbody>
 </table>
+
+
 
 
 
@@ -986,11 +1020,13 @@ console.log("food") // returns pizza</code></pre>
 
 
 <div class="param-desc">
-    <p>If element is set/updated successfully, returns true, else false.</p>
+    If element is set/updated successfully, returns true, else false.
 </div>
 
     
 </div>
+
+
 
 
 
@@ -1027,7 +1063,7 @@ console.log(set); // returns true</code></pre>
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Tue May 26 2020 20:12:51 GMT+0530 (India Standard Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Tue May 26 2020 20:29:00 GMT+0530 (India Standard Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
