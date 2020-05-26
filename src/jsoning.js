@@ -60,11 +60,7 @@ class Jsoning {
 
     var db = require(resolve(__dirname, this.database));
     db[key] = value;
-    writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(db));
-    // writeFileAtomic('db.json', JSON.stringify(db), { chown: false }, function(err) {
-    //   if (err) throw err;
-    //   break;
-    // });
+    writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(db), { chown: false });
     return true;
   }
 
@@ -112,7 +108,7 @@ class Jsoning {
     );
     if (db[key]) {
       delete db[key];
-      writeFileAtomicSync(resolve(__dirname + this.database), JSON.stringify(db));
+      writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(db), { chown: false });
       return true;
     } else {
       return false;
@@ -163,8 +159,65 @@ class Jsoning {
    */
   clear() {
     let cleared = {};
-    writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(cleared), {});
+    writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(cleared), { chown: false });
     return true;
+  }
+
+  math(key, operation, operand) {
+
+    // key types
+    if (typeof key !== "string" || key == "") {
+      throw new TypeError("Invalid key of element");
+    };
+
+    // operation tricks
+    if (typeof operation !== "string" || operation == "") {
+      throw new TypeError("Invalid Jsoning#math operation.");
+    };
+
+    // operand tricks
+    if (typeof operand !== "number" || operand === null || operand === undefined) {
+      throw new TypeError("Operand must be a number type!");
+    };
+
+    // see if value exists
+    let db = JSON.parse(fs.readFileSync(resolve(__dirname, this.database), "utf-8"));
+    if (db[key]) {
+      // key exists
+      let value = db[key];
+      if (typeof value !== "number" || value === "") {
+        throw new Error("Key of existing element must be a number for Jsoning#math to happen.")
+      } 
+      var result;
+      switch (operation) {
+        case 'add':
+        case 'addition':
+          result = value + operand;
+          break;
+        case 'subtract':
+        case 'subtraction':
+          result = value - operand;
+          break;
+        case 'multiply':
+        case 'multiplication':
+          result = value * operand;
+          break;
+        case 'divide':
+        case 'division':
+          result = value / operand;
+          break;
+        default:
+          throw new Error("Operation not found!");
+      }
+      db[key] = result;
+      writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(db), { chown: false, tmpfileCreated: function() {
+        console.log("Temporary file created!")
+      }});
+      return true;
+    } else {
+      // key doesn't exist
+      return false;
+    }
   }
 }
 

@@ -108,3 +108,12 @@ test("invalid db file", (t) => {
       "error thrown!"
     );
   });
+
+  test("Jsoning#math basic functions", (t) => {
+    database.set("add", 1);
+    database.set("minus", 5);
+    database.set("into", 5);
+    database.set("by", 4);
+    t.is(database.math('add', 'add', 1), true, "Jsoning#math - add");
+    t.is(database.math('minus', 'subtract', 4), true, "Jsoning#math subtract passed!");
+  })
