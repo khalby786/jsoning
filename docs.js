@@ -15,8 +15,8 @@ const config = {
       { property: "og:image", content: "images/jsoning.png" },
     ],
     base: "/jsoning",
-    entrance: "?content:readme",
-    server: Docma.ServerType.GITHUB
+    entrance: "?content:readme"
+    // server: Docma.ServerType.GITHUB
   },
   template: {
     options: {
