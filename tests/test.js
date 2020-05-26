@@ -116,4 +116,9 @@ test("invalid db file", (t) => {
     database.set("by", 4);
     t.is(database.math('add', 'add', 1), true, "Jsoning#math - add");
     t.is(database.math('minus', 'subtract', 4), true, "Jsoning#math subtract passed!");
+    t.is(database.math('into', 'multiply', 3), true, "Jsoning#math - multiply")
+    t.is(database.math('by', 'divide', 2), true, "Jsoning#math - divide");
+    t.is(database.math('hisfdsd', 'fese', 2), false, "Jsoning#math - false!");
+    // t.is(database.math("add", "some", "3"), false, "Jsoning#math false");
+    // t.is(database.math("add", "add", "3"), false, "Jsoning#math false")
   })

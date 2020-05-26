@@ -7,8 +7,7 @@
     "start": "node src/server.js",
     "test": "nyc ava",
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "node docs.js"
   },
   "dependencies": {
     "write-file-atomic": "^3.0.3"
