@@ -2,7 +2,7 @@ const Docma = require("docma");
 const Package = require("./package");
 
 const config = {
-  src:  ['./src/*.js', './README.md'],
+  src:  ['src/jsoning.js', './README.md'],
   debug: 31,
   app: {
     title: Package.name,
@@ -30,7 +30,7 @@ const config = {
         },
         {
           label: "Documentation",
-          href: `?api`,
+          href: `?api=jsoning`,
           iconClass: "ico-book",
         },
         {
