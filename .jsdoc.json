@@ -1,8 +1,4 @@
 {
-    "tags": {
-        "allowUnknownTags": true,
-        "dictionaries": ["jsdoc"]
-    },
     "source": {
         "include": ["./src"],
         "includePattern": ".+\\.js(doc|x)?$",
@@ -12,10 +8,11 @@
         "plugins/markdown"
     ],
     "opts": {
+        "encoding": "utf-8",
+        "readme": "./README.md",
         "destination": "./docs/",
-        "encoding": "utf8",
-        "private": true,
         "recurse": true,
+        "verbose": true,
         "template": "./minami"
     }
 }
