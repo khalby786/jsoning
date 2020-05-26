@@ -7,7 +7,8 @@
     "start": "node src/server.js",
     "test": "nyc ava",
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "docs:build": "node docs.js"
+    "docs:build": "node docs.js",
+    "generate-docs": "jsdoc src/jsoning.js --configure .jsdoc.json --verbose --destination docs"
   },
   "dependencies": {
     "write-file-atomic": "^3.0.3"
@@ -18,6 +19,7 @@
     "docma": "^3.2.2",
     "eslint": "^7.0.0",
     "express": "*",
+    "minami": "^1.2.3",
     "nyc": "^15.0.1"
   },
   "repository": "khalby786/jsoning",
