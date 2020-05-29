@@ -17,6 +17,13 @@ test("value set should return true", (t) => {
   t.is(database.set("khaleel", "gibran"), true, "Jsoning#set successful!");
 });
 
+test("set boolean", (t) => {
+  let type = new jsoning("type.json");
+  t.is(type.set('bool', true), true, "boolean!");
+  t.is(type.set('number', 3), true, "number!!!");
+  t.is(type.set('object', { "hi": "another hello" }), true, "object!!!");
+});
+
 test("value all should return all", (t) => {
   console.log(database.all());
   t.deepEqual(database.all(), { khaleel: "gibran" }, "Jsoning#all successful!");

@@ -54,7 +54,7 @@ class Jsoning {
   set(key, value) {
 
     // check for tricks
-    if (typeof key !== "string" || key == "" || value == "") {
+    if (typeof key !== "string" || key === "") {
       throw new TypeError("Invalid key/value for element");
     }
 
