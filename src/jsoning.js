@@ -12,7 +12,17 @@ var writeFileAtomicSync = require('write-file-atomic').sync;
 // and hence, cause problems.
 
 class Jsoning {
-  
+ /**
+   *
+   * Create a new JSON database or initialize an exisiting database.
+   *
+   * @param {string} database The name of the JSON database to be created or used.
+   * @returns {boolean} Whether an existing JSON file was used or created or the action failed.
+   * @example
+   * const jsoning = require('jsoning');
+   * var database = new jsoning("database.json");
+   *
+   */
   constructor(database) {
 
     // check for tricks
@@ -30,6 +40,24 @@ class Jsoning {
     return true;
   }
 
+  /**
+   *
+   * Adds an element to a database with the specified value. If element exists, element value is updated.
+   *
+   * @param {string} key Key of the element to be set.
+   * @param {*} value Value of the element to be set.
+   * @returns {boolean} If element is set/updated successfully, returns true, else false.
+   * @example
+   * database.set("foo", "bar");
+   * database.set("hi", 3);
+   *
+   * database.set("en", "db"); // { "en": "db" }
+   * database.set("en", "en"); // { "en": "en" }
+   *
+   * let set = database.set("khaleel", "gibran");
+   * console.log(set); // returns true
+   *
+   */
   set(key, value) {
 
     // check for tricks
@@ -43,12 +71,38 @@ class Jsoning {
     return true;
   }
 
+  /**
+   *
+   * Returns all the elements and their values of the JSON database.
+   *
+   * @returns {Object} The object of all the key-value pairs of the database.
+   * @example
+   * database.set("foo", "bar");
+   * database.set("hi", "hello");
+   *
+   * let all = database.all();
+   * console.log(all); // { "foo": "bar", "hi": "hello" }
+   *
+   */
   all() {
     let data = fs.readFileSync(resolve(__dirname, this.database), "utf-8");
     data = JSON.parse(data);
     return data;
   }
 
+  /**
+   *
+   * Delete an element from the database based on its key.
+   *
+   * @param {string} key The key of the element to be deleted.
+   * @returns {Boolean} Returns true if the value exists, else returns false.
+   * @example
+   * database.set("ping", "pong");
+   * database.set("foo", "bar");
+   *
+   * database.delete("foo"); // returns true
+   *
+   */
   delete(key) {
 
     // check for tricks
@@ -68,6 +122,19 @@ class Jsoning {
     }
   }
 
+  /**
+   *
+   * Gets the value of an element based on it's key.
+   *
+   * @param {string} key The key of the element to be fetched.
+   * @returns {*} Returns value, if element exists, else returns false.
+   * @example
+   * database.set("food", "pizza");
+   *
+   * let food = database.get("food");
+   * console.log(food) // returns pizza
+   *
+   */
   get(key) {
 
     // look for tricks
@@ -85,12 +152,45 @@ class Jsoning {
     }
   }
 
+  /**
+   *
+   * Clear the whole JSON database.
+   *
+   * @returns {Boolean}
+   * @example
+   * database.set("foo", "bar");
+   * database.set("en", "db");
+   *
+   * database.clear(); // return {}
+   *
+   */
   clear() {
     let cleared = {};
     writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(cleared), { chown: false });
     return true;
   }
 
+  /**
+   * 
+   * Performs mathematical operations on values of elements.
+   * 
+   * @param {string} key The key of the element on which the mathematical operation is to be performed.
+   * @param {string} operation The operation to perform, one of add, subtract, multiply and divide.
+   * @param {number} operand The number for performing the mathematical operation (the operand).
+   * 
+   * @returns {Boolean} True if the operation succeeded, else false.
+   * 
+   * @example
+   * database.set("value1", 1);
+   * database.set("value2", 10);
+   * 
+   * database.math("value1", "add", 1);
+   * database.math("value2", "multiply", 5);
+   * 
+   * console.log(database.get("value1")); // returns 1+1 = 2
+   * console.log(database.get("value2")); // returns 10*5 = 50
+   * 
+   */
   math(key, operation, operand) {
 
     // key types
@@ -148,6 +248,23 @@ class Jsoning {
     }
   }
 
+  /**
+   * 
+   * See if a particular element exists by using it's key.
+   * 
+   * @param {string} key The key of the element to see if the element exists.
+   * 
+   * @returns {Boolean} True if the element exists or false if the element doesn't exist.
+   * 
+   * @example
+   * database.set("some value", "hi");
+   * 
+   * let has = database.has("some value");
+   * console.log(has); // returns true 
+   * 
+   * let has2 = database.has("value");
+   * console.log(has2); // returns false
+   */
   has(key) {
 
     // too many tricks
