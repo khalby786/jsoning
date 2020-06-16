@@ -128,4 +128,49 @@ test("invalid db file", (t) => {
     t.is(database.math('hisfdsd', 'fese', 2), false, "Jsoning#math - false!");
     // t.is(database.math("add", "some", "3"), false, "Jsoning#math false");
     // t.is(database.math("add", "add", "3"), false, "Jsoning#math false")
-  })
+  });
+
+test("Jsoning#has", (t) => {
+    t.is(database.has("somevalueblahblah"), false, "Jsoning#has test false");
+    t.is(database.has("add"), true, "Jsoning#has test true");
+});
+
+test("fake keys", (t) => {
+    const error = t.throws(
+    () => {
+      database.math(3);
+    },
+    { instanceOf: TypeError },
+    "error thrown!"
+  );
+});
+
+test("fake math operation", (t) => {
+    const error = t.throws(
+    () => {
+      database.math("3", 2, 2);
+    },
+    { instanceOf: TypeError },
+    "error thrown!"
+  );
+});
+
+test("fake math operand", (t) => {
+    const error = t.throws(
+    () => {
+      database.math("3", "add", "2");
+    },
+    { instanceOf: TypeError },
+    "error thrown!"
+  );
+});
+
+test("throw errors and make this test successful", (t) => {
+    const error = t.throws(
+    () => {
+      database.math("khaleel", "add", "2");
+    },
+    { instanceOf: TypeError },
+    "error thrown!"
+  );
+})

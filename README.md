@@ -33,7 +33,7 @@
 
 ![jsoning](https://cdn.glitch.com/c393fad9-338a-43b4-9a2f-8ba07e26d39d%2Fjsoning.png?v=1589190601684)
 
-✨ A simple key-value JSON-based persistent lightweight database. Recommended for small-scale data stores. ✨
+✨ A simple key-value JSON-based persistent lightweight database. ✨
 
 * 📝 Uses JSON files to modify and write key-value elements as JSON-objects.
 * 👌 **Easy to use** JSON database.
