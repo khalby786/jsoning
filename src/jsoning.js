@@ -11,9 +11,6 @@ var writeFileAtomicSync = require('write-file-atomic').sync;
 // that would mean changes made are not updated to the db variable at the top of the file, 
 // and hence, cause problems.
 
-/**
- *
- */
 class Jsoning {
  /**
    *
