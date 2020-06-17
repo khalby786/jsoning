@@ -12,7 +12,6 @@ const config = {
     ],
     base: "/jsoning",
     entrance: "content:readme",
-    routing: Docma.RoutingMethod.PATH,
     server: Docma.ServerType.GITHUB,
   },
   src: ["src/jsoning.js", "./README.md"],
