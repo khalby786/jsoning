@@ -10,7 +10,7 @@ const config = {
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width,initial-scale=1.0" },
     ],
-    base: "/jsoning",
+    base: "/",
     entrance: "content:readme",
     server: Docma.ServerType.GITHUB,
   },
@@ -20,8 +20,8 @@ const config = {
       title: "Jsoning",
       navbar: {
         menu: [
-          { label: "Home", href: "/jsoning" },
-          { label: "Documentation", href: "/jsoning/api", iconClass: "fas fa-book" },
+          { label: "Home", href: "/" },
+          { label: "Documentation", href: "/?api", iconClass: "fas fa-book" },
           {
             label: "GitHub",
             href: "https://github.com/khalby786/jsoning",
