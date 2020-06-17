@@ -10,7 +10,7 @@ const config = {
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width,initial-scale=1.0" },
     ],
-    base: "/",
+    base: "/jsoning",
     entrance: "content:readme",
     routing: Docma.RoutingMethod.PATH,
     server: Docma.ServerType.GITHUB,
