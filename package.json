@@ -7,7 +7,7 @@
     "start": "node src/server.js",
     "test": "nyc ava",
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "docs:build": "documentation build src/jsoning.js -f html -o docs",
+    "docs:build": "documentation build src/jsoning.js --format html --theme node_modules/clean-documentation-theme --o docs",
     "docs:serve": "documentation serve src/jsoning.js"
   },
   "dependencies": {
@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "ava": "^3.8.2",
+    "clean-documentation-theme": "^0.5.2",
     "codecov": "^3.6.5",
     "docma": "^3.2.2",
     "eslint": "^7.0.0",

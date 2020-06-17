@@ -1,782 +1,135 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset='utf-8'>
-  <title>jsoning 0.6.13 | Documentation</title>
-  <meta name='description' content='A simple key-value JSON-based persistent lightweight database.'>
-  <meta name='viewport' content='width=device-width,initial-scale=1'>
-  <link href='assets/bass.css' rel='stylesheet'>
-  <link href='assets/style.css' rel='stylesheet'>
-  <link href='assets/github.css' rel='stylesheet'>
-  <link href='assets/split.css' rel='stylesheet'>
-</head>
-<body class='documentation m0'>
-    <div class='flex'>
-      <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
-        <div class='py1 px2'>
-          <h3 class='mb0 no-anchor'>jsoning</h3>
-          <div class='mb1'><code>0.6.13</code></div>
-          <input
-            placeholder='Filter'
-            id='filter-input'
-            class='col12 block input'
-            spellcheck='false'
-            autocapitalize='off'
-            autocorrect='off'
-            type='text' />
-          <div id='toc'>
-            <ul class='list-reset h5 py1-ul'>
-              
-                
-                <li><a
-                  href='#constructor'
-                  class="">
-                  constructor
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#set'
-                  class="">
-                  set
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#all'
-                  class="">
-                  all
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#delete'
-                  class="">
-                  delete
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#get'
-                  class="">
-                  get
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#clear'
-                  class="">
-                  clear
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#math'
-                  class="">
-                  math
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#has'
-                  class="">
-                  has
-                  
-                </a>
-                
-                </li>
-              
-            </ul>
-          </div>
-          <div class='mt1 h6 quiet'>
-            <a href='https://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
-          </div>
-        </div>
-      </div>
-      <div id='split-right' class='relative overflow-auto height-viewport-100'>
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='constructor'>
-      constructor
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Create a new JSON database or initialize an exisiting database.</p>
-
-    <div class='pre p1 fill-light mt0'>constructor(database: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>database</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    The name of the JSON database to be created or used.
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
-        Whether an existing JSON file was used or created or the action failed.
-
-      
-    
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> jsoning = <span class="hljs-built_in">require</span>(<span class="hljs-string">'jsoning'</span>);
-<span class="hljs-keyword">var</span> database = <span class="hljs-keyword">new</span> jsoning(<span class="hljs-string">"database.json"</span>);</pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='set'>
-      set
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Adds an element to a database with the specified value. If element exists, element value is updated.</p>
-
-    <div class='pre p1 fill-light mt0'>set(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, value: any): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    Key of the element to be set.
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>value</span> <code class='quiet'>(any)</code>
-	    Value of the element to be set.
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
-        If element is set/updated successfully, returns true, else false.
-
-      
-    
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>database.set(<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>);
+<html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title> - Documentation</title><link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500|Roboto:300,500,700" rel="stylesheet"/><style>body{margin: 0;
+padding: 0;
+color: #000;
+font-family: Roboto, sans-serif;
+font-weight: 300;
+line-height: 26px;
+font-size: 17px;}*{-moz-box-sizing: border-box;
+box-sizing: border-box;}</style></head><body><main id="app"><div data-radium="true"><div style="box-shadow:0px 2px 3px 0px rgba(0, 0, 0, 0.25);height:65px;width:100%;min-width:100%;margin-left:0px;margin-right:0px;position:fixed;z-index:99;background:#FFFFFF;padding-top:10px;padding-bottom:10px;padding-left:20px;padding-right:20px;" data-radium="true"><div style="margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px;" class="rmq-87b609c0 rmq-159a7c96 rmq-27601239" data-radium="true"><div style="margin-left:-15px;margin-right:-15px;" data-radium="true"><div style="position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:50.00000%;" class="rmq-aa1729d5 rmq-a22eaf97 rmq-1918856d rmq-6156e77b rmq-21ab0466 rmq-a01b93a4 rmq-d226cb7e rmq-5cc71c8" data-radium="true"><svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align:inherit;font-size:36px;margin-right:20px;"><g><path d="m30 22.5h-5c-1.3 0-2.5 1.3-2.5 2.5h10c0-1.3-1.2-2.5-2.5-2.5z m-2.1-16.2c-6.6 0-8.2 1.2-9.1 2.1-1-0.9-2.6-2.1-9.2-2.1s-9.6 1.7-9.6 3v22.9c1.1-0.6 4.6-1.9 8.4-2.2 4.4-0.4 9.1 0.4 9.1 1.2 0 0.7 0.3 1.3 1.2 1.3h0.1c0.9 0 1.2-0.6 1.2-1.2 0-0.9 4.6-1.7 9.1-1.3 3.7 0.3 7.3 1.6 8.4 2.2v-22.9c0-1.3-3.1-3-9.6-3z m-10.4 22.3c-1.2-0.6-4-1.1-7.5-1.1s-6.6 0.5-7.5 1.1v-17.3s2.5-2.4 7.5-2.4 7.5 1.1 7.5 2.4v17.3z m17.5 0c-0.9-0.6-4-1.1-7.5-1.1s-6.3 0.5-7.5 1.1v-17.3s2.5-2.4 7.5-2.4 7.5 1.1 7.5 2.4v17.3z m-5-11.1h-5c-1.3 0-2.5 1.3-2.5 2.5h10c0-1.3-1.2-2.5-2.5-2.5z m0-5h-5c-1.3 0-2.5 1.3-2.5 2.5h10c0-1.3-1.2-2.5-2.5-2.5z m-17.5 5h-5c-1.2 0-2.5 1.2-2.5 2.5h10c0-1.2-1.2-2.5-2.5-2.5z m0 5h-5c-1.2 0-2.5 1.2-2.5 2.5h10c0-1.2-1.2-2.5-2.5-2.5z m0-10h-5c-1.2 0-2.5 1.2-2.5 2.5h10c0-1.2-1.2-2.5-2.5-2.5z"></path></g></svg><div style="display:inline-block;" data-radium="true"><div style="text-transform:uppercase;font-family:Roboto, sans-serif;" data-radium="true"></div><div style="font-family:Roboto Mono, Menlo, Monaco, Courier, monospace;font-weight:300;" data-radium="true"></div></div></div><div style="position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:right !important;width:25.00000%;text-align:right;font-size:36px;" class="rmq-aa1729d5 rmq-a22eaf97 rmq-1918856d rmq-6156e77b rmq-77267d84 rmq-5c0c1446 rmq-4605701c rmq-34ee8e6a" data-radium="true"><a href="https://jsoning.js.org"><svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="1em" width="1em" viewBox="0 0 40 40" style="vertical-align:middle;"><g><path d="m20 0c-11 0-20 9-20 20 0 8.8 5.7 16.3 13.7 19 1 0.2 1.3-0.5 1.3-1 0-0.5 0-2 0-3.7-5.5 1.2-6.7-2.4-6.7-2.4-0.9-2.3-2.2-2.9-2.2-2.9-1.9-1.2 0.1-1.2 0.1-1.2 2 0.1 3.1 2.1 3.1 2.1 1.7 3 4.6 2.1 5.8 1.6 0.2-1.3 0.7-2.2 1.3-2.7-4.5-0.5-9.2-2.2-9.2-9.8 0-2.2 0.8-4 2.1-5.4-0.2-0.5-0.9-2.6 0.2-5.3 0 0 1.7-0.5 5.5 2 1.6-0.4 3.3-0.6 5-0.6 1.7 0 3.4 0.2 5 0.7 3.8-2.6 5.5-2.1 5.5-2.1 1.1 2.8 0.4 4.8 0.2 5.3 1.3 1.4 2.1 3.2 2.1 5.4 0 7.6-4.7 9.3-9.2 9.8 0.7 0.6 1.4 1.9 1.4 3.7 0 2.7 0 4.9 0 5.5 0 0.6 0.3 1.2 1.3 1 8-2.7 13.7-10.2 13.7-19 0-11-9-20-20-20z"></path></g></svg></a></div><div style="clear:both;" data-radium="true"></div></div><div style="clear:both;" data-radium="true"></div></div></div><div style="margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px;padding-top:104px;" class="rmq-87b609c0 rmq-159a7c96 rmq-27601239" data-radium="true"><div style="margin-left:-15px;margin-right:-15px;" data-radium="true"><div style="position:fixed;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:8.33333%;height:80%;max-width:300px;" class="rmq-aa1729d5 rmq-a22eaf97 rmq-1918856d rmq-6156e77b rmq-5c4c5b38 rmq-5c0c1446 rmq-4605701c rmq-34ee8e6a rmq-35757987 rmq-f09e82ae" data-radium="true"><div style="border-radius:4px;border:1px solid #e6e9ed;padding-top:0;padding-bottom:0;margin-top:26px;font-family:Roboto, sans-serif;font-weight:500;font-size:15px;line-height:18px;max-height:70vh;overflow-x:auto;" data-radium="true"><ul style="list-style:none;margin-top:0;margin-bottom:0;padding-left:0;" data-radium="true"><div data-radium="true"><li style="padding-left:20px;padding-right:20px;padding-top:13px;padding-bottom:13px;border-bottom:1px solid #e6e9ed;" data-radium="true"><a style="color:#000;" href="#constructor" data-radium="true">constructor</a></li></div><div data-radium="true"><li style="padding-left:20px;padding-right:20px;padding-top:13px;padding-bottom:13px;border-bottom:1px solid #e6e9ed;" data-radium="true"><a style="color:#000;" href="#set" data-radium="true">set</a></li></div><div data-radium="true"><li style="padding-left:20px;padding-right:20px;padding-top:13px;padding-bottom:13px;border-bottom:1px solid #e6e9ed;" data-radium="true"><a style="color:#000;" href="#all" data-radium="true">all</a></li></div><div data-radium="true"><li style="padding-left:20px;padding-right:20px;padding-top:13px;padding-bottom:13px;border-bottom:1px solid #e6e9ed;" data-radium="true"><a style="color:#000;" href="#delete" data-radium="true">delete</a></li></div><div data-radium="true"><li style="padding-left:20px;padding-right:20px;padding-top:13px;padding-bottom:13px;border-bottom:1px solid #e6e9ed;" data-radium="true"><a style="color:#000;" href="#get" data-radium="true">get</a></li></div><div data-radium="true"><li style="padding-left:20px;padding-right:20px;padding-top:13px;padding-bottom:13px;border-bottom:1px solid #e6e9ed;" data-radium="true"><a style="color:#000;" href="#clear" data-radium="true">clear</a></li></div><div data-radium="true"><li style="padding-left:20px;padding-right:20px;padding-top:13px;padding-bottom:13px;border-bottom:1px solid #e6e9ed;" data-radium="true"><a style="color:#000;" href="#math" data-radium="true">math</a></li></div><div data-radium="true"><li style="padding-left:20px;padding-right:20px;padding-top:13px;padding-bottom:13px;border-bottom:none;" data-radium="true"><a style="color:#000;" href="#has" data-radium="true">has</a></li></div></ul></div></div><div style="position:relative;min-height:1px;padding-left:15px;padding-right:15px;float:left;width:100.00000%;" class="rmq-aa1729d5 rmq-a22eaf97 rmq-1918856d rmq-6156e77b rmq-89bb2272 rmq-2d0e68c6 rmq-3752549c rmq-3b9282ea rmq-4d29a8df rmq-ea7683a5 rmq-ad95cc33" data-radium="true"><div class="content" data-radium="true"><style>h1, h2, h3, h4, h5, h6{font-family: Roboto, sans-serif;
+font-weight: 300;}h1{font-size: 48px;
+line-height: 72px;}h2{font-size: 24px;
+line-height: 36px;}h3{font-size: 19px;
+line-height: 29px;
+font-weight: 400;}h4{font-size: 17px;
+line-height: 22px;
+font-weight: 400;}a{text-decoration: none;
+color: #00AAFF;
+:hover: [object Object];}a.anchor:before{content: "";
+display: block;
+height: 100px;
+margin: -80px 0 0;}.content blockquote{padding-left: 20px;
+margin: 0;
+border-left: 4px solid #eee;}.content ul, content li{list-style: none;}.content ul li:before{color: #CCC;
+float: left;
+margin-left: -20px;
+margin-top: 1px;
+content: "•";}pre.hljs, pre > code{font-family: Roboto Mono, Menlo, Monaco, Courier, monospace;
+display: block;
+padding: 12px 15px 12px 15px;
+border-radius: 4px;
+box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+margin-bottom: 30px;
+position: relative;
+overflow-x: auto;
+font-size: 13px;
+color: #666;
+white-space: pre;}code{font-family: Roboto Mono, Menlo, Monaco, Courier, monospace;
+display: inline;
+font-size: 13px;
+font-weight: 400;
+margin: 0 2px;
+padding: 1px 6px;
+box-shadow: 0 0 0 1px #DDD;
+white-space: nowrap;
+border-radius: 4px;}.hljs{display: block;
+overflow-x: auto;}.hljs-comment, .hljs-quote{color: #998;
+font-style: italic;}.hljs-keyword, .hljs-selector-tag, .hljs-subst{color: #333;
+font-weight: bold;}.hljs-number, .hljs-literal, .hljs-variable, .hljs-template-variable, .hljs-tag .hljs-attr{color: #008080;}.hljs-string, .hljs-doctag{color: #d14;}.hljs-title, .hljs-section, .hljs-selector-id{color: #900;
+font-weight: bold;}.hljs-subst{font-weight: normal;}.hljs-type, .hljs-class .hljs-title{color: #458;
+font-weight: bold;}.hljs-tag, .hljs-name, .hljs-attribute{color: #000080;
+font-weight: normal;}.hljs-regexp, .hljs-link{color: #009926;}.hljs-symbol, .hljs-bullet{color: #990073;}.hljs-built_in, .hljs-builtin-name{color: #0086b3;}.hljs-meta{color: #999;
+font-weight: bold;}.hljs-deletion{background: #fdd;}.hljs-addition{background: #dfd;}.hljs-emphasis{font-style: italic;}.hljs-strong{font-weight: bold;}</style><div style="margin-bottom:104px;" data-radium="true"><h1 data-radium="true"><a class="anchor" name="constructor"></a>constructor</h1><div><p>Create a new JSON database or initialize an exisiting database.</p>
+</div><div data-radium="true"><h4>Parameters</h4><ol style="list-style:none;margin-left:0;padding-left:0;" data-radium="true"><div data-radium="true"><li style="padding-bottom:13px;" data-radium="true"><code>database: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:  <div style="display:inline-block;" data-radium="true">The name of the JSON database to be created or used.
+</div></li></div></ol></div><div data-radium="true"><h4>Returns</h4><div data-radium="true"><code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><span> Whether an existing JSON file was used or created or the action failed.
+</span></div></div><div data-radium="true"><div data-radium="true"><h4>Example</h4><pre><code><span class="hljs-keyword">const</span> jsoning = <span class="hljs-built_in">require</span>(<span class="hljs-string">'jsoning'</span>);
+<span class="hljs-keyword">var</span> database = <span class="hljs-keyword">new</span> jsoning(<span class="hljs-string">"database.json"</span>);</code></pre></div></div></div><div style="margin-bottom:104px;" data-radium="true"><h1 data-radium="true"><a class="anchor" name="set"></a>set</h1><div><p>Adds an element to a database with the specified value. If element exists, element value is updated.</p>
+</div><div data-radium="true"><h4>Parameters</h4><ol style="list-style:none;margin-left:0;padding-left:0;" data-radium="true"><div data-radium="true"><li style="padding-bottom:13px;" data-radium="true"><code>key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:  <div style="display:inline-block;" data-radium="true">Key of the element to be set.
+</div></li></div><div data-radium="true"><li style="padding-bottom:13px;" data-radium="true"><code>value: any</code>:  <div style="display:inline-block;" data-radium="true">Value of the element to be set.
+</div></li></div></ol></div><div data-radium="true"><h4>Returns</h4><div data-radium="true"><code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code><span> If element is set/updated successfully, returns true, else false.
+</span></div></div><div data-radium="true"><div data-radium="true"><h4>Example</h4><pre><code>database.set(<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>);
 database.set(<span class="hljs-string">"hi"</span>, <span class="hljs-number">3</span>);
 
 database.set(<span class="hljs-string">"en"</span>, <span class="hljs-string">"db"</span>); <span class="hljs-comment">// { "en": "db" }</span>
 database.set(<span class="hljs-string">"en"</span>, <span class="hljs-string">"en"</span>); <span class="hljs-comment">// { "en": "en" }</span>
 
 <span class="hljs-keyword">let</span> <span class="hljs-keyword">set</span> = database.<span class="hljs-keyword">set</span>("khaleel", "gibran");
-console.log(<span class="hljs-keyword">set</span>); // returns true</pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='all'>
-      all
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Returns all the elements and their values of the JSON database.</p>
-
-    <div class='pre p1 fill-light mt0'>all(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
-        The object of all the key-value pairs of the database.
-
-      
-    
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>database.set(<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>);
+console.log(<span class="hljs-keyword">set</span>); // returns true</code></pre></div></div></div><div style="margin-bottom:104px;" data-radium="true"><h1 data-radium="true"><a class="anchor" name="all"></a>all</h1><div><p>Returns all the elements and their values of the JSON database.</p>
+</div><div data-radium="true"><h4>Returns</h4><div data-radium="true"><code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code><span> The object of all the key-value pairs of the database.
+</span></div></div><div data-radium="true"><div data-radium="true"><h4>Example</h4><pre><code>database.set(<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>);
 database.set(<span class="hljs-string">"hi"</span>, <span class="hljs-string">"hello"</span>);
 
 <span class="hljs-keyword">let</span> all = database.all();
-<span class="hljs-built_in">console</span>.log(all); <span class="hljs-comment">// { "foo": "bar", "hi": "hello" }</span></pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='delete'>
-      delete
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Delete an element from the database based on its key.</p>
-
-    <div class='pre p1 fill-light mt0'>delete(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    The key of the element to be deleted.
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
-        Returns true if the value exists, else returns false.
-
-      
-    
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>database.set(<span class="hljs-string">"ping"</span>, <span class="hljs-string">"pong"</span>);
+<span class="hljs-built_in">console</span>.log(all); <span class="hljs-comment">// { "foo": "bar", "hi": "hello" }</span></code></pre></div></div></div><div style="margin-bottom:104px;" data-radium="true"><h1 data-radium="true"><a class="anchor" name="delete"></a>delete</h1><div><p>Delete an element from the database based on its key.</p>
+</div><div data-radium="true"><h4>Parameters</h4><ol style="list-style:none;margin-left:0;padding-left:0;" data-radium="true"><div data-radium="true"><li style="padding-bottom:13px;" data-radium="true"><code>key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:  <div style="display:inline-block;" data-radium="true">The key of the element to be deleted.
+</div></li></div></ol></div><div data-radium="true"><h4>Returns</h4><div data-radium="true"><code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code><span> Returns true if the value exists, else returns false.
+</span></div></div><div data-radium="true"><div data-radium="true"><h4>Example</h4><pre><code>database.set(<span class="hljs-string">"ping"</span>, <span class="hljs-string">"pong"</span>);
 database.set(<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>);
 
-database.delete(<span class="hljs-string">"foo"</span>); <span class="hljs-comment">// returns true</span></pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='get'>
-      get
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Gets the value of an element based on it's key.</p>
-
-    <div class='pre p1 fill-light mt0'>get(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): any</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    The key of the element to be fetched.
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>any</code>:
-        Returns value, if element exists, else returns false.
-
-      
-    
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>database.set(<span class="hljs-string">"food"</span>, <span class="hljs-string">"pizza"</span>);
+database.delete(<span class="hljs-string">"foo"</span>); <span class="hljs-comment">// returns true</span></code></pre></div></div></div><div style="margin-bottom:104px;" data-radium="true"><h1 data-radium="true"><a class="anchor" name="get"></a>get</h1><div><p>Gets the value of an element based on it's key.</p>
+</div><div data-radium="true"><h4>Parameters</h4><ol style="list-style:none;margin-left:0;padding-left:0;" data-radium="true"><div data-radium="true"><li style="padding-bottom:13px;" data-radium="true"><code>key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:  <div style="display:inline-block;" data-radium="true">The key of the element to be fetched.
+</div></li></div></ol></div><div data-radium="true"><h4>Returns</h4><div data-radium="true"><code>any</code><span> Returns value, if element exists, else returns false.
+</span></div></div><div data-radium="true"><div data-radium="true"><h4>Example</h4><pre><code>database.set(<span class="hljs-string">"food"</span>, <span class="hljs-string">"pizza"</span>);
 
 <span class="hljs-keyword">let</span> food = database.get(<span class="hljs-string">"food"</span>);
-<span class="hljs-built_in">console</span>.log(food) <span class="hljs-comment">// returns pizza</span></pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='clear'>
-      clear
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Clear the whole JSON database.</p>
-
-    <div class='pre p1 fill-light mt0'>clear(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
-        
-
-      
-    
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>database.set(<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>);
+<span class="hljs-built_in">console</span>.log(food) <span class="hljs-comment">// returns pizza</span></code></pre></div></div></div><div style="margin-bottom:104px;" data-radium="true"><h1 data-radium="true"><a class="anchor" name="clear"></a>clear</h1><div><p>Clear the whole JSON database.</p>
+</div><div data-radium="true"><h4>Returns</h4><div data-radium="true"><code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code><span> 
+</span></div></div><div data-radium="true"><div data-radium="true"><h4>Example</h4><pre><code>database.set(<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>);
 database.set(<span class="hljs-string">"en"</span>, <span class="hljs-string">"db"</span>);
 
-database.clear(); <span class="hljs-comment">// return {}</span></pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='math'>
-      math
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Performs mathematical operations on values of elements.</p>
-
-    <div class='pre p1 fill-light mt0'>math(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, operation: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, operand: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    The key of the element on which the mathematical operation is to be performed.
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>operation</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    The operation to perform, one of add, subtract, multiply and divide.
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>operand</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-	    The number for performing the mathematical operation (the operand).
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
-        True if the operation succeeded, else false.
-
-      
-    
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>database.set(<span class="hljs-string">"value1"</span>, <span class="hljs-number">1</span>);
+database.clear(); <span class="hljs-comment">// return {}</span></code></pre></div></div></div><div style="margin-bottom:104px;" data-radium="true"><h1 data-radium="true"><a class="anchor" name="math"></a>math</h1><div><p>Performs mathematical operations on values of elements.</p>
+</div><div data-radium="true"><h4>Parameters</h4><ol style="list-style:none;margin-left:0;padding-left:0;" data-radium="true"><div data-radium="true"><li style="padding-bottom:13px;" data-radium="true"><code>key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:  <div style="display:inline-block;" data-radium="true">The key of the element on which the mathematical operation is to be performed.
+</div></li></div><div data-radium="true"><li style="padding-bottom:13px;" data-radium="true"><code>operation: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:  <div style="display:inline-block;" data-radium="true">The operation to perform, one of add, subtract, multiply and divide.
+</div></li></div><div data-radium="true"><li style="padding-bottom:13px;" data-radium="true"><code>operand: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:  <div style="display:inline-block;" data-radium="true">The number for performing the mathematical operation (the operand).
+</div></li></div></ol></div><div data-radium="true"><h4>Returns</h4><div data-radium="true"><code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code><span> True if the operation succeeded, else false.
+</span></div></div><div data-radium="true"><div data-radium="true"><h4>Example</h4><pre><code>database.set(<span class="hljs-string">"value1"</span>, <span class="hljs-number">1</span>);
 database.set(<span class="hljs-string">"value2"</span>, <span class="hljs-number">10</span>);
 
 database.math(<span class="hljs-string">"value1"</span>, <span class="hljs-string">"add"</span>, <span class="hljs-number">1</span>);
 database.math(<span class="hljs-string">"value2"</span>, <span class="hljs-string">"multiply"</span>, <span class="hljs-number">5</span>);
 
 <span class="hljs-built_in">console</span>.log(database.get(<span class="hljs-string">"value1"</span>)); <span class="hljs-comment">// returns 1+1 = 2</span>
-<span class="hljs-built_in">console</span>.log(database.get(<span class="hljs-string">"value2"</span>)); <span class="hljs-comment">// returns 10*5 = 50</span></pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='has'>
-      has
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>See if a particular element exists by using it's key.</p>
-
-    <div class='pre p1 fill-light mt0'>has(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    The key of the element to see if the element exists.
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
-        True if the element exists or false if the element doesn't exist.
-
-      
-    
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>database.set(<span class="hljs-string">"some value"</span>, <span class="hljs-string">"hi"</span>);
+<span class="hljs-built_in">console</span>.log(database.get(<span class="hljs-string">"value2"</span>)); <span class="hljs-comment">// returns 10*5 = 50</span></code></pre></div></div></div><div style="margin-bottom:104px;" data-radium="true"><h1 data-radium="true"><a class="anchor" name="has"></a>has</h1><div><p>See if a particular element exists by using it's key.</p>
+</div><div data-radium="true"><h4>Parameters</h4><ol style="list-style:none;margin-left:0;padding-left:0;" data-radium="true"><div data-radium="true"><li style="padding-bottom:13px;" data-radium="true"><code>key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:  <div style="display:inline-block;" data-radium="true">The key of the element to see if the element exists.
+</div></li></div></ol></div><div data-radium="true"><h4>Returns</h4><div data-radium="true"><code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code><span> True if the element exists or false if the element doesn't exist.
+</span></div></div><div data-radium="true"><div data-radium="true"><h4>Example</h4><pre><code>database.set(<span class="hljs-string">"some value"</span>, <span class="hljs-string">"hi"</span>);
 
 <span class="hljs-keyword">let</span> has = database.has(<span class="hljs-string">"some value"</span>);
 <span class="hljs-built_in">console</span>.log(has); <span class="hljs-comment">// returns true </span>
 
 <span class="hljs-keyword">let</span> has2 = database.has(<span class="hljs-string">"value"</span>);
-<span class="hljs-built_in">console</span>.log(has2); <span class="hljs-comment">// returns false</span></pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-      </div>
-    </div>
-  <script src='assets/anchor.js'></script>
-  <script src='assets/split.js'></script>
-  <script src='assets/site.js'></script>
-</body>
-</html>
+<span class="hljs-built_in">console</span>.log(has2); <span class="hljs-comment">// returns false</span></code></pre></div></div></div></div></div><div style="clear:both;" data-radium="true"></div></div><div style="clear:both;" data-radium="true"></div></div><style>@media (min-width: 768px) and (max-width: 991px){ .rmq-87b609c0{width: 750px !important;}}
+@media (min-width: 992px) and (max-width: 1199px){ .rmq-159a7c96{width: 970px !important;}}
+@media (min-width: 1200px){ .rmq-27601239{width: 1170px !important;}}
+@media (min-width: 480px) and (max-width: 767px){ .rmq-aa1729d5{float: left !important;}}
+@media (min-width: 768px) and (max-width: 991px){ .rmq-a22eaf97{float: left !important;}}
+@media (min-width: 992px) and (max-width: 1199px){ .rmq-1918856d{float: left !important;}}
+@media (min-width: 1200px){ .rmq-6156e77b{float: left !important;}}
+@media (min-width: 480px) and (max-width: 767px) { .rmq-21ab0466{width: 50.00000% !important;}}
+@media (min-width: 768px) and (max-width: 991px) { .rmq-a01b93a4{width: 50.00000% !important;}}
+@media (min-width: 992px) and (max-width: 1199px) { .rmq-d226cb7e{width: 50.00000% !important;}}
+@media (min-width: 1200px) { .rmq-5cc71c8{width: 50.00000% !important;}}
+@media (min-width: 480px) and (max-width: 767px) { .rmq-77267d84{width: 25.00000% !important;}}
+@media (min-width: 768px) and (max-width: 991px) { .rmq-5c0c1446{width: 25.00000% !important;}}
+@media (min-width: 992px) and (max-width: 1199px) { .rmq-4605701c{width: 25.00000% !important;}}
+@media (min-width: 1200px) { .rmq-34ee8e6a{width: 25.00000% !important;}}
+@media (min-width: 480px) and (max-width: 767px) { .rmq-5c4c5b38{width: 8.33333% !important;}}
+@media (max-width: 479px){ .rmq-35757987{display: none !important;}}
+@media (min-width: 480px) and (max-width: 767px)  { .rmq-f09e82ae{display: none !important;}}
+@media (min-width: 480px) and (max-width: 767px) { .rmq-89bb2272{width: 100.00000% !important;}}
+@media (min-width: 768px) and (max-width: 991px) { .rmq-2d0e68c6{width: 66.66667% !important;}}
+@media (min-width: 992px) and (max-width: 1199px) { .rmq-3752549c{width: 66.66667% !important;}}
+@media (min-width: 1200px) { .rmq-3b9282ea{width: 66.66667% !important;}}
+@media (min-width: 768px) and (max-width: 991px)  { .rmq-4d29a8df{left: 33.33333% !important;}}
+@media (min-width: 992px) and (max-width: 1199px)  { .rmq-ea7683a5{left: 33.33333% !important;}}
+@media (min-width: 1200px)  { .rmq-ad95cc33{left: 33.33333% !important;}}</style></div></main></body></html>
