@@ -20,7 +20,7 @@ const config = {
       title: "Jsoning",
       navbar: {
         menu: [
-          { label: "Home", href: "/" },
+          { label: "Home", href: "/jsoning" },
           { label: "Documentation", href: "/jsoning/api", iconClass: "fas fa-book" },
           {
             label: "GitHub",
