@@ -275,10 +275,51 @@ class Jsoning {
     let db = fs.readFileSync(resolve(__dirname, this.database), "utf-8");
     db = JSON.parse(db);
 
-    if(db[key]) {
+    if(db.hasOwnProperty(key)) {
         return true;
     } else {
         return false;
+    }
+
+  }
+
+  /**
+   * 
+   * This function will push given value into an array in the database based on the key, which can be accessed with dot notation. If no existing array, it will create one.
+   * 
+   * @param {string} key 
+   * @param {string} value 
+   * 
+   * @returns {Boolean} True if the the value was pushed to an array successfully, else false.
+   * 
+   * @example
+   * database.push("leaderboard", "khaleel");
+   * database.push("leaderboard", "RiversideRocks");
+   * 
+   */
+  push(key, value) {
+
+    // see if element exists
+    let db = fs.readFileSync(resolve(__dirname, this.database), "utf-8");
+    db = JSON.parse(db);
+
+    if (db.hasOwnProperty(key)) {
+        console.log("exists");
+        if (!Array.isArray(db[key])) {
+            throw new TypeError("Existing element must be of type Array for Jsoning#push to work.")
+        } else if (Array.isArray(db[key])) {
+            db[key].push(value);
+            writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(db), { chown: false });
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        console.log("doesn't exist")
+        db[key] = [];
+        db[key].push(value);
+        writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(db), { chown: false });
+        return true;
     }
 
   }

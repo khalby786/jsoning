@@ -263,7 +263,7 @@
     "meta": {
       "range": [
         7722,
-        8050
+        8065
       ],
       "filename": "jsoning.js",
       "lineno": 268,
@@ -391,6 +391,71 @@
     "$longname": "Jsoning#math",
     "$kind": "method",
     "$docmaLink": "?api#Jsoning#math"
+  },
+  {
+    "comment": "/**\n   * \n   * This function will push given value into an array in the database based on the key, which can be accessed with dot notation. If no existing array, it will create one.\n   * \n   * @param {string} key \n   * @param {string} value \n   * \n   * @returns {Boolean} True if the the value was pushed to an array successfully, else false.\n   * \n   * @example\n   * database.push(\"leaderboard\", \"khaleel\");\n   * database.push(\"leaderboard\", \"RiversideRocks\");\n   * \n   */",
+    "meta": {
+      "range": [
+        8545,
+        9394
+      ],
+      "filename": "jsoning.js",
+      "lineno": 300,
+      "columnno": 2,
+      "path": "/workspace/jsoning/src",
+      "code": {
+        "id": "astnode100000578",
+        "name": "Jsoning#push",
+        "type": "MethodDefinition",
+        "paramnames": [
+          "key",
+          "value"
+        ]
+      },
+      "vars": {
+        "": null
+      }
+    },
+    "description": "This function will push given value into an array in the database based on the key, which can be accessed with dot notation. If no existing array, it will create one.",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "name": "key"
+      },
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "name": "value"
+      }
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "Boolean"
+          ]
+        },
+        "description": "True if the the value was pushed to an array successfully, else false."
+      }
+    ],
+    "examples": [
+      "database.push(\"leaderboard\", \"khaleel\");\ndatabase.push(\"leaderboard\", \"RiversideRocks\");"
+    ],
+    "name": "push",
+    "longname": "Jsoning#push",
+    "kind": "function",
+    "memberof": "Jsoning",
+    "scope": "instance",
+    "$longname": "Jsoning#push",
+    "$kind": "method",
+    "$docmaLink": "?api#Jsoning#push"
   },
   {
     "comment": "/**\n   *\n   * Adds an element to a database with the specified value. If element exists, element value is updated.\n   *\n   * @param {string} key Key of the element to be set.\n   * @param {*} value Value of the element to be set.\n   * @returns {boolean} If element is set/updated successfully, returns true, else false.\n   * @example\n   * database.set(\"foo\", \"bar\");\n   * database.set(\"hi\", 3);\n   *\n   * database.set(\"en\", \"db\"); // { \"en\": \"db\" }\n   * database.set(\"en\", \"en\"); // { \"en\": \"en\" }\n   *\n   * let set = database.set(\"khaleel\", \"gibran\");\n   * console.log(set); // returns true\n   *\n   */",

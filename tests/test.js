@@ -173,4 +173,15 @@ test("throw errors and make this test successful", (t) => {
     { instanceOf: TypeError },
     "error thrown!"
   );
+});
+
+test("new array", (t) => {
+    t.is(database.push("newarray", "3"), true, "new array true");
+    const error = t.throws(
+        () => {
+        database.push("khaleel", "2");
+        },
+        { instanceOf: TypeError },
+        "error thrown!"
+    );
 })
