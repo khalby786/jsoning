@@ -1,9 +1,9 @@
 // fs module for read/write of JSON files
-const fs = require("fs");
-const { resolve } = require("path");
+const fs = require('fs');
+const { resolve } = require('path');
 
 // write files atomically
-var writeFileAtomicSync = require('write-file-atomic').sync;
+var writeFileAtomic = require('write-file-atomic');
 
 // if you look in each method, i'm reading the json database file 
 // and assigning it to a variable (mostly named db). 
@@ -12,7 +12,7 @@ var writeFileAtomicSync = require('write-file-atomic').sync;
 // and hence, cause problems.
 
 class Jsoning {
- /**
+	/**
    *
    * Create a new JSON database or initialize an exisiting database.
    *
@@ -23,24 +23,24 @@ class Jsoning {
    * var database = new jsoning("database.json");
    *
    */
-  constructor(database) {
+	constructor(database) {
 
-    // check for tricks
-    if (typeof database !== "string" || database === "" || database === undefined || database.substr(database.length - 5) !== ".json") {
-      throw new TypeError("Unknown database file name. Make sure to provide a valid JSON database filename.");
-    }
+		// check for tricks
+		if (typeof database !== 'string' || database === '' || database === undefined || database.substr(database.length - 5) !== '.json') {
+			throw new TypeError('Unknown database file name. Make sure to provide a valid JSON database filename.');
+		}
 
-    // use an existing database or create a new one
-    if (fs.existsSync(resolve(__dirname, database))) {
-      this.database = database;
-    } else {
-      fs.writeFileSync(resolve(__dirname, database), "{}");
-      this.database = database;
-    }
-    return true;
-  }
+		// use an existing database or create a new one
+		if (fs.existsSync(resolve(__dirname, database))) {
+			this.database = database;
+		} else {
+			fs.writeFileSync(resolve(__dirname, database), '{}');
+			this.database = database;
+		}
+		return true;
+	}
 
-  /**
+	/**
    *
    * Adds an element to a database with the specified value. If element exists, element value is updated.
    *
@@ -58,20 +58,26 @@ class Jsoning {
    * console.log(set); // returns true
    *
    */
-  set(key, value) {
+	async set(key, value) {
 
-    // check for tricks
-    if (typeof key !== "string" || key === "") {
-      throw new TypeError("Invalid key/value for element");
-    }
+		// check for tricks
+		if (typeof key !== 'string' || key === '') {
+			throw new TypeError('Invalid key/value for element');
+		}
 
-    var db = require(resolve(__dirname, this.database));
-    db[key] = value;
-    writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(db), { chown: false });
-    return true;
-  }
+		var db = require(resolve(__dirname, this.database));
+		db[key] = value;
+		// writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(db), { chown: false });
+		try {
+			await writeFileAtomic(resolve(__dirname, this.database), JSON.stringify(db), {chown:{uid:100,gid:50}});
+			return true;
+		} catch (err) {
+			console.error(err);
+			return false;
+		}
+	}
 
-  /**
+	/**
    *
    * Returns all the elements and their values of the JSON database.
    *
@@ -84,13 +90,13 @@ class Jsoning {
    * console.log(all); // { "foo": "bar", "hi": "hello" }
    *
    */
-  all() {
-    let data = fs.readFileSync(resolve(__dirname, this.database), "utf-8");
-    data = JSON.parse(data);
-    return data;
-  }
+	async all() {
+		let data = fs.readFileSync(resolve(__dirname, this.database), 'utf-8');
+		data = JSON.parse(data);
+		return data;
+	}
 
-  /**
+	/**
    *
    * Delete an element from the database based on its key.
    *
@@ -103,26 +109,32 @@ class Jsoning {
    * database.delete("foo"); // returns true
    *
    */
-  delete(key) {
+	async delete(key) {
 
-    // check for tricks
-    if (typeof key !== "string" || key == "") {
-      throw new TypeError("Invalid key of element");
-    }
+		// check for tricks
+		if (typeof key !== 'string' || key === '') {
+			throw new TypeError('Invalid key of element');
+		}
 
-    let db = JSON.parse(
-      fs.readFileSync(resolve(__dirname, this.database), "utf-8")
-    );
-    if (db[key]) {
-      delete db[key];
-      writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(db), { chown: false });
-      return true;
-    } else {
-      return false;
-    }
-  }
+		let db = JSON.parse(
+			fs.readFileSync(resolve(__dirname, this.database), 'utf-8')
+		);
+		if (db.hasOwnProperty(key)) {
+			try {
+				await delete db[key];
+				let updatedDb = db;
+				await writeFileAtomic(resolve(__dirname, this.database), JSON.stringify(updatedDb), {chown:{uid:100,gid:50}}); 
+				return true;
+			} catch (err) {
+				console.error(err);
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
 
-  /**
+	/**
    *
    * Gets the value of an element based on it's key.
    *
@@ -135,24 +147,24 @@ class Jsoning {
    * console.log(food) // returns pizza
    *
    */
-  get(key) {
+	async get(key) {
 
-    // look for tricks
-    if (typeof key !== "string" || key == "") {
-      throw new TypeError("Invalid key of element");
-    }
+		// look for tricks
+		if (typeof key !== 'string' || key == '') {
+			throw new TypeError('Invalid key of element');
+		}
 
-    let db = fs.readFileSync(resolve(__dirname, this.database), "utf-8");
-    db = JSON.parse(db);
-    if (db[key]) {
-      let data = db[key];
-      return data;
-    } else {
-      return false;
-    }
-  }
+		let db = fs.readFileSync(resolve(__dirname, this.database), 'utf-8');
+		db = JSON.parse(db);
+		if (db[key]) {
+			let data = db[key];
+			return data;
+		} else {
+			return false;
+		}
+	}
 
-  /**
+	/**
    *
    * Clear the whole JSON database.
    *
@@ -164,13 +176,18 @@ class Jsoning {
    * database.clear(); // return {}
    *
    */
-  clear() {
-    let cleared = {};
-    writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(cleared), { chown: false });
-    return true;
-  }
+	async clear() {
+		let cleared = {};
+		try {
+			await writeFileAtomic(resolve(__dirname, this.database), JSON.stringify(cleared), {chown:{uid:100,gid:50}});
+			return true;
+		} catch (err) {
+			console.error(err);
+			return false;
+		}
+	}
 
-  /**
+	/**
    * 
    * Performs mathematical operations on values of elements.
    * 
@@ -191,64 +208,70 @@ class Jsoning {
    * console.log(database.get("value2")); // returns 10*5 = 50
    * 
    */
-  math(key, operation, operand) {
+	async math(key, operation, operand) {
 
-    // key types
-    if (typeof key !== "string" || key == "") {
-      throw new TypeError("Invalid key of element");
-    };
+		// key types
+		if (typeof key !== 'string' || key == '') {
+			throw new TypeError('Invalid key of element');
+		}
 
-    // operation tricks
-    if (typeof operation !== "string" || operation == "") {
-      throw new TypeError("Invalid Jsoning#math operation.");
-    };
+		// operation tricks
+		if (typeof operation !== 'string' || operation == '') {
+			throw new TypeError('Invalid Jsoning#math operation.');
+		}
 
-    // operand tricks
-    if (typeof operand !== "number" || operand === null || operand === undefined) {
-      throw new TypeError("Operand must be a number type!");
-    };
+		// operand tricks
+		if (typeof operand !== 'number' || operand === null || operand === undefined) {
+			throw new TypeError('Operand must be a number type!');
+		}
 
-    // see if value exists
-    let db = JSON.parse(fs.readFileSync(resolve(__dirname, this.database), "utf-8"));
-    if (db[key]) {
-      // key exists
-      let value = db[key];
-      if (typeof value !== "number" || value === "") {
-        throw new Error("Key of existing element must be a number for Jsoning#math to happen.")
-      } 
-      var result;
-      switch (operation) {
-        case 'add':
-        case 'addition':
-          result = value + operand;
-          break;
-        case 'subtract':
-        case 'subtraction':
-          result = value - operand;
-          break;
-        case 'multiply':
-        case 'multiplication':
-          result = value * operand;
-          break;
-        case 'divide':
-        case 'division':
-          result = value / operand;
-          break;
-        default:
-          throw new Error("Operation not found!");
-      }
-      db[key] = result;
-      writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(db), { chown: false, tmpfileCreated: function() {
-        console.log("Temporary file created!")
-      }});
-      return true;
-    } else {
-      // key doesn't exist
-      return false;
-    }
-  }
+		// see if value exists
+		let db = JSON.parse(fs.readFileSync(resolve(__dirname, this.database), 'utf-8'));
+		if (db[key]) {
+			// key exists
+			let value = db[key];
+			if (typeof value !== 'number' || value === '') {
+				throw new Error('Key of existing element must be a number for Jsoning#math to happen.');
+			} 
+			var result;
+			switch (operation) {
+			case 'add':
+			case 'addition':
+				result = value + operand;
+				break;
+			case 'subtract':
+			case 'subtraction':
+				result = value - operand;
+				break;
+			case 'multiply':
+			case 'multiplication':
+				result = value * operand;
+				break;
+			case 'divide':
+			case 'division':
+				result = value / operand;
+				break;
+			default:
+				throw new Error('Operation not found!');
+			}
+			db[key] = result;
+			//   writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(db), { chown: false, tmpfileCreated: function() {
+			//     console.log("Temporary file created!")
+			//   }});
+			try {
+				await writeFileAtomic(resolve(__dirname, this.database), JSON.stringify(db), {chown:{uid:100,gid:50}});
+				return true;
+			} catch (err) {
+				console.error(err);
+				return false;
+			}
+		} else {
+			// key doesn't exist
+			return false;
+		}
+	}
 
-  /**
+	/**
    * 
    * See if a particular element exists by using it's key.
    * 
@@ -265,25 +288,25 @@ class Jsoning {
    * let has2 = database.has("value");
    * console.log(has2); // returns false
    */
-  has(key) {
+	async has(key) {
 
-    // too many tricks
-    if (typeof key !== "string" || key == "") {
-      throw new TypeError("Invalid key of element");
-    };
+		// too many tricks
+		if (typeof key !== 'string' || key == '') {
+			throw new TypeError('Invalid key of element');
+		}
 
-    let db = fs.readFileSync(resolve(__dirname, this.database), "utf-8");
-    db = JSON.parse(db);
+		let db = fs.readFileSync(resolve(__dirname, this.database), 'utf-8');
+		db = JSON.parse(db);
 
-    if(db.hasOwnProperty(key)) {
-        return true;
-    } else {
-        return false;
-    }
+		if(db.hasOwnProperty(key)) {
+			return true;
+		} else {
+			return false;
+		}
 
-  }
+	}
 
-  /**
+	/**
    * 
    * This function will push given value into an array in the database based on the key, which can be accessed with dot notation. If no existing array, it will create one.
    * 
@@ -297,32 +320,39 @@ class Jsoning {
    * database.push("leaderboard", "RiversideRocks");
    * 
    */
-  push(key, value) {
+	async push(key, value) {
 
-    // see if element exists
-    let db = fs.readFileSync(resolve(__dirname, this.database), "utf-8");
-    db = JSON.parse(db);
+		// see if element exists
+		let db = fs.readFileSync(resolve(__dirname, this.database), 'utf-8');
+		db = JSON.parse(db);
 
-    if (db.hasOwnProperty(key)) {
-        console.log("exists");
-        if (!Array.isArray(db[key])) {
-            throw new TypeError("Existing element must be of type Array for Jsoning#push to work.")
-        } else if (Array.isArray(db[key])) {
-            db[key].push(value);
-            writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(db), { chown: false });
-            return true;
-        } else {
-            return false;
-        }
-    } else {
-        console.log("doesn't exist")
-        db[key] = [];
-        db[key].push(value);
-        writeFileAtomicSync(resolve(__dirname, this.database), JSON.stringify(db), { chown: false });
-        return true;
-    }
+		if (db.hasOwnProperty(key)) {
+			if (!Array.isArray(db[key])) {
+				throw new TypeError('Existing element must be of type Array for Jsoning#push to work.');
+			} else if (Array.isArray(db[key])) {
+				db[key].push(value);
+				try {
+					await writeFileAtomic(resolve(__dirname, this.database), JSON.stringify(db), {chown:{uid:100,gid:50}});
+					return true;
+				} catch (err) {
+					console.error(err);
+					return false;
+				}
+			} else {
+				return false;
+			}
+		} else {
+			db[key] = [];
+			db[key].push(value);
+			try {
+				await writeFileAtomic(resolve(__dirname, this.database), JSON.stringify(db), {chown:{uid:100,gid:50}});
+				return true;
+			} catch (err) {
+				return false;
+			}
+		}
 
-  }
+	}
 }
 
 module.exports = Jsoning;
