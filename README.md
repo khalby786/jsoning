@@ -1,14 +1,14 @@
 ![jsoning](https://cdn.glitch.com/53ed8404-b30d-494a-8960-e28bf8781ebd%2Fjsoning-text.png?v=1595495853462)
 
-<center>
+<div align="center>
 
 # jsoning
 
 ✨ A simple key-value JSON-based persistent lightweight database. ✨
 
-</center>
+</div>
 
-<center>
+<div align="center">
 
 ![CodeCov](https://codecov.io/gh/khalby786/jsoning/branch/master/graph/badge.svg)
 [![Build Status](https://travis-ci.org/khalby786/jsoning.svg?branch=master)](https://travis-ci.org/khalby786/jsoning)
@@ -27,22 +27,22 @@
 ![Website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fkhalby786.github.io%2Fjsoning)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkhalby786%2Fjsoning.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkhalby786%2Fjsoning?ref=badge_shield)
 
-</center>
+</div>
 
-<center>
+<div align="center">
 
 ![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fkhalby786.github.io%2Fjsoning)
 ![Twitter Follow](https://img.shields.io/twitter/follow/khalby786?style=social)
 
-</center>
+</div>
 
-<center>
+<div align="center">
 
 [View Demo](https://glitch.com/edit/#!/jsoning) · [Report Bug](https://github.com/khalby786/jsoning/issues) · [Request Feature](https://github.com/khalby786/jsoning/issues)
 
 Loved the project? Please consider [donating](https://buymeacoffee.com/khaleelgibran) to help it improve!
 
-</center>
+</div>
 
 
 | **Like us a lot?** Help others know why you like us! **Review this package on [pkgreview.dev](https://pkgreview.dev/npm/jsoning)** | ➡   | [![Review us on pkgreview.dev](https://i.ibb.co/McjVMfb/pkgreview-dev.jpg)](https://pkgreview.dev/npm/jsoning) |             

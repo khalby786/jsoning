@@ -3,15 +3,15 @@
     "comment": "/**\n   *\n   * Create a new JSON database or initialize an exisiting database.\n   *\n   * @param {string} database The name of the JSON database to be created or used.\n   * @returns {boolean} Whether an existing JSON file was used or created or the action failed.\n   * @example\n   * const jsoning = require('jsoning');\n   * var database = new jsoning(\"database.json\");\n   *\n   */",
     "meta": {
       "range": [
-        894,
-        1468
+        884,
+        1429
       ],
       "filename": "jsoning.js",
       "lineno": 26,
-      "columnno": 2,
+      "columnno": 1,
       "path": "/workspace/jsoning/src",
       "code": {
-        "id": "astnode100000027",
+        "id": "astnode100000025",
         "name": "Jsoning",
         "type": "MethodDefinition",
         "paramnames": [
@@ -59,15 +59,15 @@
     "comment": "/**\n   *\n   * Returns all the elements and their values of the JSON database.\n   *\n   * @returns {Object} The object of all the key-value pairs of the database.\n   * @example\n   * database.set(\"foo\", \"bar\");\n   * database.set(\"hi\", \"hello\");\n   *\n   * let all = database.all();\n   * console.log(all); // { \"foo\": \"bar\", \"hi\": \"hello\" }\n   *\n   */",
     "meta": {
       "range": [
-        2784,
-        2917
+        2910,
+        3042
       ],
       "filename": "jsoning.js",
-      "lineno": 87,
-      "columnno": 2,
+      "lineno": 93,
+      "columnno": 1,
       "path": "/workspace/jsoning/src",
       "code": {
-        "id": "astnode100000153",
+        "id": "astnode100000167",
         "name": "Jsoning#all",
         "type": "MethodDefinition",
         "paramnames": []
@@ -96,6 +96,7 @@
     "memberof": "Jsoning",
     "scope": "instance",
     "params": [],
+    "async": true,
     "$longname": "Jsoning#all",
     "$kind": "method",
     "$docmaLink": "?api#Jsoning#all"
@@ -104,15 +105,15 @@
     "comment": "/**\n   *\n   * Clear the whole JSON database.\n   *\n   * @returns {Boolean}\n   * @example\n   * database.set(\"foo\", \"bar\");\n   * database.set(\"en\", \"db\");\n   *\n   * database.clear(); // return {}\n   *\n   */",
     "meta": {
       "range": [
-        4637,
-        4792
+        4846,
+        5082
       ],
       "filename": "jsoning.js",
-      "lineno": 167,
-      "columnno": 2,
+      "lineno": 179,
+      "columnno": 1,
       "path": "/workspace/jsoning/src",
       "code": {
-        "id": "astnode100000307",
+        "id": "astnode100000344",
         "name": "Jsoning#clear",
         "type": "MethodDefinition",
         "paramnames": []
@@ -140,6 +141,7 @@
     "memberof": "Jsoning",
     "scope": "instance",
     "params": [],
+    "async": true,
     "$longname": "Jsoning#clear",
     "$kind": "method",
     "$docmaLink": "?api#Jsoning#clear"
@@ -148,15 +150,15 @@
     "comment": "/**\n   *\n   * Delete an element from the database based on its key.\n   *\n   * @param {string} key The key of the element to be deleted.\n   * @returns {Boolean} Returns true if the value exists, else returns false.\n   * @example\n   * database.set(\"ping\", \"pong\");\n   * database.set(\"foo\", \"bar\");\n   *\n   * database.delete(\"foo\"); // returns true\n   *\n   */",
     "meta": {
       "range": [
-        3280,
-        3727
+        3403,
+        3963
       ],
       "filename": "jsoning.js",
-      "lineno": 106,
-      "columnno": 2,
+      "lineno": 112,
+      "columnno": 1,
       "path": "/workspace/jsoning/src",
       "code": {
-        "id": "astnode100000181",
+        "id": "astnode100000195",
         "name": "Jsoning#delete",
         "type": "MethodDefinition",
         "paramnames": [
@@ -197,6 +199,7 @@
     "kind": "function",
     "memberof": "Jsoning",
     "scope": "instance",
+    "async": true,
     "$longname": "Jsoning#delete",
     "$kind": "method",
     "$docmaLink": "?api#Jsoning#delete"
@@ -205,15 +208,15 @@
     "comment": "/**\n   *\n   * Gets the value of an element based on it's key.\n   *\n   * @param {string} key The key of the element to be fetched.\n   * @returns {*} Returns value, if element exists, else returns false.\n   * @example\n   * database.set(\"food\", \"pizza\");\n   *\n   * let food = database.get(\"food\");\n   * console.log(food) // returns pizza\n   *\n   */",
     "meta": {
       "range": [
-        4079,
-        4427
+        4313,
+        4638
       ],
       "filename": "jsoning.js",
-      "lineno": 138,
-      "columnno": 2,
+      "lineno": 150,
+      "columnno": 1,
       "path": "/workspace/jsoning/src",
       "code": {
-        "id": "astnode100000250",
+        "id": "astnode100000287",
         "name": "Jsoning#get",
         "type": "MethodDefinition",
         "paramnames": [
@@ -254,6 +257,7 @@
     "kind": "function",
     "memberof": "Jsoning",
     "scope": "instance",
+    "async": true,
     "$longname": "Jsoning#get",
     "$kind": "method",
     "$docmaLink": "?api#Jsoning#get"
@@ -262,15 +266,15 @@
     "comment": "/**\n   * \n   * See if a particular element exists by using it's key.\n   * \n   * @param {string} key The key of the element to see if the element exists.\n   * \n   * @returns {Boolean} True if the element exists or false if the element doesn't exist.\n   * \n   * @example\n   * database.set(\"some value\", \"hi\");\n   * \n   * let has = database.has(\"some value\");\n   * console.log(has); // returns true \n   * \n   * let has2 = database.has(\"value\");\n   * console.log(has2); // returns false\n   */",
     "meta": {
       "range": [
-        7722,
-        8065
+        8028,
+        8346
       ],
       "filename": "jsoning.js",
-      "lineno": 268,
-      "columnno": 2,
+      "lineno": 291,
+      "columnno": 1,
       "path": "/workspace/jsoning/src",
       "code": {
-        "id": "astnode100000524",
+        "id": "astnode100000581",
         "name": "Jsoning#has",
         "type": "MethodDefinition",
         "paramnames": [
@@ -311,6 +315,7 @@
     "kind": "function",
     "memberof": "Jsoning",
     "scope": "instance",
+    "async": true,
     "$longname": "Jsoning#has",
     "$kind": "method",
     "$docmaLink": "?api#Jsoning#has"
@@ -319,15 +324,15 @@
     "comment": "/**\n   * \n   * Performs mathematical operations on values of elements.\n   * \n   * @param {string} key The key of the element on which the mathematical operation is to be performed.\n   * @param {string} operation The operation to perform, one of add, subtract, multiply and divide.\n   * @param {number} operand The number for performing the mathematical operation (the operand).\n   * \n   * @returns {Boolean} True if the operation succeeded, else false.\n   * \n   * @example\n   * database.set(\"value1\", 1);\n   * database.set(\"value2\", 10);\n   * \n   * database.math(\"value1\", \"add\", 1);\n   * database.math(\"value2\", \"multiply\", 5);\n   * \n   * console.log(database.get(\"value1\")); // returns 1+1 = 2\n   * console.log(database.get(\"value2\")); // returns 10*5 = 50\n   * \n   */",
     "meta": {
       "range": [
-        5569,
-        7227
+        5857,
+        7535
       ],
       "filename": "jsoning.js",
-      "lineno": 194,
-      "columnno": 2,
+      "lineno": 211,
+      "columnno": 1,
       "path": "/workspace/jsoning/src",
       "code": {
-        "id": "astnode100000334",
+        "id": "astnode100000387",
         "name": "Jsoning#math",
         "type": "MethodDefinition",
         "paramnames": [
@@ -388,6 +393,7 @@
     "kind": "function",
     "memberof": "Jsoning",
     "scope": "instance",
+    "async": true,
     "$longname": "Jsoning#math",
     "$kind": "method",
     "$docmaLink": "?api#Jsoning#math"
@@ -396,15 +402,15 @@
     "comment": "/**\n   * \n   * This function will push given value into an array in the database based on the key, which can be accessed with dot notation. If no existing array, it will create one.\n   * \n   * @param {string} key \n   * @param {string} value \n   * \n   * @returns {Boolean} True if the the value was pushed to an array successfully, else false.\n   * \n   * @example\n   * database.push(\"leaderboard\", \"khaleel\");\n   * database.push(\"leaderboard\", \"RiversideRocks\");\n   * \n   */",
     "meta": {
       "range": [
-        8545,
-        9394
+        8824,
+        9674
       ],
       "filename": "jsoning.js",
-      "lineno": 300,
-      "columnno": 2,
+      "lineno": 323,
+      "columnno": 1,
       "path": "/workspace/jsoning/src",
       "code": {
-        "id": "astnode100000578",
+        "id": "astnode100000634",
         "name": "Jsoning#push",
         "type": "MethodDefinition",
         "paramnames": [
@@ -453,6 +459,7 @@
     "kind": "function",
     "memberof": "Jsoning",
     "scope": "instance",
+    "async": true,
     "$longname": "Jsoning#push",
     "$kind": "method",
     "$docmaLink": "?api#Jsoning#push"
@@ -461,15 +468,15 @@
     "comment": "/**\n   *\n   * Adds an element to a database with the specified value. If element exists, element value is updated.\n   *\n   * @param {string} key Key of the element to be set.\n   * @param {*} value Value of the element to be set.\n   * @returns {boolean} If element is set/updated successfully, returns true, else false.\n   * @example\n   * database.set(\"foo\", \"bar\");\n   * database.set(\"hi\", 3);\n   *\n   * database.set(\"en\", \"db\"); // { \"en\": \"db\" }\n   * database.set(\"en\", \"en\"); // { \"en\": \"en\" }\n   *\n   * let set = database.set(\"khaleel\", \"gibran\");\n   * console.log(set); // returns true\n   *\n   */",
     "meta": {
       "range": [
-        2076,
-        2431
+        2035,
+        2559
       ],
       "filename": "jsoning.js",
       "lineno": 61,
-      "columnno": 2,
+      "columnno": 1,
       "path": "/workspace/jsoning/src",
       "code": {
-        "id": "astnode100000097",
+        "id": "astnode100000095",
         "name": "Jsoning#set",
         "type": "MethodDefinition",
         "paramnames": [
@@ -520,6 +527,7 @@
     "kind": "function",
     "memberof": "Jsoning",
     "scope": "instance",
+    "async": true,
     "$longname": "Jsoning#set",
     "$kind": "method",
     "$docmaLink": "?api#Jsoning#set"
