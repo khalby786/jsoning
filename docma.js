@@ -38,7 +38,7 @@ const config = {
     },
   },
   markdown: { 
-      sanitize: false,
+      sanitize: true,
       gfm: true
   },
 };
