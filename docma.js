@@ -37,7 +37,10 @@ const config = {
       },
     },
   },
-  markdown: { sanitize: true },
+  markdown: { 
+      sanitize: true,
+      gfm: true
+  },
 };
 
 Docma.create()

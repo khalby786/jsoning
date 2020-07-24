@@ -8,7 +8,7 @@
     "test": "nyc ava && npm run delete",
     "test:npm": "node tests/npmtest.js",
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "docs:build": "node docma.js",
+    "docs:build": "node docma.js && bash createcname.sh",
     "docs:serve": "docma serve",
     "delete": "rm src/db.json src/hello.json src/type.json src/npm-test.json"
   },
