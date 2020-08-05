@@ -121,9 +121,11 @@ class Jsoning {
 		);
 		if (db.hasOwnProperty(key)) {
 			try {
-				await delete db[key];
-				let updatedDb = db;
-				await writeFileAtomic(resolve(__dirname, this.database), JSON.stringify(updatedDb), {chown:{uid:100,gid:50}}); 
+				// db[key] = "";
+                // let updatedDb = db;
+                const removeProp = key;
+                const { [removeProp]: remove, ...rest } = db;
+				await writeFileAtomic(resolve(__dirname, this.database), JSON.stringify(rest), {chown:{uid:100,gid:50}}); 
 				return true;
 			} catch (err) {
 				console.error(err);
@@ -328,6 +330,8 @@ class Jsoning {
 
 		if (db.hasOwnProperty(key)) {
 			if (!Array.isArray(db[key])) {
+                console.log(db);
+                console.log(typeof db[key])
 				throw new TypeError('Existing element must be of type Array for Jsoning#push to work.');
 			} else if (Array.isArray(db[key])) {
 				db[key].push(value);
