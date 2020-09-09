@@ -10,7 +10,8 @@
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "docs:build": "node docma.js && bash createcname.sh",
     "docs:serve": "docma serve",
-    "delete": "rm src/db.json"
+    "delete": "rm src/db.json",
+    "cname": "touch CNAME && echo >> 'jsoning.js.org'"
   },
   "dependencies": {
     "write-file-atomic": "^3.0.3"
