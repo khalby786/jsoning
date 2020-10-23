@@ -119,7 +119,7 @@ class Jsoning {
 		let db = JSON.parse(
 			fs.readFileSync(resolve(__dirname, this.database), 'utf-8')
 		);
-		if (db.hasOwnProperty(key)) {
+		if (Object.prototype.hasOwnProperty.call(db, key)) {
 			try {
 				// db[key] = "";
                 // let updatedDb = db;
@@ -158,7 +158,7 @@ class Jsoning {
 
 		let db = fs.readFileSync(resolve(__dirname, this.database), 'utf-8');
 		db = JSON.parse(db);
-		if (db[key]) {
+		if (Object.prototype.hasOwnProperty.call(db, key)) {
 			let data = db[key];
 			return data;
 		} else {
@@ -229,7 +229,7 @@ class Jsoning {
 
 		// see if value exists
 		let db = JSON.parse(fs.readFileSync(resolve(__dirname, this.database), 'utf-8'));
-		if (db[key]) {
+		if (Object.prototype.hasOwnProperty(db, key)) {
 			// key exists
 			let value = db[key];
 			if (typeof value !== 'number' || value === '') {
@@ -300,7 +300,7 @@ class Jsoning {
 		let db = fs.readFileSync(resolve(__dirname, this.database), 'utf-8');
 		db = JSON.parse(db);
 
-		if(db.hasOwnProperty(key)) {
+		if(Object.prototype.hasOwnProperty.call(db, key)) {
 			return true;
 		} else {
 			return false;
@@ -328,7 +328,7 @@ class Jsoning {
 		let db = fs.readFileSync(resolve(__dirname, this.database), 'utf-8');
 		db = JSON.parse(db);
 
-		if (db.hasOwnProperty(key)) {
+		if (Object.prototype.hasOwnProperty.call(db, key)) {
 			if (!Array.isArray(db[key])) {
                 console.log(db);
                 console.log(typeof db[key])
