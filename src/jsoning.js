@@ -229,7 +229,7 @@ class Jsoning {
 
 		// see if value exists
 		let db = JSON.parse(fs.readFileSync(resolve(__dirname, this.database), 'utf-8'));
-		if (Object.prototype.hasOwnProperty(db, key)) {
+		if (Object.prototype.hasOwnProperty.call(db, key)) {
 			// key exists
 			let value = db[key];
 			if (typeof value !== 'number' || value === '') {
