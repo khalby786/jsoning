@@ -71,7 +71,7 @@ View the full documentation [here](https://jsoning.js.org/).
 
 ```js
 let jsoning = require('jsoning');
-let database = new jsoning("database.json");
+let db = new jsoning("database.json");
 
 
 (async() => {
