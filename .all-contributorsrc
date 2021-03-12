@@ -50,6 +50,17 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "oadpoaw",
+      "name": "undefine",
+      "avatar_url": "https://avatars.githubusercontent.com/u/46276781?v=4",
+      "profile": "https://xetha-bot.me/",
+      "contributions": [
+        "code",
+        "bug",
+        "security"
+      ]
     }
   ],
   "contributorsPerLine": 7

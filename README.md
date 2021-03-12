@@ -15,7 +15,7 @@
 [![License](https://img.shields.io/github/license/khalby786/jsoning.svg)](https://github.com/khalby786/jsoning)
 [![Latest Stable Version](https://img.shields.io/npm/v/jsoning.svg)](https://www.npmjs.com/package/jsoning)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![NPM Downloads](https://img.shields.io/npm/dt/jsoning.svg)](https://www.npmjs.com/package/jsoning)
 [![NPM Downloads](https://img.shields.io/npm/dm/jsoning.svg)](https://www.npmjs.com/package/jsoning)
@@ -125,6 +125,7 @@ Thanks goes to these wonderful people ((emoji key)[https://allcontributors.org/d
     <td align="center"><a href="https://aboutdavid.me/"><img src="https://avatars.githubusercontent.com/u/62346025?v=4?s=100" width="100px;" alt=""/><br /><sub><b>David</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=aboutDavid" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/Jonyk56"><img src="https://avatars.githubusercontent.com/u/44901605?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jonyk56</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=Jonyk56" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/ayntee"><img src="https://avatars.githubusercontent.com/u/34645569?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ayntee</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=ayntee" title="Code">💻</a></td>
+    <td align="center"><a href="https://xetha-bot.me/"><img src="https://avatars.githubusercontent.com/u/46276781?v=4?s=100" width="100px;" alt=""/><br /><sub><b>undefine</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=oadpoaw" title="Code">💻</a> <a href="https://github.com/khalby786/jsoning/issues?q=author%3Aoadpoaw" title="Bug reports">🐛</a> <a href="#security-oadpoaw" title="Security">🛡️</a></td>
   </tr>
 </table>
 
