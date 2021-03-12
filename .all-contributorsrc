@@ -1,0 +1,29 @@
+{
+  "projectName": "jsoning",
+  "projectOwner": "khalby786",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "khalby786",
+      "name": "Khaleel Gibran",
+      "avatar_url": "https://avatars.githubusercontent.com/u/38468163?v=4",
+      "profile": "https://github.com/khalby786",
+      "contributions": [
+        "code",
+        "doc",
+        "design",
+        "infra",
+        "test",
+        "tutorial"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
