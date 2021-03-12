@@ -1,7 +1,7 @@
 const test = require("ava");
 
 const jsoning = require('../src/index');
-const db = new jsoning('db.json');
+const db = new jsoning('./db.json');
 
 
 test("Jsoning#set", async (t) => {

@@ -37,10 +37,10 @@ class Jsoning {
     }
 
     // use an existing database or create a new one
-    if (fs.existsSync(resolve(__dirname, database))) {
+    if (fs.existsSync(resolve(process.cwd(), database))) {
       this.database = database;
     } else {
-      fs.writeFileSync(resolve(__dirname, database), "{}");
+      fs.writeFileSync(resolve(process.cwd(), database), "{}");
       this.database = database;
     }
     return true;
@@ -70,11 +70,11 @@ class Jsoning {
       throw new TypeError("Invalid key/value for element");
     }
 
-    var db = require(resolve(__dirname, this.database));
+    var db = require(resolve(process.cwd(), this.database));
     db[key] = value;
     try {
       await writeFileAtomic(
-        resolve(__dirname, this.database),
+        resolve(process.cwd(), this.database),
         JSON.stringify(db),
         { chown: { uid: 100, gid: 50 } }
       );
@@ -99,7 +99,7 @@ class Jsoning {
    *
    */
   async all() {
-    let data = fs.readFileSync(resolve(__dirname, this.database), "utf-8");
+    let data = fs.readFileSync(resolve(process.cwd(), this.database), "utf-8");
     data = JSON.parse(data);
     return data;
   }
@@ -124,14 +124,14 @@ class Jsoning {
     }
 
     let db = JSON.parse(
-      fs.readFileSync(resolve(__dirname, this.database), "utf-8")
+      fs.readFileSync(resolve(process.cwd(), this.database), "utf-8")
     );
     if (Object.prototype.hasOwnProperty.call(db, key)) {
       try {
         const removeProp = key;
         const { [removeProp]: remove, ...rest } = db;
         await writeFileAtomic(
-          resolve(__dirname, this.database),
+          resolve(process.cwd(), this.database),
           JSON.stringify(rest)
         );
         return true;
@@ -163,7 +163,7 @@ class Jsoning {
       throw new TypeError("Invalid key of element");
     }
 
-    let db = fs.readFileSync(resolve(__dirname, this.database), "utf-8");
+    let db = fs.readFileSync(resolve(process.cwd(), this.database), "utf-8");
     db = JSON.parse(db);
     if (Object.prototype.hasOwnProperty.call(db, key)) {
       let data = db[key];
@@ -189,7 +189,7 @@ class Jsoning {
     let cleared = {};
     try {
       await writeFileAtomic(
-        resolve(__dirname, this.database),
+        resolve(process.cwd(), this.database),
         JSON.stringify(cleared),
         { chown: { uid: 100, gid: 50 } }
       );
@@ -243,7 +243,7 @@ class Jsoning {
 
     // see if value exists
     let db = JSON.parse(
-      fs.readFileSync(resolve(__dirname, this.database), "utf-8")
+      fs.readFileSync(resolve(process.cwd(), this.database), "utf-8")
     );
     if (Object.prototype.hasOwnProperty.call(db, key)) {
       // key exists
@@ -277,7 +277,7 @@ class Jsoning {
       db[key] = result;
       try {
         await writeFileAtomic(
-          resolve(__dirname, this.database),
+          resolve(process.cwd(), this.database),
           JSON.stringify(db),
           { chown: { uid: 100, gid: 50 } }
         );
@@ -315,7 +315,7 @@ class Jsoning {
       throw new TypeError("Invalid key of element");
     }
 
-    let db = fs.readFileSync(resolve(__dirname, this.database), "utf-8");
+    let db = fs.readFileSync(resolve(process.cwd(), this.database), "utf-8");
     db = JSON.parse(db);
 
     if (Object.prototype.hasOwnProperty.call(db, key)) {
@@ -341,7 +341,7 @@ class Jsoning {
    */
   async push(key, value) {
     // see if element exists
-    let db = fs.readFileSync(resolve(__dirname, this.database), "utf-8");
+    let db = fs.readFileSync(resolve(process.cwd(), this.database), "utf-8");
     db = JSON.parse(db);
 
     if (Object.prototype.hasOwnProperty.call(db, key)) {
@@ -355,7 +355,7 @@ class Jsoning {
         db[key].push(value);
         try {
           await writeFileAtomic(
-            resolve(__dirname, this.database),
+            resolve(process.cwd(), this.database),
             JSON.stringify(db),
             { chown: { uid: 100, gid: 50 } }
           );
@@ -372,7 +372,7 @@ class Jsoning {
       db[key].push(value);
       try {
         await writeFileAtomic(
-          resolve(__dirname, this.database),
+          resolve(process.cwd(), this.database),
           JSON.stringify(db),
           { chown: { uid: 100, gid: 50 } }
         );

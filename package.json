@@ -1,6 +1,6 @@
 {
   "name": "jsoning",
-  "version": "0.9.18",
+  "version": "0.10.18",
   "description": "A simple key-value JSON-based persistent lightweight database.",
   "main": "src/index.js",
   "scripts": {
@@ -10,8 +10,8 @@
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "docs:build": "node docma.js && bash createcname.sh",
     "docs:serve": "docma serve",
-    "delete": "rm src/db.json",
-    "lint": "eslint src/jsonin.js"
+    "delete": "rm db.json",
+    "lint": "eslint src/jsoning.js"
   },
   "dependencies": {
     "write-file-atomic": "^3.0.3"
