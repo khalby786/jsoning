@@ -114,7 +114,7 @@ Please see `CONTRIBUTING.md` for more details on contributing!
 
 ### Contributors
 
-Thanks goes to these wonderful people ((emoji key)[https://allcontributors.org/docs/en/emoji-key]):
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -141,4 +141,4 @@ Contributions of any kind are welcome!
 
 This package is open sourced under the [MIT License](https://github.com/khalby786/jsoning/blob/master/LICENSE.md).
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkhalby786%2Fjsoning.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkhalby786%2Fjsoning?ref=badge_large)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkhalby786%2Fjsoning.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkhalby786%2Fjsoning?ref=badge_large)
