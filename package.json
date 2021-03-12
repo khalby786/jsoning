@@ -1,29 +1,31 @@
 {
   "name": "jsoning",
-  "version": "0.8.16",
+  "version": "0.8.18",
   "description": "A simple key-value JSON-based persistent lightweight database.",
-  "main": "src/server.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "node src/index.js",
     "test": "nyc ava && npm run delete",
     "test:npm": "node tests/npmtest.js",
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "docs:build": "node docma.js && bash createcname.sh",
     "docs:serve": "docma serve",
-    "delete": "rm src/db.json"
+    "delete": "rm src/db.json",
+    "lint": "eslint src/jsonin.js"
   },
   "dependencies": {
     "write-file-atomic": "^3.0.3"
   },
   "devDependencies": {
-    "ava": "^3.8.2",
+    "ava": "^3.15.0",
     "clean-documentation-theme": "^0.5.2",
-    "codecov": "^3.6.5",
+    "codecov": "^3.8.1",
     "docma": "^3.2.2",
-    "eslint": "^7.0.0",
+    "eslint": "^7.21.0",
     "express": "*",
     "minami": "^1.2.3",
-    "nyc": "^15.0.1"
+    "nyc": "^15.1.0",
+    "prettier": "2.2.1"
   },
   "repository": "khalby786/jsoning",
   "homepage": "https://jsoning.js.org",
