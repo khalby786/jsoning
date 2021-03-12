@@ -1,6 +1,6 @@
 {
   "name": "jsoning",
-  "version": "0.10.18",
+  "version": "0.10.19",
   "description": "A simple key-value JSON-based persistent lightweight database.",
   "main": "src/index.js",
   "scripts": {
@@ -17,6 +17,7 @@
     "write-file-atomic": "^3.0.3"
   },
   "devDependencies": {
+    "all-contributors-cli": "^6.20.0",
     "ava": "^3.15.0",
     "clean-documentation-theme": "^0.5.2",
     "codecov": "^3.8.1",
