@@ -15,7 +15,7 @@
 [![License](https://img.shields.io/github/license/khalby786/jsoning.svg)](https://github.com/khalby786/jsoning)
 [![Latest Stable Version](https://img.shields.io/npm/v/jsoning.svg)](https://www.npmjs.com/package/jsoning)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![NPM Downloads](https://img.shields.io/npm/dt/jsoning.svg)](https://www.npmjs.com/package/jsoning)
 [![NPM Downloads](https://img.shields.io/npm/dm/jsoning.svg)](https://www.npmjs.com/package/jsoning)
@@ -124,6 +124,7 @@ Thanks goes to these wonderful people ((emoji key)[https://allcontributors.org/d
     <td align="center"><a href="https://github.com/khalby786"><img src="https://avatars.githubusercontent.com/u/38468163?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Khaleel Gibran</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=khalby786" title="Code">💻</a> <a href="https://github.com/khalby786/jsoning/commits?author=khalby786" title="Documentation">📖</a> <a href="#design-khalby786" title="Design">🎨</a> <a href="#infra-khalby786" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/khalby786/jsoning/commits?author=khalby786" title="Tests">⚠️</a> <a href="#tutorial-khalby786" title="Tutorials">✅</a></td>
     <td align="center"><a href="https://aboutdavid.me/"><img src="https://avatars.githubusercontent.com/u/62346025?v=4?s=100" width="100px;" alt=""/><br /><sub><b>David</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=aboutDavid" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/Jonyk56"><img src="https://avatars.githubusercontent.com/u/44901605?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jonyk56</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=Jonyk56" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/ayntee"><img src="https://avatars.githubusercontent.com/u/34645569?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ayntee</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=ayntee" title="Code">💻</a></td>
   </tr>
 </table>
 
