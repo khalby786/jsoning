@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-jsoning-square-logo);
+      }
+
+      .cls-2 {
+        fill: #ac04ec;
+      }
+
+      .cls-3 {
+        stroke: #fff;
+        stroke-width: 3px;
+        font-size: 200px;
+        font-family: FiraCode-Medium, Fira Code;
+        font-weight: 500;
+      }
+    </style>
+    <clipPath id="clip-jsoning-square-logo">
+      <rect width="500" height="500"/>
+    </clipPath>
+  </defs>
+  <g id="jsoning-square-logo" class="cls-1">
+    <g id="Group_1" data-name="Group 1">
+      <path id="Path_2" data-name="Path 2" class="cls-2" d="M379.1,159.4c39.8-5.893,86.289-4.75,116.659,21.642,30.458,26.469,23.164,75.239,38,112.764,12.3,31.105,39.818,55.91,41.906,89.294,2.13,34.068-18.6,63.926-30.319,95.984-14.147,38.685-11.07,90.478-45.906,112.456-34.583,21.819-81.042,3.721-120.343-7.568-32.74-9.4-55.86-36.063-86.108-51.73-32.06-16.606-71.859-17.628-97.285-43.261-28.03-28.259-48.071-66.163-50.652-105.882-2.634-40.535,11.026-82.379,36.353-114.137,24.134-30.262,65.552-37.334,99.407-56.1C314,194.475,341.569,164.958,379.1,159.4" transform="translate(-110.454 -128.745)"/>
+      <text id="j" class="cls-3" transform="translate(189 312)"><tspan x="0" y="0">j</tspan></text>
+    </g>
+  </g>
+</svg>

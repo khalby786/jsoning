@@ -1,4 +1,4 @@
-![jsoning](https://cdn.glitch.com/53ed8404-b30d-494a-8960-e28bf8781ebd%2Fjsoning-text.png?v=1595495853462)
+![jsoning](https://raw.githubusercontent.com/khalby786/jsoning/master/media/jsoning.svg)
 
 <div align="center">
 
