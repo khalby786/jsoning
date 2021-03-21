@@ -18,7 +18,7 @@ const config = {
   template: {
     options: {
       title: "Jsoning",
-      logo: "https://raw.githubusercontent.com/khalby786/jsoning/master/media/jsoning-sqaure.png",
+      logo: "https://raw.githubusercontent.com/khalby786/jsoning/master/media/jsoning-square.png",
       navbar: {
         menu: [
           { label: "Home", href: "/" },
