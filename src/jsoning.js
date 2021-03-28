@@ -25,14 +25,9 @@ class Jsoning {
    */
   constructor(database) {
     // check for tricks
-    if (
-      typeof database !== "string" ||
-      database === "" ||
-      database === undefined ||
-      database.substr(database.length - 5) !== ".json"
-    ) {
+    if ( ! /\w+.json/.test(database) ) {  // database name MUST be of the pattern "words.json"
       throw new TypeError(
-        "Unknown database file name. Make sure to provide a valid JSON database filename."
+        "Invalid database file name. Make sure to provide a valid JSON database filename."
       );
     }
 
@@ -233,11 +228,7 @@ class Jsoning {
     }
 
     // operand tricks
-    if (
-      typeof operand !== "number" ||
-      operand === null ||
-      operand === undefined
-    ) {
+    if ( typeof operand !== "number" ) {
       throw new TypeError("Operand must be a number type!");
     }
 
@@ -248,7 +239,7 @@ class Jsoning {
     if (Object.prototype.hasOwnProperty.call(db, key)) {
       // key exists
       let value = db[key];
-      if (typeof value !== "number" || value === "") {
+      if ( typeof value !== "number" ) {
         throw new Error(
           "Key of existing element must be a number for Jsoning#math to happen."
         );
