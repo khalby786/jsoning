@@ -228,7 +228,7 @@ class Jsoning {
     }
 
     // operand tricks
-    if ( typeof operand !== "number" ) {
+    if (typeof operand !== "number") {
       throw new TypeError("Operand must be a number type!");
     }
 
@@ -239,7 +239,7 @@ class Jsoning {
     if (Object.prototype.hasOwnProperty.call(db, key)) {
       // key exists
       let value = db[key];
-      if ( typeof value !== "number" ) {
+      if (typeof value !== "number") {
         throw new Error(
           "Key of existing element must be a number for Jsoning#math to happen."
         );
