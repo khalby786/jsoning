@@ -1,6 +1,6 @@
 const test = require("ava");
 
-const jsoning = require('../src/index');
+const jsoning = require('../src/jsoning.js');
 const db = new jsoning('./db.json');
 
 

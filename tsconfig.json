@@ -1,0 +1,10 @@
+{
+    "include": ["src/jsoning.js"],
+    "compilerOptions": {
+      "target": "ES2017",
+      "moduleResolution": "node",
+      "allowJs": true,
+      "declaration": true,
+      "emitDeclarationOnly": true,
+    }
+  }

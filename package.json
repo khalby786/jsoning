@@ -1,10 +1,11 @@
 {
   "name": "jsoning",
-  "version": "0.10.21",
+  "version": "0.11.21",
   "description": "A simple key-value JSON-based persistent lightweight database.",
-  "main": "src/index.js",
+  "main": "src/jsoning.js",
+  "types": "src/jsoning.d.ts",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node src/jsoning.js",
     "test": "nyc ava && npm run delete",
     "test:npm": "node tests/npmtest.js",
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
@@ -26,7 +27,8 @@
     "express": "*",
     "minami": "^1.2.3",
     "nyc": "^15.1.0",
-    "prettier": "2.2.1"
+    "prettier": "2.2.1",
+    "typescript": "^4.2.4"
   },
   "repository": "khalby786/jsoning",
   "homepage": "https://jsoning.js.org",
