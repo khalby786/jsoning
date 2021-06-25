@@ -23,9 +23,10 @@ class Jsoning {
    * var database = new jsoning("database.json");
    *
    */
-  constructor(database) {
+  constructor(database, jsoningOptions = {}) {
+    this.jsoningOptions = jsoningOptions;
     // check for tricks
-    if ( ! /\w+.json/.test(database) ) {  // database name MUST be of the pattern "words.json"
+    if ( ! /\w+.json/.test(database) && !jsoningOptions.ignoreJsonFileCheck) {  // database name MUST be of the pattern "words.json" unless the user forces it
       throw new TypeError(
         "Invalid database file name. Make sure to provide a valid JSON database filename."
       );
@@ -35,12 +36,12 @@ class Jsoning {
     if (fs.existsSync(resolve(process.cwd(), database))) {
       this.database = database;
     } else {
-      fs.writeFileSync(resolve(process.cwd(), database), "{}");
+      fs.writeFileSync(resolve(process.cwd(), database), JSON.stringify(jsoningOptions.defaults || {}));
       this.database = database;
     }
     return true;
   }
-
+  
   /**
    *
    * Adds an element to a database with the specified value. If element exists, element value is updated.

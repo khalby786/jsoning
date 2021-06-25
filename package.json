@@ -11,7 +11,7 @@
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "docs:build": "node docma.js && bash createcname.sh",
     "docs:serve": "docma serve",
-    "delete": "rm db.json",
+    "delete": "rm db.json && rm *.test.json",
     "lint": "eslint src/jsoning.js"
   },
   "dependencies": {
