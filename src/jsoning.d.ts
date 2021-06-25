@@ -1,4 +1,10 @@
 export = Jsoning;
+// javaarchive here, I'm not 100% sure this is how you do it in .d.ts typescript files
+interface JsoningOptions{
+  autoSyncFromDisk?: boolean;
+  ignoreJsonFileCheck?: boolean;
+  defaults?: any;
+}
 declare class Jsoning {
     /**
      *
@@ -8,10 +14,10 @@ declare class Jsoning {
      * @returns {boolean} Whether an existing JSON file was used or created or the action failed.
      * @example
      * const jsoning = require('jsoning');
-     * var database = new jsoning("database.json");
+     * var database = new jsoning("database.json",{});
      *
      */
-    constructor(database: string);
+    constructor(database: string, opts?: JsoningOptions);
     database: string;
     /**
      *
@@ -65,7 +71,7 @@ declare class Jsoning {
      * Gets the value of an element based on it's key.
      *
      * @param {string} key The key of the element to be fetched.
-     * @returns {*} Returns value, if element exists, else returns false.
+     * @returns {*} Returns value, if ewindows data limitlement exists, else returns false.
      * @example
      * database.set("food", "pizza");
      *
