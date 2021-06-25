@@ -37,7 +37,7 @@ test("Jsoning#has - deliberate false", async t => {
 });
 
 test("Jsoning#has - existing element", async t => {
-  t.is(await db.has("bar"), false);
+  t.is(await db.has("bar"), true);
 });
 
 test("Jsoning constructor default option", async t => {
