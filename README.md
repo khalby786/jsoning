@@ -10,20 +10,9 @@
 
 ![CodeCov](https://codecov.io/gh/khalby786/jsoning/branch/master/graph/badge.svg)
 [![Build Status](https://travis-ci.org/khalby786/jsoning.svg?branch=master)](https://travis-ci.org/khalby786/jsoning)
-[![Build Status](https://img.shields.io/github/forks/khalby786/jsoning.svg)](https://github.com/khalby786/jsoning)
-[![Build Status](https://img.shields.io/github/stars/khalby786/jsoning.svg)](https://github.com/khalby786/jsoning)
-[![License](https://img.shields.io/github/license/khalby786/jsoning.svg)](https://github.com/khalby786/jsoning)
 [![Latest Stable Version](https://img.shields.io/npm/v/jsoning.svg)](https://www.npmjs.com/package/jsoning)
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-[![NPM Downloads](https://img.shields.io/npm/dt/jsoning.svg)](https://www.npmjs.com/package/jsoning)
 [![NPM Downloads](https://img.shields.io/npm/dm/jsoning.svg)](https://www.npmjs.com/package/jsoning)
-![Pkgreview.dev Reviews](https://img.shields.io/pkgreview/rating/npm/jsoning)
-![npm bundle size](https://img.shields.io/bundlephobia/min/jsoning)
-![GitHub repo size](https://img.shields.io/github/repo-size/khalby786/jsoning)
 ![node-current](https://img.shields.io/node/v/jsoning)
-![Website](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fkhalby786.github.io%2Fjsoning)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fkhalby786%2Fjsoning.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fkhalby786%2Fjsoning?ref=badge_shield)
 
 <br />
@@ -35,7 +24,7 @@ Loved the project? Please consider [donating](https://buymeacoffee.com/khaleelgi
 </div>
 
 
-| **Like us a lot?** Help others know why you like us! **Review this package on [pkgreview.dev](https://pkgreview.dev/npm/jsoning)** | ➡   | [![Review us on pkgreview.dev](https://i.ibb.co/McjVMfb/pkgreview-dev.jpg)](https://pkgreview.dev/npm/jsoning) |             
+| **Like us a lot?** Help others know why you like us! **Review this package on [pkgreview.dev](https://pkgreview.vercel.app/npm/jsoning)** | ➡   | [![Review us on pkgreview.dev](https://i.ibb.co/McjVMfb/pkgreview-dev.jpg)](https://pkgreview.vercel.app/npm/jsoning) |             
 | ----------------------------------------------------------------------------------------------------------------------------------------- | --- | --------------------------------------------------------------------------------------------------------------------- |
 
 ## Features
@@ -101,18 +90,17 @@ let db = new jsoning("database.json");
 
 ```
 
-## Links 🔗
-
-* [Documentation](https://jsoning.js.org)
-* [Guide](https://jsoning.netlify.app)
-* [GitHub](https://github.com/khalby786/jsoning)
-* [Glitch](https://glitch.com/~jsoning)
+[Documentation](https://jsoning.js.org) ~ [GitHub](https://github.com/khalby786/jsoning) ~ [Glitch](https://glitch.com/~jsoning)
 
 ## Contributing
 
 Please see `CONTRIBUTING.md` for more details on contributing!
 
 ### Contributors
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 

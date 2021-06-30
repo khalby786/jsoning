@@ -25,7 +25,7 @@ class Jsoning {
    */
   constructor(database) {
     // check for tricks
-    if ( ! /\w+.json/.test(database) ) {  // database name MUST be of the pattern "words.json"
+    if (!/\w+.json/.test(database)) {  // database name MUST be of the pattern "words.json"
       throw new TypeError(
         "Invalid database file name. Make sure to provide a valid JSON database filename."
       );
@@ -70,8 +70,7 @@ class Jsoning {
     try {
       await writeFileAtomic(
         resolve(process.cwd(), this.database),
-        JSON.stringify(db),
-        { chown: { uid: 100, gid: 50 } }
+        JSON.stringify(db)
       );
       return true;
     } catch (err) {
@@ -185,8 +184,7 @@ class Jsoning {
     try {
       await writeFileAtomic(
         resolve(process.cwd(), this.database),
-        JSON.stringify(cleared),
-        { chown: { uid: 100, gid: 50 } }
+        JSON.stringify(cleared)
       );
       return true;
     } catch (err) {
@@ -269,8 +267,7 @@ class Jsoning {
       try {
         await writeFileAtomic(
           resolve(process.cwd(), this.database),
-          JSON.stringify(db),
-          { chown: { uid: 100, gid: 50 } }
+          JSON.stringify(db)
         );
         return true;
       } catch (err) {
@@ -347,8 +344,7 @@ class Jsoning {
         try {
           await writeFileAtomic(
             resolve(process.cwd(), this.database),
-            JSON.stringify(db),
-            { chown: { uid: 100, gid: 50 } }
+            JSON.stringify(db)
           );
           return true;
         } catch (err) {
@@ -364,8 +360,7 @@ class Jsoning {
       try {
         await writeFileAtomic(
           resolve(process.cwd(), this.database),
-          JSON.stringify(db),
-          { chown: { uid: 100, gid: 50 } }
+          JSON.stringify(db)
         );
         return true;
       } catch (err) {
