@@ -65,7 +65,9 @@ class Jsoning {
       throw new TypeError("Invalid key/value for element");
     }
 
-    var db = require(resolve(process.cwd(), this.database));
+    let db = JSON.parse(
+      fs.readFileSync(resolve(process.cwd(), this.database), "utf-8")
+    );
     db[key] = value;
     try {
       await writeFileAtomic(
