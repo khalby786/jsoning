@@ -1,5 +1,4 @@
-export = Jsoning;
-declare class Jsoning {
+export default class Jsoning {
     /**
      *
      * Create a new JSON database or initialize an exisiting database.
@@ -31,7 +30,7 @@ declare class Jsoning {
      * console.log(set); // returns true
      *
      */
-    set(key: string, value: any): boolean;
+    set(key: string, value: JSONValue): Promise<boolean>;
     /**
      *
      * Returns all the elements and their values of the JSON database.
@@ -59,7 +58,7 @@ declare class Jsoning {
      * database.delete("foo"); // returns true
      *
      */
-    delete(key: string): boolean;
+    delete(key: string): Promise<boolean>;
     /**
      *
      * Gets the value of an element based on it's key.
@@ -73,7 +72,7 @@ declare class Jsoning {
      * console.log(food) // returns pizza
      *
      */
-    get(key: string): any;
+    get(key: string): JSONValue;
     /**
      *
      * Clear the whole JSON database.
@@ -86,7 +85,7 @@ declare class Jsoning {
      * database.clear(); // return {}
      *
      */
-    clear(): boolean;
+    clear(): Promise<boolean>;
     /**
      *
      * Performs mathematical operations on values of elements.
@@ -108,7 +107,7 @@ declare class Jsoning {
      * console.log(database.get("value2")); // returns 10*5 = 50
      *
      */
-    math(key: string, operation: string, operand: number): boolean;
+    math(key: string, operation: string, operand: number): Promise<boolean>;
     /**
      *
      * See if a particular element exists by using it's key.
@@ -141,5 +140,6 @@ declare class Jsoning {
      * database.push("leaderboard", "RiversideRocks");
      *
      */
-    push(key: string, value: string): boolean;
+    push(key: string, value: string): Promise<boolean>;
 }
+export type JSONValue = string | number | boolean | {[key: string]: JSONValue} | [JSONValue] | null
