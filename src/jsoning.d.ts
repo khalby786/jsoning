@@ -130,7 +130,7 @@ declare class Jsoning {
     has(key: string): boolean;
     /**
      *
-     * This function will push the given value into an array in the database based on the key. If no existing array, it will create one.
+     * This function will push the given value into the provided element (if it's an array) in the database based on the key. If no such element exists, it will initialize a new element with an empty array.
      *
      * @param {string} key
      * @param {(string|number|boolean|null|undefined|Object)} value
