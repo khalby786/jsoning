@@ -18,7 +18,8 @@ const config = {
   template: {
     options: {
       title: "Jsoning",
-      logo: "https://raw.githubusercontent.com/khalby786/jsoning/master/media/jsoning-square.png",
+      logo:
+        "https://raw.githubusercontent.com/khalby786/jsoning/master/media/jsoning-square.png",
       navbar: {
         menu: [
           { label: "Home", href: "/" },
@@ -28,7 +29,7 @@ const config = {
             href: "https://github.com/khalby786/jsoning",
             iconClass: "fab fa-github",
             target: "_blank",
-          }
+          },
         ],
       },
       sidebar: {
@@ -37,9 +38,9 @@ const config = {
       },
     },
   },
-  markdown: { 
-      sanitize: false,
-      gfm: true
+  markdown: {
+    sanitize: false,
+    gfm: true,
   },
 };
 

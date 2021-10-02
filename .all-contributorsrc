@@ -70,6 +70,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "manmal",
+      "name": "Manuel Maly",
+      "avatar_url": "https://avatars.githubusercontent.com/u/142797?v=4",
+      "profile": "http://www.creativepragmatics.com",
+      "contributions": [
+        "code",
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,

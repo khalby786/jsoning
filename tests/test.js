@@ -42,7 +42,7 @@ test("Jsoning#has - existing element", async t => {
 
 test("Jsoning constructor default option", async t => {
   t.is(
-    await new jsoning("./tempdb.test.json", {
+    await new jsoning("./tests/tempdb.test.json", {
       defaults: { donuts: "aretasty" }
     }).has("donuts"),
     true
