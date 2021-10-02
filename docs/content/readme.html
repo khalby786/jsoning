@@ -1,9 +1,7 @@
 
-<html><head></head><body><p><img src="https://raw.githubusercontent.com/khalby786/jsoning/master/media/jsoning.svg" alt="jsoning" style="max-width: 100%;"></p>
-<div align="center">
+<html><head></head><body><div align="center">
 
-<h1 id="jsoning">jsoning</h1>
-<hr />
+<p><img src="./media/jsoning_smaller.svg" alt="jsoning" style="max-width: 100%;"></p>
 <p>✨ A simple key-value JSON-based persistent lightweight database. ✨</p>
 <br>
 
@@ -19,37 +17,31 @@
 <p>Loved the project? Please consider <a href="https://buymeacoffee.com/khaleelgibran">donating</a> to help it improve!</p>
 </div>
 
-
-<table>
-<thead>
-<tr>
-<th><strong>Like us a lot?</strong> Help others know why you like us! <strong>Review this package on <a href="https://pkgreview.vercel.app/npm/jsoning">pkgreview.dev</a></strong></th>
-<th>➡</th>
-<th><a href="https://pkgreview.vercel.app/npm/jsoning"><img src="https://i.ibb.co/McjVMfb/pkgreview-dev.jpg" alt="Review us on pkgreview.dev" style="max-width: 100%;"></a></th>
-</tr>
-</thead>
-</table>
-<h2 id="features">Features</h2>
+<hr>
+<p><strong>🚨 Since v0.10.19, JSON files are generated in the current working directory, rather than within the node_modules which resulted in loss of the JSON files whenever packages were re-installed!</strong></p>
+<h2 id="features--">Features ✨</h2>
 <hr />
 <ul>
-<li>Uses JSON files to modify and write key-value elements as JSON-objects.</li>
+<li>Uses JSON files to modify and write key-value elements.</li>
 <li>Easy to use and lightweight.</li>
-<li>Prevents JSON corruption with <a href="https://github.com/npm/write-file-atomic">atomic file writing</a>.</li>
-<li>Uses a single dependency (<a href="https://github.com/npm/write-file-atomic"><code>write-file-atomic</code></a>)</li>
+<li>Writes atomically to prevent file corruption.</li>
+<li>Uses a single dependency (<a href="https://github.com/npm/write-file-atomic"><code>write-file-atomic</code></a>).</li>
 </ul>
 <h2 id="install---">Install 💾</h2>
 <hr />
 <p><strong>Node.js v12.x or greater is required for this package to work.</strong></p>
-<pre><code class="bash">npm install jsoning</code></pre>
+<pre><code class="bash"># npm
+npm install jsoning
+
+# or yarn if you're feeling fancy
+yarn add jsoning</code></pre>
 <p>View the full documentation <a href="https://jsoning.js.org/">here</a>.</p>
 <h2 id="basic-usage---">Basic Usage 📑</h2>
 <hr />
 <pre><code class="js">let jsoning = require("jsoning");
-let db = new jsoning("database.json");
+let db = new jsoning("db.json");
 
-
-(async() =&gt; {
-
+(async () =&gt; {
     // set some values with a key
     await db.set("birthday", "07-aug");
     await db.set("age", "13");
@@ -81,16 +73,15 @@ let db = new jsoning("database.json");
     console.log(await db.get("money")); // 300
 
     // i'm getting bored, so i'm clearing the whole database
-    await db.clear(); 
-
-})();
-</code></pre>
+    await db.clear();
+})();</code></pre>
 <p><a href="https://jsoning.js.org">Documentation</a> ~ <a href="https://github.com/khalby786/jsoning">GitHub</a> ~ <a href="https://glitch.com/~jsoning">Glitch</a></p>
 <h2 id="contributing">Contributing</h2>
 <hr />
 <p>Please see <code>CONTRIBUTING.md</code> for more details on contributing!</p>
 <h3 id="contributors">Contributors</h3>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 <p><a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square" alt="All Contributors" style="max-width: 100%;"></a></p>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
