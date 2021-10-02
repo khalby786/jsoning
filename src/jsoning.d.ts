@@ -132,7 +132,7 @@ declare class Jsoning {
      * This function will push given value into an array in the database based on the key, which can be accessed with dot notation. If no existing array, it will create one.
      *
      * @param {string} key
-     * @param {string} value
+     * @param {(string|number|boolean|null|undefined|Object)} value
      *
      * @returns {Boolean} True if the the value was pushed to an array successfully, else false.
      *
@@ -141,5 +141,5 @@ declare class Jsoning {
      * database.push("leaderboard", "RiversideRocks");
      *
      */
-    push(key: string, value: string): boolean;
+    push(key: string, value: (string | number | boolean | null | undefined | any)): boolean;
 }

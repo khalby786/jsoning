@@ -11,10 +11,14 @@ var writeFileAtomic = require("write-file-atomic");
 // that would mean changes made are not updated to the db variable at the top of the file,
 // and hence, cause problems.
 
+// i made this with very simple and basic functions, because the last thing i would want to feel
+// when i (and others) read my own code is to be overwhelmed
+// which surprisingly happens
+
 class Jsoning {
   /**
    *
-   * Create a new JSON database or initialize an exisiting database.
+   * Create a new JSON file for storing or initialize an exisiting file to be used.
    *
    * @param {string} database The name of the JSON database to be created or used.
    * @returns {boolean} Whether an existing JSON file was used or created or the action failed.
@@ -25,7 +29,8 @@ class Jsoning {
    */
   constructor(database) {
     // check for tricks
-    if (!/\w+.json/.test(database)) {  // database name MUST be of the pattern "words.json"
+    if (!/\w+.json/.test(database)) {
+      // database name MUST be of the pattern "words.json"
       throw new TypeError(
         "Invalid database file name. Make sure to provide a valid JSON database filename."
       );
@@ -320,7 +325,7 @@ class Jsoning {
    * This function will push given value into an array in the database based on the key, which can be accessed with dot notation. If no existing array, it will create one.
    *
    * @param {string} key
-   * @param {string} value
+   * @param {(string|number|boolean|null|undefined|Object)} value
    *
    * @returns {Boolean} True if the the value was pushed to an array successfully, else false.
    *
@@ -335,13 +340,31 @@ class Jsoning {
     db = JSON.parse(db);
 
     if (Object.prototype.hasOwnProperty.call(db, key)) {
-      if (!Array.isArray(db[key])) {
-        console.log(db);
-        console.log(typeof db[key]);
-        throw new TypeError(
-          "Existing element must be of type Array for Jsoning#push to work."
-        );
+      if (Array.isArray(db[key]) === false) {
+        // it's not an array!
+        if (db[key] !== undefined || db[key] !== null) {
+          // its not undefined or null
+          throw new TypeError(
+            "Existing element must be of type Array for Jsoning#push to work."
+          );
+        } else if (db[key] === undefined || db[key] === null) {
+          // it may not be an array, but its either undefined or null
+          // so we initialize a new array
+          db[key] = [];
+          db[key].push(value);
+          try {
+            await writeFileAtomic(
+              resolve(process.cwd(), this.database),
+              JSON.stringify(db)
+            );
+            return true;
+          } catch (err) {
+            console.error(err);
+            return false;
+          }
+        }
       } else if (Array.isArray(db[key])) {
+        // but what if...? it was an array
         db[key].push(value);
         try {
           await writeFileAtomic(
@@ -357,6 +380,7 @@ class Jsoning {
         return false;
       }
     } else {
+      // key doesn't exist, so let's make one and do the pushing
       db[key] = [];
       db[key].push(value);
       try {

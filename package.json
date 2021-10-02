@@ -12,7 +12,8 @@
     "docs:build": "node docma.js && bash scripts/createcname.sh",
     "docs:serve": "docma serve",
     "delete": "rm db.json",
-    "lint": "eslint src/jsoning.js"
+    "lint": "eslint src/jsoning.js",
+    "tsc:types": "tsc src/jsoning.js"
   },
   "dependencies": {
     "write-file-atomic": "^3.0.3"
