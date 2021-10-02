@@ -143,4 +143,18 @@ declare class Jsoning {
      *
      */
     push(key: string, value: (string | number | boolean | null | undefined | any)): boolean;
+    /**
+     *
+     * This function will remove a given primitive value from the provided element (if it's an array) in the database based on the key. If no such element exists, it will do nothing.
+     *
+     * @param {string} key
+     * @param {boolean|number|string|null} value
+     *
+     * @returns {boolean} True if successfully removed or not found or the key does not exist, else false.
+     *
+     * @example
+     * database.remove("leaderboard", "wh0");
+     *
+     */
+    remove(key: string, value: (boolean | number | string | null)): boolean;
 }

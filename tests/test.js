@@ -30,6 +30,33 @@ test("Jsoning#push - already existing element", async (t) => {
   t.is(await db.push("bar", "foo"), true);
 });
 
+test("Jsoning#remove - existing element", async (t) => {
+  const db = new jsoning("./tests/test10.test.json");
+  await db.set("removeArea", ["a", "b", "a"]);
+  t.is(await db.remove("removeArea", "a"), true);
+  t.deepEqual(await db.get("removeArea"), ["b"]);
+});
+
+test("Jsoning#remove - non-existent element", async (t) => {
+  const db = new jsoning("./tests/test11.test.json");
+  await db.set("removeArea", ["a", "b", "a"]);
+  t.is(await db.remove("removeArea", "c"), true);
+  t.deepEqual(await db.get("removeArea"), ["a", "b", "a"]);
+});
+
+test("Jsoning#remove - non-existent key", async (t) => {
+  const db = new jsoning("./tests/test12.test.json");
+  t.is(await db.remove("noRemoveArea", "a"), true);
+  t.is(await db.has("noRemoveArea"), false);
+});
+
+test("Jsoning#remove - non-array key", async (t) => {
+  const db = new jsoning("./tests/test13.test.json");
+  await db.set("nonArray", "no touching");
+  t.is(await db.remove("nonArray", "a"), false);
+  t.is(await db.get("nonArray"), "no touching");
+});
+
 test("Jsoning#get", async (t) => {
   const db = new jsoning("./tests/test6.test.json");
   await db.push("bar", "bar");
