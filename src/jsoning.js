@@ -52,7 +52,7 @@ class Jsoning {
    *
    * @param {string} key Key of the element to be set.
    * @param {*} value Value of the element to be set.
-   * @returns {boolean} If element is set/updated successfully, returns true; else false.
+   * @returns {Promise<boolean>} If element is set/updated successfully, returns true; else false.
    * 
    * @example
    * database.set("foo", "bar");
@@ -111,7 +111,7 @@ class Jsoning {
    * Deletes an element from the database based on its key.
    *
    * @param {string} key The key of the element to be deleted.
-   * @returns {Boolean} Returns true if the value exists, else returns false.
+   * @returns {Promise<boolean>} Returns true if the value exists, else returns false.
    * @example
    * database.set("ping", "pong");
    * database.set("foo", "bar");
@@ -179,7 +179,7 @@ class Jsoning {
    *
    * Clears the whole JSON database.
    *
-   * @returns {Boolean}
+   * @returns {Promise<boolean>}
    * @example
    * database.set("foo", "bar");
    * database.set("en", "db");
@@ -209,7 +209,7 @@ class Jsoning {
    * @param {string} operation The operation to perform, one of add, subtract, multiply and divide.
    * @param {number} operand The number for performing the mathematical operation (the operand).
    *
-   * @returns {Boolean} True if the operation succeeded, else false.
+   * @returns {Promise<boolean>} True if the operation succeeded, else false.
    *
    * @example
    * database.set("value1", 1);
@@ -328,7 +328,7 @@ class Jsoning {
    * @param {string} key
    * @param {(string|number|boolean|null|undefined|Object)} value
    *
-   * @returns {Boolean} True if the the value was pushed to an array successfully, else false.
+   * @returns {Promise<boolean>} True if the the value was pushed to an array successfully, else false.
    *
    * @example
    * database.push("leaderboard", "khaleel");
