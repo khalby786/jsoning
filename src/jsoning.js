@@ -13,8 +13,13 @@ var writeFileAtomic = require("write-file-atomic");
 
 // i made this with very simple and basic functions, because the last thing i would want to feel
 // when i (and others) read my own code is to be overwhelmed
-// which surprisingly happens
+// which surprisingly happens a lot
 
+// i'm not what you'd call an experienced javascript developer, so feel free to point 
+// out any mistakes or suggestions that you might have, i'd be more than happy
+// to help you out.
+
+// holy crap, i did it, i just managed to port my jsdoc to a ts .d.ts file
 
 /**
  * 
@@ -30,12 +35,12 @@ class Jsoning {
    *
    * @param {string} database Path to the JSON file to be created or used.
    * @returns {boolean} Returns true if the JSON file was successfully initialised.
-   * @example
-   * const jsoning = require('jsoning');
-   * 
-   * let database = new jsoning("database.json");
-   * 
-   * let database = new jsoning("../path/to/database.json");
+   *
+   * @example <caption>Initialise a new JSON file or use an existing JSON file</caption>
+   * const Jsoning = require('jsoning');
+   *
+   * let database = new Jsoning("database.json");
+   * let database = new Jsoning("../path/to/database.json");
    */
   constructor(database) {
     // check for tricks
@@ -63,7 +68,7 @@ class Jsoning {
    * @param {string} key Key of the element to be set.
    * @param {JSONValue} value Value of the element to be set.
    * @returns {Promise<boolean>} If element is set/updated successfully, returns true; else false.
-   * 
+   *
    * @example
    * database.set("foo", "bar");
    * database.set("hi", 3);
@@ -335,8 +340,8 @@ class Jsoning {
    *
    * Adds the given value into the provided element (if it's an array) in the database based on the key. If no such element exists, it will initialize a new element with an empty array.
    *
-   * @param {string} key
-   * @param {JSONValue} value
+   * @param {string} key The key of the element.
+   * @param {JSONValue} value The value to be added to the element array.
    *
    * @returns {Promise<boolean>} True if the the value was pushed to an array successfully, else false.
    *
@@ -410,8 +415,8 @@ class Jsoning {
    *
    * Removes a given primitive value from an array in the database based on the key. If no existing array, it will do nothing.
    *
-   * @param {string} key
-   * @param {JSONValue} value
+   * @param {string} key The key of the element.
+   * @param {JSONValue} value The value to be removed from the element array.
    *
    * @returns {Promise<boolean>} True if successfully removed or not found or the key does not exist, else false.
    *
@@ -428,10 +433,12 @@ class Jsoning {
       return true;
     }
     if (!Array.isArray(db[key])) {
-      console.error("Existing element must be of type Array for Jsoning#remove to work.");
+      console.error(
+        "Existing element must be of type Array for Jsoning#remove to work."
+      );
       return false;
     }
-    db[key] = db[key].filter(item => item !== value);
+    db[key] = db[key].filter((item) => item !== value);
     try {
       await writeFileAtomic(
         resolve(process.cwd(), this.database),
@@ -443,7 +450,6 @@ class Jsoning {
       return false;
     }
   }
-
 }
 
 module.exports = Jsoning;
