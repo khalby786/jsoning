@@ -24,8 +24,10 @@ class Jsoning {
    * @returns {boolean} Returns true.
    * @example
    * const jsoning = require('jsoning');
-   * var database = new jsoning("database.json");
-   *
+   * 
+   * let database = new jsoning("database.json");
+   * 
+   * let database = new jsoning("../path/to/database.json");
    */
   constructor(database) {
     // check for tricks
