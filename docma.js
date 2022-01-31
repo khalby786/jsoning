@@ -41,6 +41,7 @@ const config = {
   markdown: {
     sanitize: false,
     gfm: true,
+    breaks: true
   },
 };
 

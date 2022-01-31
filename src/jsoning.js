@@ -15,17 +15,21 @@ var writeFileAtomic = require("write-file-atomic");
 // when i (and others) read my own code is to be overwhelmed
 // which surprisingly happens
 
-/**
- * @typedef {(string|number|boolean|Object.<string, JSONValue>|JSONValue[]|null)} JSONValue
- */
 
+/**
+ * 
+ * Defines the types element values can be.
+ * 
+ * @typedef JSONValue
+ * @type {(string|number|boolean|Object.<string, JSONValue>|JSONValue[]|null)}
+ */
 class Jsoning {
   /**
    *
    * Create a new JSON file for storing or initialize an exisiting file to be used.
    *
-   * @param {string} database The name of the JSON file to be created or used.
-   * @returns {boolean} Returns true.
+   * @param {string} database Path to the JSON file to be created or used.
+   * @returns {boolean} Returns true if the JSON file was successfully initialised.
    * @example
    * const jsoning = require('jsoning');
    * 
@@ -54,7 +58,7 @@ class Jsoning {
 
   /**
    *
-   * Adds an element to the database with the specified value. If element with the given key exists, element value is updated.
+   * Adds an element to the database with the given value. If element with the given key exists, element value is updated.
    *
    * @param {string} key Key of the element to be set.
    * @param {JSONValue} value Value of the element to be set.
@@ -154,10 +158,10 @@ class Jsoning {
 
   /**
    *
-   * Gets the value of an element based on it's key.
+   * Returns the value of an element by key.
    *
    * @param {string} key The key of the element to be fetched.
-   * @returns {JSONValue} Returns value, if element exists, else returns false.
+   * @returns {JSONValue} Returns value, if element exists, else returns null.
    * @example
    * database.set("food", "pizza");
    *
@@ -183,7 +187,7 @@ class Jsoning {
 
   /**
    *
-   * Clears the whole JSON database.
+   * Deletes the contents of the JSON file.
    *
    * @returns {Promise<boolean>}
    * @example
@@ -209,7 +213,7 @@ class Jsoning {
 
   /**
    *
-   * Performs mathematical operations on values of elements.
+   * Performs basic mathematical operations on values of elements.
    *
    * @param {string} key The key of the element on which the mathematical operation is to be performed.
    * @param {string} operation The operation to perform, one of add, subtract, multiply and divide.
@@ -329,7 +333,7 @@ class Jsoning {
 
   /**
    *
-   * This function will push the given value into the provided element (if it's an array) in the database based on the key. If no such element exists, it will initialize a new element with an empty array.
+   * Adds the given value into the provided element (if it's an array) in the database based on the key. If no such element exists, it will initialize a new element with an empty array.
    *
    * @param {string} key
    * @param {JSONValue} value
@@ -404,7 +408,7 @@ class Jsoning {
 
   /**
    *
-   * This function will remove a given primitive value from an array in the database based on the key. If no existing array, it will do nothing.
+   * Removes a given primitive value from an array in the database based on the key. If no existing array, it will do nothing.
    *
    * @param {string} key
    * @param {JSONValue} value
