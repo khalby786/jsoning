@@ -1,20 +1,6 @@
 const jsoning = require("../src/jsoning.js");
-const db = new jsoning("./db.json");
+const db = new jsoning("../dir1/dir2/dir3/dir4/../test.json");
 
 (async () => {
-  //   await db.set("testArray", null);
-
-  //   console.log(await db.all());
-
-  //   await db.set("testArray", []);
-
-  //   console.log(await db.all());
-  //   await db.push("testArray", "hello");
-  //   await db.push("testArray", "world");
-  //   await db.push("testArray", ["hello"]);
-  //   await db.push("testArray", undefined);
-  //   await db.push("testArray", null);
-  //   await db.push("testArray", 3);
-  //   await db.push("testArray", { "hello": "world" });
-  await db.clear();
+  console.log(await db.all());
 })();

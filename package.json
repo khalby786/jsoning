@@ -1,9 +1,10 @@
 {
   "name": "jsoning",
-  "version": "0.12.22",
+  "version": "0.13.22",
   "description": "A simple key-value JSON-based persistent lightweight database.",
   "main": "src/jsoning.js",
   "types": "src/jsoning.d.ts",
+  "private":"false",
   "scripts": {
     "start": "node src/jsoning.js",
     "test": "nyc ava",
@@ -11,7 +12,7 @@
     "test:npm": "node tests/npmtest.js",
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "docs:build": "node docma.js && bash scripts/createcname.sh",
-    "docs:serve": "docma serve",
+    "docs:serve": "cd tests && docma serve",
     "delete": "rm *.test.json */*.test.json",
     "lint": "eslint src/jsoning.js",
     "tsc:types": "tsc src/jsoning.js"

@@ -22,10 +22,12 @@
 <h2 id="features--">Features ✨</h2>
 <hr />
 <ul>
-<li>Uses JSON files to modify and write key-value elements.</li>
-<li>Easy to use and lightweight.</li>
+<li>Uses JSON files to modify and write key-value elements.<ul>
+<li>This allows for the usage of pre-existing JSON files by specifying the path when creating a new instance of Jsoning.</li>
+</ul>
+</li>
+<li>Easy to use, beginner-friendly and lightweight.</li>
 <li>Writes atomically to prevent file corruption.</li>
-<li>Uses a single dependency (<a href="https://github.com/npm/write-file-atomic"><code>write-file-atomic</code></a>).</li>
 </ul>
 <h2 id="install---">Install 💾</h2>
 <hr />
@@ -71,6 +73,9 @@ let db = new jsoning("db.json");
 
     // just wanna make sure how much money I got
     console.log(await db.get("money")); // 300
+
+    // rip iron hide, he died
+    await db.remove("transformers", "iron hide");
 
     // i'm getting bored, so i'm clearing the whole database
     await db.clear();

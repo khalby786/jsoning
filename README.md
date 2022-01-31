@@ -28,9 +28,9 @@ Loved the project? Please consider [donating](https://buymeacoffee.com/khaleelgi
 ## Features ✨
 
 - Uses JSON files to modify and write key-value elements.
-- Easy to use and lightweight.
+	- This allows for the usage of pre-existing JSON files by specifying the path when creating a new instance of Jsoning.
+- Easy to use, beginner-friendly and lightweight.
 - Writes atomically to prevent file corruption.
-- Uses a single dependency ([`write-file-atomic`](https://github.com/npm/write-file-atomic)).
 
 ## Install 💾
 
@@ -83,12 +83,13 @@ let db = new jsoning("db.json");
 	// just wanna make sure how much money I got
 	console.log(await db.get("money")); // 300
 
+	// rip iron hide, he died
+	await db.remove("transformers", "iron hide");
+
 	// i'm getting bored, so i'm clearing the whole database
 	await db.clear();
 })();
 ```
-
-[Documentation](https://jsoning.js.org) ~ [GitHub](https://github.com/khalby786/jsoning) ~ [Glitch](https://glitch.com/~jsoning)
 
 ## Contributing
 
