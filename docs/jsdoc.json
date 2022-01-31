@@ -1,15 +1,15 @@
 [
   {
-    "comment": "/**\r\n   *\r\n   * Create a new JSON database or initialize an exisiting database.\r\n   *\r\n   * @param {string} database The name of the JSON database to be created or used.\r\n   * @returns {boolean} Whether an existing JSON file was used or created or the action failed.\r\n   * @example\r\n   * const jsoning = require('jsoning');\r\n   * var database = new jsoning(\"database.json\");\r\n   *\r\n   */",
+    "comment": "/**\r\n   *\r\n   * Create a new JSON file for storing or initialize an exisiting file to be used.\r\n   *\r\n   * @param {string} database The name of the JSON file to be created or used.\r\n   * @returns {boolean} Returns true.\r\n   * @example\r\n   * const jsoning = require('jsoning');\r\n   * \r\n   * let database = new jsoning(\"database.json\");\r\n   * \r\n   * let database = new jsoning(\"../path/to/database.json\");\r\n   */",
     "meta": {
       "range": [
-        917,
-        1485
+        1133,
+        1707
       ],
       "filename": "jsoning.js",
-      "lineno": 26,
+      "lineno": 32,
       "columnno": 2,
-      "path": "C:\\Jsoning\\src",
+      "path": "C:\\jsoning\\src",
       "code": {
         "id": "astnode100000025",
         "name": "Jsoning",
@@ -22,7 +22,7 @@
         "": null
       }
     },
-    "description": "Create a new JSON database or initialize an exisiting database.",
+    "description": "Create a new JSON file for storing or initialize an exisiting file to be used.",
     "params": [
       {
         "type": {
@@ -30,7 +30,7 @@
             "string"
           ]
         },
-        "description": "The name of the JSON database to be created or used.",
+        "description": "The name of the JSON file to be created or used.",
         "name": "database"
       }
     ],
@@ -41,11 +41,11 @@
             "boolean"
           ]
         },
-        "description": "Whether an existing JSON file was used or created or the action failed."
+        "description": "Returns true."
       }
     ],
     "examples": [
-      "const jsoning = require('jsoning');\rvar database = new jsoning(\"database.json\");"
+      "const jsoning = require('jsoning');\r\rlet database = new jsoning(\"database.json\");\r\rlet database = new jsoning(\"../path/to/database.json\");"
     ],
     "name": "Jsoning",
     "longname": "Jsoning",
@@ -56,16 +56,16 @@
     "$docmaLink": "?api#Jsoning"
   },
   {
-    "comment": "/**\r\n   *\r\n   * Returns all the elements and their values of the JSON database.\r\n   *\r\n   * @returns {Object} The object of all the key-value pairs of the database.\r\n   * @example\r\n   * database.set(\"foo\", \"bar\");\r\n   * database.set(\"hi\", \"hello\");\r\n   *\r\n   * let all = database.all();\r\n   * console.log(all); // { \"foo\": \"bar\", \"hi\": \"hello\" }\r\n   *\r\n   */",
+    "comment": "/**\r\n   *\r\n   * Returns all the elements and their values of the JSON file.\r\n   *\r\n   * @returns {Object} All the key-value pairs of the database.\r\n   * @example\r\n   * database.set(\"foo\", \"bar\");\r\n   * database.set(\"hi\", \"hello\");\r\n   *\r\n   * let all = database.all();\r\n   * console.log(all); // { \"foo\": \"bar\", \"hi\": \"hello\" }\r\n   *\r\n   */",
     "meta": {
       "range": [
-        3004,
-        3151
+        3236,
+        3383
       ],
       "filename": "jsoning.js",
-      "lineno": 97,
+      "lineno": 105,
       "columnno": 2,
-      "path": "C:\\Jsoning\\src",
+      "path": "C:\\jsoning\\src",
       "code": {
         "id": "astnode100000161",
         "name": "Jsoning#all",
@@ -76,7 +76,7 @@
         "": null
       }
     },
-    "description": "Returns all the elements and their values of the JSON database.",
+    "description": "Returns all the elements and their values of the JSON file.",
     "returns": [
       {
         "type": {
@@ -84,7 +84,7 @@
             "Object"
           ]
         },
-        "description": "The object of all the key-value pairs of the database."
+        "description": "All the key-value pairs of the database."
       }
     ],
     "examples": [
@@ -102,16 +102,16 @@
     "$docmaLink": "?api#Jsoning#all"
   },
   {
-    "comment": "/**\r\n   *\r\n   * Clear the whole JSON database.\r\n   *\r\n   * @returns {Boolean}\r\n   * @example\r\n   * database.set(\"foo\", \"bar\");\r\n   * database.set(\"en\", \"db\");\r\n   *\r\n   * database.clear(); // return {}\r\n   *\r\n   */",
+    "comment": "/**\r\n   *\r\n   * Clears the whole JSON database.\r\n   *\r\n   * @returns {Boolean}\r\n   * @example\r\n   * database.set(\"foo\", \"bar\");\r\n   * database.set(\"en\", \"db\");\r\n   *\r\n   * database.clear(); // return {}\r\n   *\r\n   */",
     "meta": {
       "range": [
-        5229,
-        5500
+        5463,
+        5734
       ],
       "filename": "jsoning.js",
-      "lineno": 184,
+      "lineno": 192,
       "columnno": 2,
-      "path": "C:\\Jsoning\\src",
+      "path": "C:\\jsoning\\src",
       "code": {
         "id": "astnode100000357",
         "name": "Jsoning#clear",
@@ -122,7 +122,7 @@
         "": null
       }
     },
-    "description": "Clear the whole JSON database.",
+    "description": "Clears the whole JSON database.",
     "returns": [
       {
         "type": {
@@ -147,16 +147,16 @@
     "$docmaLink": "?api#Jsoning#clear"
   },
   {
-    "comment": "/**\r\n   *\r\n   * Delete an element from the database based on its key.\r\n   *\r\n   * @param {string} key The key of the element to be deleted.\r\n   * @returns {Boolean} Returns true if the value exists, else returns false.\r\n   * @example\r\n   * database.set(\"ping\", \"pong\");\r\n   * database.set(\"foo\", \"bar\");\r\n   *\r\n   * database.delete(\"foo\"); // returns true\r\n   *\r\n   */",
+    "comment": "/**\r\n   *\r\n   * Deletes an element from the database based on its key.\r\n   *\r\n   * @param {string} key The key of the element to be deleted.\r\n   * @returns {Boolean} Returns true if the value exists, else returns false.\r\n   * @example\r\n   * database.set(\"ping\", \"pong\");\r\n   * database.set(\"foo\", \"bar\");\r\n   *\r\n   * database.delete(\"foo\"); // returns true\r\n   *\r\n   */",
     "meta": {
       "range": [
-        3529,
-        4229
+        3762,
+        4462
       ],
       "filename": "jsoning.js",
-      "lineno": 116,
+      "lineno": 124,
       "columnno": 2,
-      "path": "C:\\Jsoning\\src",
+      "path": "C:\\jsoning\\src",
       "code": {
         "id": "astnode100000192",
         "name": "Jsoning#delete",
@@ -169,7 +169,7 @@
         "": null
       }
     },
-    "description": "Delete an element from the database based on its key.",
+    "description": "Deletes an element from the database based on its key.",
     "params": [
       {
         "type": {
@@ -208,13 +208,13 @@
     "comment": "/**\r\n   *\r\n   * Gets the value of an element based on it's key.\r\n   *\r\n   * @param {string} key The key of the element to be fetched.\r\n   * @returns {*} Returns value, if element exists, else returns false.\r\n   * @example\r\n   * database.set(\"food\", \"pizza\");\r\n   *\r\n   * let food = database.get(\"food\");\r\n   * console.log(food) // returns pizza\r\n   *\r\n   */",
     "meta": {
       "range": [
-        4596,
-        5005
+        4829,
+        5238
       ],
       "filename": "jsoning.js",
-      "lineno": 156,
+      "lineno": 164,
       "columnno": 2,
-      "path": "C:\\Jsoning\\src",
+      "path": "C:\\jsoning\\src",
       "code": {
         "id": "astnode100000290",
         "name": "Jsoning#get",
@@ -263,16 +263,16 @@
     "$docmaLink": "?api#Jsoning#get"
   },
   {
-    "comment": "/**\r\n   *\r\n   * See if a particular element exists by using it's key.\r\n   *\r\n   * @param {string} key The key of the element to see if the element exists.\r\n   *\r\n   * @returns {Boolean} True if the element exists or false if the element doesn't exist.\r\n   *\r\n   * @example\r\n   * database.set(\"some value\", \"hi\");\r\n   *\r\n   * let has = database.has(\"some value\");\r\n   * console.log(has); // returns true\r\n   *\r\n   * let has2 = database.has(\"value\");\r\n   * console.log(has2); // returns false\r\n   */",
+    "comment": "/**\r\n   *\r\n   * Check if a particular element exists by key.\r\n   *\r\n   * @param {string} key The key of the element to see if the element exists.\r\n   *\r\n   * @returns {Boolean} True if the element exists, false if the element doesn't exist.\r\n   *\r\n   * @example\r\n   * database.set(\"some value\", \"hi\");\r\n   *\r\n   * let has = database.has(\"some value\");\r\n   * console.log(has); // returns true\r\n   *\r\n   * let has2 = database.has(\"value\");\r\n   * console.log(has2); // returns false\r\n   */",
     "meta": {
       "range": [
-        8567,
-        8951
+        8790,
+        9174
       ],
       "filename": "jsoning.js",
-      "lineno": 302,
+      "lineno": 310,
       "columnno": 2,
-      "path": "C:\\Jsoning\\src",
+      "path": "C:\\jsoning\\src",
       "code": {
         "id": "astnode100000584",
         "name": "Jsoning#has",
@@ -285,7 +285,7 @@
         "": null
       }
     },
-    "description": "See if a particular element exists by using it's key.",
+    "description": "Check if a particular element exists by key.",
     "params": [
       {
         "type": {
@@ -304,7 +304,7 @@
             "Boolean"
           ]
         },
-        "description": "True if the element exists or false if the element doesn't exist."
+        "description": "True if the element exists, false if the element doesn't exist."
       }
     ],
     "examples": [
@@ -324,13 +324,13 @@
     "comment": "/**\r\n   *\r\n   * Performs mathematical operations on values of elements.\r\n   *\r\n   * @param {string} key The key of the element on which the mathematical operation is to be performed.\r\n   * @param {string} operation The operation to perform, one of add, subtract, multiply and divide.\r\n   * @param {number} operand The number for performing the mathematical operation (the operand).\r\n   *\r\n   * @returns {Boolean} True if the operation succeeded, else false.\r\n   *\r\n   * @example\r\n   * database.set(\"value1\", 1);\r\n   * database.set(\"value2\", 10);\r\n   *\r\n   * database.math(\"value1\", \"add\", 1);\r\n   * database.math(\"value2\", \"multiply\", 5);\r\n   *\r\n   * console.log(database.get(\"value1\")); // returns 1+1 = 2\r\n   * console.log(database.get(\"value2\")); // returns 10*5 = 50\r\n   *\r\n   */",
     "meta": {
       "range": [
-        6293,
-        8060
+        6527,
+        8294
       ],
       "filename": "jsoning.js",
-      "lineno": 219,
+      "lineno": 227,
       "columnno": 2,
-      "path": "C:\\Jsoning\\src",
+      "path": "C:\\jsoning\\src",
       "code": {
         "id": "astnode100000396",
         "name": "Jsoning#math",
@@ -399,16 +399,16 @@
     "$docmaLink": "?api#Jsoning#math"
   },
   {
-    "comment": "/**\r\n   *\r\n   * This function will push given value into an array in the database based on the key, which can be accessed with dot notation. If no existing array, it will create one.\r\n   *\r\n   * @param {string} key\r\n   * @param {string} value\r\n   *\r\n   * @returns {Boolean} True if the the value was pushed to an array successfully, else false.\r\n   *\r\n   * @example\r\n   * database.push(\"leaderboard\", \"khaleel\");\r\n   * database.push(\"leaderboard\", \"RiversideRocks\");\r\n   *\r\n   */",
+    "comment": "/**\r\n   *\r\n   * This function will push the given value into the provided element (if it's an array) in the database based on the key. If no such element exists, it will initialize a new element with an empty array.\r\n   *\r\n   * @param {string} key\r\n   * @param {(string|number|boolean|null|undefined|Object)} value\r\n   *\r\n   * @returns {Boolean} True if the the value was pushed to an array successfully, else false.\r\n   *\r\n   * @example\r\n   * database.push(\"leaderboard\", \"khaleel\");\r\n   * database.push(\"leaderboard\", \"RiversideRocks\");\r\n   *\r\n   */",
     "meta": {
       "range": [
-        9440,
-        10555
+        9735,
+        11570
       ],
       "filename": "jsoning.js",
-      "lineno": 332,
+      "lineno": 340,
       "columnno": 2,
-      "path": "C:\\Jsoning\\src",
+      "path": "C:\\jsoning\\src",
       "code": {
         "id": "astnode100000645",
         "name": "Jsoning#push",
@@ -422,7 +422,7 @@
         "": null
       }
     },
-    "description": "This function will push given value into an array in the database based on the key, which can be accessed with dot notation. If no existing array, it will create one.",
+    "description": "This function will push the given value into the provided element (if it's an array) in the database based on the key. If no such element exists, it will initialize a new element with an empty array.",
     "params": [
       {
         "type": {
@@ -435,7 +435,12 @@
       {
         "type": {
           "names": [
-            "string"
+            "string",
+            "number",
+            "boolean",
+            "null",
+            "undefined",
+            "Object"
           ]
         },
         "name": "value"
@@ -465,16 +470,85 @@
     "$docmaLink": "?api#Jsoning#push"
   },
   {
-    "comment": "/**\r\n   *\r\n   * Adds an element to a database with the specified value. If element exists, element value is updated.\r\n   *\r\n   * @param {string} key Key of the element to be set.\r\n   * @param {*} value Value of the element to be set.\r\n   * @returns {boolean} If element is set/updated successfully, returns true, else false.\r\n   * @example\r\n   * database.set(\"foo\", \"bar\");\r\n   * database.set(\"hi\", 3);\r\n   *\r\n   * database.set(\"en\", \"db\"); // { \"en\": \"db\" }\r\n   * database.set(\"en\", \"en\"); // { \"en\": \"en\" }\r\n   *\r\n   * let set = database.set(\"khaleel\", \"gibran\");\r\n   * console.log(set); // returns true\r\n   *\r\n   */",
+    "comment": "/**\r\n   *\r\n   * This function will remove a given primitive value from an array in the database based on the key. If no existing array, it will do nothing.\r\n   *\r\n   * @param {string} key\r\n   * @param {boolean|number|string|null} value\r\n   *\r\n   * @returns {boolean} True if successfully removed or not found or the key does not exist, else false.\r\n   *\r\n   * @example\r\n   * database.remove(\"leaderboard\", \"wh0\");\r\n   *\r\n   */",
     "meta": {
       "range": [
-        2113,
-        2636
+        12006,
+        12694
       ],
       "filename": "jsoning.js",
-      "lineno": 62,
+      "lineno": 414,
       "columnno": 2,
-      "path": "C:\\Jsoning\\src",
+      "path": "C:\\jsoning\\src",
+      "code": {
+        "id": "astnode100000865",
+        "name": "Jsoning#remove",
+        "type": "MethodDefinition",
+        "paramnames": [
+          "key",
+          "value"
+        ]
+      },
+      "vars": {
+        "": null
+      }
+    },
+    "description": "This function will remove a given primitive value from an array in the database based on the key. If no existing array, it will do nothing.",
+    "params": [
+      {
+        "type": {
+          "names": [
+            "string"
+          ]
+        },
+        "name": "key"
+      },
+      {
+        "type": {
+          "names": [
+            "boolean",
+            "number",
+            "string",
+            "null"
+          ]
+        },
+        "name": "value"
+      }
+    ],
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "boolean"
+          ]
+        },
+        "description": "True if successfully removed or not found or the key does not exist, else false."
+      }
+    ],
+    "examples": [
+      "database.remove(\"leaderboard\", \"wh0\");"
+    ],
+    "name": "remove",
+    "longname": "Jsoning#remove",
+    "kind": "function",
+    "memberof": "Jsoning",
+    "scope": "instance",
+    "async": true,
+    "$longname": "Jsoning#remove",
+    "$kind": "method",
+    "$docmaLink": "?api#Jsoning#remove"
+  },
+  {
+    "comment": "/**\r\n   *\r\n   * Adds an element to the database with the specified value. If element with the given key exists, element value is updated.\r\n   *\r\n   * @param {string} key Key of the element to be set.\r\n   * @param {*} value Value of the element to be set.\r\n   * @returns {boolean} If element is set/updated successfully, returns true; else false.\r\n   * \r\n   * @example\r\n   * database.set(\"foo\", \"bar\");\r\n   * database.set(\"hi\", 3);\r\n   *\r\n   * database.set(\"en\", \"db\"); // { \"en\": \"db\" }\r\n   * database.set(\"en\", \"en\"); // { \"en\": \"en\" }\r\n   *\r\n   * let set = database.set(\"khaleel\", \"gibran\");\r\n   * console.log(set); // returns true\r\n   *\r\n   */",
+    "meta": {
+      "range": [
+        2363,
+        2886
+      ],
+      "filename": "jsoning.js",
+      "lineno": 70,
+      "columnno": 2,
+      "path": "C:\\jsoning\\src",
       "code": {
         "id": "astnode100000083",
         "name": "Jsoning#set",
@@ -488,7 +562,7 @@
         "": null
       }
     },
-    "description": "Adds an element to a database with the specified value. If element exists, element value is updated.",
+    "description": "Adds an element to the database with the specified value. If element with the given key exists, element value is updated.",
     "params": [
       {
         "type": {
@@ -516,7 +590,7 @@
             "boolean"
           ]
         },
-        "description": "If element is set/updated successfully, returns true, else false."
+        "description": "If element is set/updated successfully, returns true; else false."
       }
     ],
     "examples": [

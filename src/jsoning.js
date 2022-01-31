@@ -11,21 +11,28 @@ var writeFileAtomic = require("write-file-atomic");
 // that would mean changes made are not updated to the db variable at the top of the file,
 // and hence, cause problems.
 
+// i made this with very simple and basic functions, because the last thing i would want to feel
+// when i (and others) read my own code is to be overwhelmed
+// which surprisingly happens
+
 class Jsoning {
   /**
    *
-   * Create a new JSON database or initialize an exisiting database.
+   * Create a new JSON file for storing or initialize an exisiting file to be used.
    *
-   * @param {string} database The name of the JSON database to be created or used.
-   * @returns {boolean} Whether an existing JSON file was used or created or the action failed.
+   * @param {string} database The name of the JSON file to be created or used.
+   * @returns {boolean} Returns true.
    * @example
    * const jsoning = require('jsoning');
-   * var database = new jsoning("database.json");
-   *
+   * 
+   * let database = new jsoning("database.json");
+   * 
+   * let database = new jsoning("../path/to/database.json");
    */
   constructor(database) {
     // check for tricks
-    if (!/\w+.json/.test(database)) {  // database name MUST be of the pattern "words.json"
+    if (!/\w+.json/.test(database)) {
+      // database name MUST be of the pattern "words.json"
       throw new TypeError(
         "Invalid database file name. Make sure to provide a valid JSON database filename."
       );
@@ -43,11 +50,12 @@ class Jsoning {
 
   /**
    *
-   * Adds an element to a database with the specified value. If element exists, element value is updated.
+   * Adds an element to the database with the specified value. If element with the given key exists, element value is updated.
    *
    * @param {string} key Key of the element to be set.
    * @param {*} value Value of the element to be set.
-   * @returns {boolean} If element is set/updated successfully, returns true, else false.
+   * @returns {boolean} If element is set/updated successfully, returns true; else false.
+   * 
    * @example
    * database.set("foo", "bar");
    * database.set("hi", 3);
@@ -83,9 +91,9 @@ class Jsoning {
 
   /**
    *
-   * Returns all the elements and their values of the JSON database.
+   * Returns all the elements and their values of the JSON file.
    *
-   * @returns {Object} The object of all the key-value pairs of the database.
+   * @returns {Object} All the key-value pairs of the database.
    * @example
    * database.set("foo", "bar");
    * database.set("hi", "hello");
@@ -102,7 +110,7 @@ class Jsoning {
 
   /**
    *
-   * Delete an element from the database based on its key.
+   * Deletes an element from the database based on its key.
    *
    * @param {string} key The key of the element to be deleted.
    * @returns {Boolean} Returns true if the value exists, else returns false.
@@ -171,7 +179,7 @@ class Jsoning {
 
   /**
    *
-   * Clear the whole JSON database.
+   * Clears the whole JSON database.
    *
    * @returns {Boolean}
    * @example
@@ -284,11 +292,11 @@ class Jsoning {
 
   /**
    *
-   * See if a particular element exists by using it's key.
+   * Check if a particular element exists by key.
    *
    * @param {string} key The key of the element to see if the element exists.
    *
-   * @returns {Boolean} True if the element exists or false if the element doesn't exist.
+   * @returns {Boolean} True if the element exists, false if the element doesn't exist.
    *
    * @example
    * database.set("some value", "hi");
@@ -317,10 +325,10 @@ class Jsoning {
 
   /**
    *
-   * This function will push given value into an array in the database based on the key, which can be accessed with dot notation. If no existing array, it will create one.
+   * This function will push the given value into the provided element (if it's an array) in the database based on the key. If no such element exists, it will initialize a new element with an empty array.
    *
    * @param {string} key
-   * @param {string} value
+   * @param {(string|number|boolean|null|undefined|Object)} value
    *
    * @returns {Boolean} True if the the value was pushed to an array successfully, else false.
    *
@@ -335,13 +343,31 @@ class Jsoning {
     db = JSON.parse(db);
 
     if (Object.prototype.hasOwnProperty.call(db, key)) {
-      if (!Array.isArray(db[key])) {
-        console.log(db);
-        console.log(typeof db[key]);
-        throw new TypeError(
-          "Existing element must be of type Array for Jsoning#push to work."
-        );
+      if (Array.isArray(db[key]) === false) {
+        // it's not an array!
+        if (db[key] !== undefined || db[key] !== null) {
+          // its not undefined or null
+          throw new TypeError(
+            "Existing element must be of type Array for Jsoning#push to work."
+          );
+        } else if (db[key] === undefined || db[key] === null) {
+          // it may not be an array, but its either undefined or null
+          // so we initialize a new array
+          db[key] = [];
+          db[key].push(value);
+          try {
+            await writeFileAtomic(
+              resolve(process.cwd(), this.database),
+              JSON.stringify(db)
+            );
+            return true;
+          } catch (err) {
+            console.error(err);
+            return false;
+          }
+        }
       } else if (Array.isArray(db[key])) {
+        // but what if...? it was an array
         db[key].push(value);
         try {
           await writeFileAtomic(
@@ -357,6 +383,7 @@ class Jsoning {
         return false;
       }
     } else {
+      // key doesn't exist, so let's make one and do the pushing
       db[key] = [];
       db[key].push(value);
       try {
@@ -370,6 +397,45 @@ class Jsoning {
       }
     }
   }
+
+  /**
+   *
+   * This function will remove a given primitive value from an array in the database based on the key. If no existing array, it will do nothing.
+   *
+   * @param {string} key
+   * @param {boolean|number|string|null} value
+   *
+   * @returns {boolean} True if successfully removed or not found or the key does not exist, else false.
+   *
+   * @example
+   * database.remove("leaderboard", "wh0");
+   *
+   */
+  async remove(key, value) {
+    // see if element exists
+    let db = fs.readFileSync(resolve(process.cwd(), this.database), "utf-8");
+    db = JSON.parse(db);
+
+    if (!Object.prototype.hasOwnProperty.call(db, key)) {
+      return true;
+    }
+    if (!Array.isArray(db[key])) {
+      console.error("Existing element must be of type Array for Jsoning#remove to work.");
+      return false;
+    }
+    db[key] = db[key].filter(item => item !== value);
+    try {
+      await writeFileAtomic(
+        resolve(process.cwd(), this.database),
+        JSON.stringify(db)
+      );
+      return true;
+    } catch (err) {
+      console.error(err);
+      return false;
+    }
+  }
+
 }
 
 module.exports = Jsoning;
