@@ -4,7 +4,6 @@
   "description": "A simple key-value JSON-based persistent lightweight database.",
   "main": "src/jsoning.js",
   "types": "src/jsoning.d.ts",
-  "private":"false",
   "scripts": {
     "start": "node src/jsoning.js",
     "test": "nyc ava",
