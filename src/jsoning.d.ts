@@ -1,5 +1,4 @@
-export = Jsoning;
-declare class Jsoning {
+export default class Jsoning {
     /**
      *
      * Create a new JSON file for storing or initialize an exisiting file to be used.
@@ -32,7 +31,7 @@ declare class Jsoning {
      * console.log(set); // returns true
      *
      */
-    set(key: string, value: any): boolean;
+    set(key: string, value: JSONValue): Promise<boolean>;
     /**
      *
      * Returns all the elements and their values of the JSON file.
@@ -60,7 +59,7 @@ declare class Jsoning {
      * database.delete("foo"); // returns true
      *
      */
-    delete(key: string): boolean;
+    delete(key: string): Promise<boolean>;
     /**
      *
      * Gets the value of an element based on it's key.
@@ -74,7 +73,7 @@ declare class Jsoning {
      * console.log(food) // returns pizza
      *
      */
-    get(key: string): any;
+    get(key: string): JSONValue;
     /**
      *
      * Clears the whole JSON database.
@@ -87,7 +86,7 @@ declare class Jsoning {
      * database.clear(); // return {}
      *
      */
-    clear(): boolean;
+    clear(): Promise<boolean>;
     /**
      *
      * Performs mathematical operations on values of elements.
@@ -109,7 +108,7 @@ declare class Jsoning {
      * console.log(database.get("value2")); // returns 10*5 = 50
      *
      */
-    math(key: string, operation: string, operand: number): boolean;
+    math(key: string, operation: string, operand: number): Promise<boolean>;
     /**
      *
      * Check if a particular element exists by key.
@@ -142,7 +141,7 @@ declare class Jsoning {
      * database.push("leaderboard", "RiversideRocks");
      *
      */
-    push(key: string, value: (string | number | boolean | null | undefined | any)): boolean;
+    push(key: string, value: JSONValue): Promise<boolean>;
     /**
      *
      * This function will remove a given primitive value from the provided element (if it's an array) in the database based on the key. If no such element exists, it will do nothing.
@@ -156,5 +155,6 @@ declare class Jsoning {
      * database.remove("leaderboard", "wh0");
      *
      */
-    remove(key: string, value: (boolean | number | string | null)): boolean;
+    remove(key: string, value: JSONValue): Promise<boolean>;
 }
+export type JSONValue = string | number | boolean | {[key: string]: JSONValue} | [JSONValue] | null

@@ -102,7 +102,7 @@ class Jsoning {
    * console.log(all); // { "foo": "bar", "hi": "hello" }
    *
    */
-  async all() {
+  all() {
     let data = fs.readFileSync(resolve(process.cwd(), this.database), "utf-8");
     data = JSON.parse(data);
     return data;
@@ -161,7 +161,7 @@ class Jsoning {
    * console.log(food) // returns pizza
    *
    */
-  async get(key) {
+  get(key) {
     // look for tricks
     if (typeof key !== "string" || key == "") {
       throw new TypeError("Invalid key of element");
@@ -173,7 +173,7 @@ class Jsoning {
       let data = db[key];
       return data;
     } else {
-      return false;
+      return null;
     }
   }
 
@@ -307,7 +307,7 @@ class Jsoning {
    * let has2 = database.has("value");
    * console.log(has2); // returns false
    */
-  async has(key) {
+  has(key) {
     // too many tricks
     if (typeof key !== "string" || key == "") {
       throw new TypeError("Invalid key of element");
