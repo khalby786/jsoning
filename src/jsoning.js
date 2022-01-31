@@ -395,6 +395,45 @@ class Jsoning {
       }
     }
   }
+
+  /**
+   *
+   * This function will remove a given primitive value from an array in the database based on the key. If no existing array, it will do nothing.
+   *
+   * @param {string} key
+   * @param {boolean|number|string|null} value
+   *
+   * @returns {boolean} True if successfully removed or not found or the key does not exist, else false.
+   *
+   * @example
+   * database.remove("leaderboard", "wh0");
+   *
+   */
+  async remove(key, value) {
+    // see if element exists
+    let db = fs.readFileSync(resolve(process.cwd(), this.database), "utf-8");
+    db = JSON.parse(db);
+
+    if (!Object.prototype.hasOwnProperty.call(db, key)) {
+      return true;
+    }
+    if (!Array.isArray(db[key])) {
+      console.error("Existing element must be of type Array for Jsoning#remove to work.");
+      return false;
+    }
+    db[key] = db[key].filter(item => item !== value);
+    try {
+      await writeFileAtomic(
+        resolve(process.cwd(), this.database),
+        JSON.stringify(db)
+      );
+      return true;
+    } catch (err) {
+      console.error(err);
+      return false;
+    }
+  }
+
 }
 
 module.exports = Jsoning;
