@@ -98,9 +98,7 @@ Please see `CONTRIBUTING.md` for more details on contributing!
 ### Contributors
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
-
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -117,6 +115,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://xetha-bot.me/"><img src="https://avatars.githubusercontent.com/u/46276781?v=4?s=100" width="100px;" alt=""/><br /><sub><b>undefine</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=oadpoaw" title="Code">💻</a> <a href="https://github.com/khalby786/jsoning/issues?q=author%3Aoadpoaw" title="Bug reports">🐛</a> <a href="#security-oadpoaw" title="Security">🛡️</a></td>
     <td align="center"><a href="https://github.com/adi-g15"><img src="https://avatars.githubusercontent.com/u/37269665?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Aditya Gupta</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=adi-g15" title="Code">💻</a></td>
     <td align="center"><a href="http://www.creativepragmatics.com"><img src="https://avatars.githubusercontent.com/u/142797?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Manuel Maly</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=manmal" title="Code">💻</a> <a href="https://github.com/khalby786/jsoning/issues?q=author%3Amanmal" title="Bug reports">🐛</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://wh0.github.io/"><img src="https://avatars.githubusercontent.com/u/382796?v=4?s=100" width="100px;" alt=""/><br /><sub><b>wh0</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=wh0" title="Code">💻</a></td>
   </tr>
 </table>
 
