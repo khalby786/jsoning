@@ -43,14 +43,6 @@ class Jsoning {
    * let database = new Jsoning("../path/to/database.json");
    */
   constructor(database) {
-    // check for tricks
-    if (!/\w+.json/.test(database)) {
-      // database name MUST be of the pattern "words.json"
-      throw new TypeError(
-        "Invalid database file name. Make sure to provide a valid JSON database filename."
-      );
-    }
-
     // use an existing database or create a new one
     if (fs.existsSync(resolve(process.cwd(), database))) {
       this.database = database;
