@@ -7,7 +7,7 @@
 	"scripts": {
 		"build": "npm run fmt && tsc && npm run gendocs",
 		"delete": "rm tests*/*.test.json",
-		"gendocs": "node docma.js && bash scripts/createcname.sh",
+		"gendocs": "jsdoc -c jsdoc.json -t node_modules/docdash/ dist/index.js && bash scripts/createcname.sh",
 		"fmt": "prettier -w src",
 		"lint": "eslint src/index.ts",
 		"prepack": "npm run build",
