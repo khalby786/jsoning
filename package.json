@@ -27,7 +27,6 @@
 		"@typescript-eslint/parser": "^7.3.1",
 		"all-contributors-cli": "^6.26.1",
 		"ava": "^6.1.2",
-		"docma": "^3.2.2",
 		"eslint": "^8.57.0",
 		"npm-check-updates": "^16.14.17",
 		"prettier": "3.2.5",
