@@ -1,7 +1,8 @@
 import { resolve } from 'path';
-import { existsSync, writeFileSync } from 'fs';
+import { existsSync, readFileSync, writeFileSync } from 'fs';
 import writeFileAtomic from 'write-file-atomic';
-import { readFile } from 'fs/promises';
+import { readFile, writeFile } from 'fs/promises';
+import EventEmitter from 'events';
 
 /**
  * Defines the types element values can be.
@@ -29,24 +30,82 @@ export enum MathOps {
 	Divide = 'divide'
 }
 
-export class Jsoning {
+export enum Events {
+	Get = 'get',
+	Set = 'set',
+	Delete = 'delete',
+	Clear = 'clear',
+	Push = 'push',
+	Remove = 'remove',
+	Copy = 'copy'
+}
+
+/**
+ * The main class exported by the module.
+ * @extends EventEmitter
+ */
+export class Jsoning extends EventEmitter {
+	/**
+	 * Emitted when the database is read.
+	 * @event Jsoning#get
+	 * @param {string} key The key of the element that was read.
+	 * @param {JSONValue} value The value of the element that was read.
+	 */
+	/**
+	 * Emitted when an element is set.
+	 * @event Jsoning#set
+	 * @param {string} key The key of the element that was set.
+	 * @param {JSONValue} oldValue The old value of the element.
+	 * @param {JSONValue} newValue The new value of the element.
+	 */
+	/**
+	 * Emitted when an element is deleted.
+	 * @event Jsoning#delete
+	 * @param {string} key The key of the element that was deleted.
+	 * @param {JSONValue} value The value of the element that was deleted.
+	 */
+	/**
+	 * Emitted when the database is cleared.
+	 * @event Jsoning#clear
+	 * @param {Record<string, JSONValue>} data The data that was cleared.
+	 */
+	/**
+	 * Emitted when a value is pushed to an array.
+	 * @event Jsoning#push
+	 * @param {string} key The key of the element that was pushed to.
+	 * @param {JSONValue} value The value that was pushed to the element.
+	 * @param {JSONValue[]} array The array that was pushed to (before modification).
+	 */
+	/**
+	 * Emitted when a value is removed from an array.
+	 * @event Jsoning#remove
+	 * @param {string} key The key of the element that was removed from.
+	 * @param {JSONValue} value The value that was removed from the element (before modification).
+	 */
+	/**
+	 * Emitted when the database is copied.
+	 * @event Jsoning#copy
+	 * @param {string} destination The path to which the database was copied.
+	 * @param {Record<string, JSONValue>} data The data that was copied.
+	 */
+
 	database: string;
+
 	/**
 	 * Create a new JSON file for storing or initialize an exisiting file to be used.
 	 * @param {string} database Path to the JSON file to be created or used.
 	 */
 	constructor(database: string) {
-		// check for tricks
-		if (!/\w+.json/.test(database)) {
-			// database name MUST be of the pattern "words.json"
-			throw new TypeError(
-				'Invalid database file name. Make sure to provide a valid JSON database filename.'
-			);
-		}
-
+		super();
 		// use an existing database or create a new one
 		if (!existsSync(resolve(process.cwd(), database)))
 			writeFileSync(resolve(process.cwd(), database), '{}');
+		else
+			try {
+				JSON.parse(readFileSync(resolve(process.cwd(), database), 'utf-8'));
+			} catch (err) {
+				throw new Error('Invalid JSON file');
+			}
 
 		/**
 		 * @property {string} database Path to the JSON file to be used.
@@ -59,6 +118,7 @@ export class Jsoning {
 	 * @param {string} key Key of the element to be set.
 	 * @param {JSONValue} value Value of the element to be set.
 	 * @returns {Promise<boolean>} If element is set/updated successfully, returns true; else false.
+	 * @fires Jsoning#set
 	 */
 	async set(key: string, value: JSONValue): Promise<boolean> {
 		// check for tricks
@@ -69,12 +129,14 @@ export class Jsoning {
 		const db = JSON.parse(
 			await readFile(resolve(process.cwd(), this.database), 'utf-8')
 		);
+		const oldValue = db[key];
 		db[key] = value;
 		try {
 			await writeFileAtomic(
 				resolve(process.cwd(), this.database),
 				JSON.stringify(db)
 			);
+			this.emit(Events.Set, key, oldValue, value);
 			return true;
 		} catch (err) {
 			throw new Error(`Failed to set element: ${err}`);
@@ -114,6 +176,7 @@ export class Jsoning {
 					resolve(process.cwd(), this.database),
 					JSON.stringify(rest)
 				);
+				this.emit(Events.Delete, key, db[key]);
 				return true;
 			} catch (err) {
 				throw new Error(`Failed to delete element: ${err}`);
@@ -140,6 +203,7 @@ export class Jsoning {
 			await readFile(resolve(process.cwd(), this.database), 'utf-8')
 		);
 		if (key in db) {
+			this.emit(Events.Get, key, db[key]);
 			return db[key];
 		} else {
 			return null;
@@ -156,6 +220,10 @@ export class Jsoning {
 				resolve(process.cwd(), this.database),
 				JSON.stringify({})
 			);
+			const data = JSON.parse(
+				await readFile(resolve(process.cwd(), this.database), 'utf-8')
+			);
+			this.emit(Events.Clear, data);
 			return true;
 		} catch (err) {
 			throw new Error(`Failed to clear database: ${err}`);
@@ -224,6 +292,7 @@ export class Jsoning {
 					resolve(process.cwd(), this.database),
 					JSON.stringify(db)
 				);
+				this.emit(Events.Set, key, value, result);
 				return true;
 			} catch (err) {
 				throw new Error(`Failed to perform math operation: ${err}`);
@@ -260,16 +329,16 @@ export class Jsoning {
 	 * Adds the given value into the provided element (if it's an array) in the database based on the key. If no such element exists, it will initialize a new element with an empty array.
 	 * @param {string} key The key of the element.
 	 * @param {JSONValue} value The value to be added to the element array.
-	 * @returns {Promise<boolean>} True if the the value was pushed to an array successfully, else false.
+	 * @returns {Promise<true>} True if the the value was pushed to an array successfully, else false.
 	 */
-	async push(key: string, value: JSONValue): Promise<boolean> {
+	async push(key: string, value: JSONValue): Promise<true> {
 		// see if element exists
 		const db = JSON.parse(
 			await readFile(resolve(process.cwd(), this.database), 'utf-8')
 		);
 
 		if (key in db) {
-			if (Array.isArray(db[key]) === false) {
+			if (!Array.isArray(db[key])) {
 				// it's not an array!
 				if (db[key] !== undefined || db[key] !== null) {
 					// its not undefined or null
@@ -286,12 +355,13 @@ export class Jsoning {
 							resolve(process.cwd(), this.database),
 							JSON.stringify(db)
 						);
+						this.emit(Events.Push, key, value, db[key]);
 						return true;
 					} catch (err) {
-						return false;
+						throw new Error(`Failed to push element: ${err}`);
 					}
 				}
-			} else if (Array.isArray(db[key])) {
+			} else {
 				// but what if...? it was an array
 				db[key].push(value);
 				try {
@@ -301,10 +371,8 @@ export class Jsoning {
 					);
 					return true;
 				} catch (err) {
-					return false;
+					throw new Error(`Failed to push element: ${err}`);
 				}
-			} else {
-				return false;
 			}
 		} else {
 			// key doesn't exist, so let's make one and do the pushing
@@ -315,6 +383,7 @@ export class Jsoning {
 					resolve(process.cwd(), this.database),
 					JSON.stringify(db)
 				);
+				this.emit(Events.Push, key, value, db[key]);
 				return true;
 			} catch (err) {
 				throw new Error(`Failed to push element: ${err}`);
@@ -348,10 +417,40 @@ export class Jsoning {
 				resolve(process.cwd(), this.database),
 				JSON.stringify(db)
 			);
+			this.emit(Events.Remove, key, value);
 			return true;
 		} catch (err) {
 			throw new Error(`Failed to remove element: ${err}`);
 		}
+	}
+
+	/**
+	 * Copies the database to a new location.
+	 * @param {string} destination The path to copy the database to.
+	 */
+	async copy(destination: string): Promise<void>;
+	/**
+	 * Copies the database to a new location and returns a new Jsoning instance with the copied database.
+	 * @param {string} destination The path to copy the database to.
+	 * @param {true} createInstance Returns a new Jsoning instance with the copied database.
+	 */
+	async copy(destination: string, createInstance: true): Promise<Jsoning>;
+	async copy(
+		destination: string,
+		createInstance?: true
+	): Promise<void | Jsoning> {
+		const data = await readFile(resolve(process.cwd(), this.database), 'utf-8');
+		try {
+			JSON.parse(data);
+		} catch (err) {
+			throw new Error(
+				'Invalid JSON file, aborted copy to prevent malformed data'
+			);
+		}
+
+		await writeFile(resolve(process.cwd(), destination), data);
+		this.emit(Events.Copy, destination, JSON.parse(data));
+		if (createInstance) return new Jsoning(destination);
 	}
 }
 

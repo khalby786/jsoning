@@ -1,6 +1,14 @@
 import test from 'ava';
 
-import { Jsoning } from '../dist/jsoning.js';
+// Clean up test files from previous runs
+for (const file of (await readdir('./tests')).filter(name =>
+	/^test\d+\.test\.json$/.test(name)
+))
+	await rm(resolve(join(process.cwd(), 'tests', file)));
+
+import { Jsoning } from '../dist/index.js';
+import { readdir, rm } from 'fs/promises';
+import { join, resolve } from 'path';
 
 test('Jsoning#set', async t => {
 	const db = new Jsoning('./tests/test1.test.json');
@@ -77,6 +85,15 @@ test('Jsoning#remove - non-existent key', async t => {
 test('Jsoning#remove - non-array key', async t => {
 	const db = new Jsoning('./tests/test13.test.json');
 	await db.set('nonArray', 'no touching');
-	t.is(await db.remove('nonArray', 'a'), false);
+	t.throwsAsync(db.remove('nonArray', 'a'));
 	t.is(await db.get('nonArray'), 'no touching');
+});
+
+test('Jsoning#copy', async t => {
+	const db = new Jsoning('./tests/test14.test.json');
+	await db.set('copyArea', ['a', 'b', 'c']);
+	t.like(
+		await (await db.copy('./tests/test15.test.json', true)).get('copyArea'),
+		['a', 'b', 'c']
+	);
 });
