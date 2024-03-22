@@ -28,7 +28,7 @@ Loved the project? Please consider [donating](https://buymeacoffee.com/khaleelgi
 ## Features ✨
 
 - Uses JSON files to modify and write key-value elements.
-	- This allows for the usage of pre-existing JSON files by specifying the path when creating a new instance of Jsoning.
+  - This allows for the usage of pre-existing JSON files by specifying the path when creating a new instance of Jsoning.
 - Easy to use, beginner-friendly and lightweight.
 - Writes atomically to prevent file corruption.
 
@@ -37,56 +37,54 @@ Loved the project? Please consider [donating](https://buymeacoffee.com/khaleelgi
 **Node.js v12.x or greater is required for this package to work.**
 
 ```bash
-# npm
-npm install jsoning
-
-# or yarn if you're feeling fancy
+npm i jsoning
 yarn add jsoning
+pnpm i jsoning
 ```
 
 View the full documentation [here](https://jsoning.js.org/).
 
 ## Basic Usage 📑
 
-```js
-let jsoning = require("jsoning");
-let db = new jsoning("db.json");
+```ts
+import { Jsoning, MathOps } from 'jsoning';
+const db = new Jsoning('database.json');
 
 (async () => {
-	// set some values with a key
-	await db.set("birthday", "07-aug");
-	await db.set("age", "13");
+	// Set some values with a key
+	await db.set('birthday', '07-aug');
+	await db.set('age', '13');
 
-	// push stuff to an array for a particular key
-	await db.push("transformers", "optimus prime");
-	await db.push("transformers", "bumblebee");
-	await db.push("transformers", "iron hide");
+	// Push stuff to an array for a particular key
+	await db.push('transformers', 'optimus prime');
+	await db.push('transformers', 'bumblebee');
+	await db.push('transformers', 'iron hide');
 
-	// simply log what get is (i forgot what the transformers were)
-	console.log(await db.get("transformers")); // [ 'optimus prime', 'bumblebee', 'iron hide' ]
+	// Get the value of a key
+	console.log(await db.get('transformers')); // [ 'optimus prime', 'bumblebee', 'iron hide' ]
 
-	// just want to see what all is there
-	console.log(await db.all()); // { object of the whole database contents }
+	// Get all the values
+	console.log(await db.all()); // { Record<string, JSONValue> of the whole database contents }
 
-	// does such a value exist
-	console.log(await db.has("value2")); // false
+	// does such a value exist?
+	console.log(await db.has('value2')); // false
 
-	// my age keeps changing, so I'm deleting it
-	console.log(await db.delete("age")); // true
+	// My age keeps changing, so I'm deleting it
+	console.log(await db.delete('age')); // true
 
-	// i got 100$ for my birthday
-	await db.set("money", 100);
+	// I got $100 for my birthday
+	await db.set('money', 100);
 
-	// and someone gave me 200 more dollars xD
-	await db.math("money", "add", 200);
+	// and someone gave me $200 more
+	await db.math('money', MathOps.Add, 200);
 
-	// just wanna make sure how much money I got
-	console.log(await db.get("money")); // 300
+	// Just wanna make sure how much money I got
+	console.log(await db.get<number>('money')); // 300
 
-	// rip iron hide, he died
-	await db.remove("transformers", "iron hide");
+	// RIP iron hide, he died
+	await db.remove('transformers', 'iron hide');
 
-	// i'm getting bored, so i'm clearing the whole database
+	// I'm getting bored, so I'm clearing the whole database
 	await db.clear();
 })();
 ```
@@ -98,7 +96,7 @@ Please see `CONTRIBUTING.md` for more details on contributing!
 ### Contributors
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -107,18 +105,21 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table>
-  <tr>
-    <td align="center"><a href="https://github.com/khalby786"><img src="https://avatars.githubusercontent.com/u/38468163?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Khaleel Gibran</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=khalby786" title="Code">💻</a> <a href="https://github.com/khalby786/jsoning/commits?author=khalby786" title="Documentation">📖</a> <a href="#design-khalby786" title="Design">🎨</a> <a href="#infra-khalby786" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/khalby786/jsoning/commits?author=khalby786" title="Tests">⚠️</a> <a href="#tutorial-khalby786" title="Tutorials">✅</a></td>
-    <td align="center"><a href="https://aboutdavid.me/"><img src="https://avatars.githubusercontent.com/u/62346025?v=4?s=100" width="100px;" alt=""/><br /><sub><b>David</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=aboutDavid" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/Jonyk56"><img src="https://avatars.githubusercontent.com/u/44901605?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jonyk56</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=Jonyk56" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/ayntee"><img src="https://avatars.githubusercontent.com/u/34645569?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ayntee</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=ayntee" title="Code">💻</a></td>
-    <td align="center"><a href="https://xetha-bot.me/"><img src="https://avatars.githubusercontent.com/u/46276781?v=4?s=100" width="100px;" alt=""/><br /><sub><b>undefine</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=oadpoaw" title="Code">💻</a> <a href="https://github.com/khalby786/jsoning/issues?q=author%3Aoadpoaw" title="Bug reports">🐛</a> <a href="#security-oadpoaw" title="Security">🛡️</a></td>
-    <td align="center"><a href="https://github.com/adi-g15"><img src="https://avatars.githubusercontent.com/u/37269665?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Aditya Gupta</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=adi-g15" title="Code">💻</a></td>
-    <td align="center"><a href="http://www.creativepragmatics.com"><img src="https://avatars.githubusercontent.com/u/142797?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Manuel Maly</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=manmal" title="Code">💻</a> <a href="https://github.com/khalby786/jsoning/issues?q=author%3Amanmal" title="Bug reports">🐛</a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="https://wh0.github.io/"><img src="https://avatars.githubusercontent.com/u/382796?v=4?s=100" width="100px;" alt=""/><br /><sub><b>wh0</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=wh0" title="Code">💻</a></td>
-  </tr>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/khalby786"><img src="https://avatars.githubusercontent.com/u/38468163?v=4?s=100" width="100px;" alt="Khaleel Gibran"/><br /><sub><b>Khaleel Gibran</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=khalby786" title="Code">💻</a> <a href="https://github.com/khalby786/jsoning/commits?author=khalby786" title="Documentation">📖</a> <a href="#design-khalby786" title="Design">🎨</a> <a href="#infra-khalby786" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/khalby786/jsoning/commits?author=khalby786" title="Tests">⚠️</a> <a href="#tutorial-khalby786" title="Tutorials">✅</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://aboutdavid.me/"><img src="https://avatars.githubusercontent.com/u/62346025?v=4?s=100" width="100px;" alt="David"/><br /><sub><b>David</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=aboutDavid" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Jonyk56"><img src="https://avatars.githubusercontent.com/u/44901605?v=4?s=100" width="100px;" alt="Jonyk56"/><br /><sub><b>Jonyk56</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=Jonyk56" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ayntee"><img src="https://avatars.githubusercontent.com/u/34645569?v=4?s=100" width="100px;" alt="ayntee"/><br /><sub><b>ayntee</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=ayntee" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://xetha-bot.me/"><img src="https://avatars.githubusercontent.com/u/46276781?v=4?s=100" width="100px;" alt="undefine"/><br /><sub><b>undefine</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=oadpoaw" title="Code">💻</a> <a href="https://github.com/khalby786/jsoning/issues?q=author%3Aoadpoaw" title="Bug reports">🐛</a> <a href="#security-oadpoaw" title="Security">🛡️</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/adi-g15"><img src="https://avatars.githubusercontent.com/u/37269665?v=4?s=100" width="100px;" alt="Aditya Gupta"/><br /><sub><b>Aditya Gupta</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=adi-g15" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://www.creativepragmatics.com"><img src="https://avatars.githubusercontent.com/u/142797?v=4?s=100" width="100px;" alt="Manuel Maly"/><br /><sub><b>Manuel Maly</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=manmal" title="Code">💻</a> <a href="https://github.com/khalby786/jsoning/issues?q=author%3Amanmal" title="Bug reports">🐛</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://wh0.github.io/"><img src="https://avatars.githubusercontent.com/u/382796?v=4?s=100" width="100px;" alt="wh0"/><br /><sub><b>wh0</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=wh0" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://akpi.is-a.dev/"><img src="https://avatars.githubusercontent.com/u/111009970?v=4?s=100" width="100px;" alt="akpi816218"/><br /><sub><b>akpi816218</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=akpi816218" title="Code">💻</a> <a href="#content-akpi816218" title="Content">🖋</a> <a href="https://github.com/khalby786/jsoning/commits?author=akpi816218" title="Documentation">📖</a> <a href="#example-akpi816218" title="Examples">💡</a> <a href="#maintenance-akpi816218" title="Maintenance">🚧</a> <a href="https://github.com/khalby786/jsoning/commits?author=akpi816218" title="Tests">⚠️</a> <a href="#tool-akpi816218" title="Tools">🔧</a> <a href="#tutorial-akpi816218" title="Tutorials">✅</a></td>
+    </tr>
+  </tbody>
 </table>
 
 <!-- markdownlint-restore -->

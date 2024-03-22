@@ -1,10 +1,13 @@
 {
-  "include": ["src/jsoning.js"],
-  "compilerOptions": {
-    "target": "ES2017",
-    "moduleResolution": "node",
-    "allowJs": true,
-    "declaration": true,
-    "emitDeclarationOnly": true
-  }
+	"include": ["src/*.ts"],
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"target": "ESNext",
+		"moduleResolution": "node",
+		"allowJs": true,
+		"checkJs": true,
+		"declaration": true,
+		"declarationDir": "dist",
+		"outDir": "dist"
+	}
 }

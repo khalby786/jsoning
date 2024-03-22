@@ -1,0 +1,11 @@
+.github
+docs
+src
+tests
+.all-contributorsrc
+.eslintrc
+.gitignore
+.prettierrc
+docma.js
+tscconfig.json
+scripts
