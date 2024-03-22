@@ -5,10 +5,9 @@
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"scripts": {
-		"build": "npm run fmt && tsc && npm run docs:build",
+		"build": "npm run fmt && tsc && npm run gendocs",
 		"delete": "rm tests*/*.test.json",
-		"docs:build": "node docma.js && bash scripts/createcname.sh",
-		"docs:serve": "docma serve",
+		"gendocs": "node docma.js && bash scripts/createcname.sh",
 		"fmt": "prettier -w src",
 		"lint": "eslint src/index.ts",
 		"prepack": "npm run build",
@@ -27,7 +26,9 @@
 		"@typescript-eslint/parser": "^7.3.1",
 		"all-contributors-cli": "^6.26.1",
 		"ava": "^6.1.2",
+		"docdash": "^2.0.2",
 		"eslint": "^8.57.0",
+		"jsdoc": "^4.0.2",
 		"npm-check-updates": "^16.14.17",
 		"prettier": "3.2.5",
 		"typescript": "^5.4.3"

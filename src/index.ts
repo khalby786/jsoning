@@ -4,18 +4,20 @@ import writeFileAtomic from 'write-file-atomic';
 import { readFile, writeFile } from 'fs/promises';
 import EventEmitter from 'events';
 
+interface JSONValueArray extends Array<JSONValue> {}
+interface JSONValueRecord extends Record<string, JSONValue> {}
+
 /**
  * Defines the types element values can be.
  * @typedef JSONValue
- * @type {(string|number|boolean|Record<string, JSONValue>|JSONValue[]|undefined|null)}
+ * @type {(string|number|boolean|Record<string, JSONValue>|JSONValueArray|undefined|null)}
  */
-// @ts-expect-error Ignore circular reference
 export type JSONValue =
 	| string
 	| number
 	| boolean
-	| Record<string, JSONValue>
-	| JSONValue[]
+	| JSONValueRecord
+	| JSONValueArray
 	| undefined
 	| null;
 
@@ -189,11 +191,9 @@ export class Jsoning extends EventEmitter {
 	/**
 	 * Returns the value of an element by key.
 	 * @param {string} key The key of the element to be fetched.
-	 * @returns {Promise<(T extends JSONValue ? T : JSONValue) | null>} Returns value if element exists, else returns null.
+	 * @returns {Promise<JSONValue | null>} Returns value if element exists, else returns null.
 	 */
-	async get<T extends JSONValue>(
-		key: string
-	): Promise<(T extends JSONValue ? T : JSONValue) | null> {
+	async get<T extends JSONValue>(key: string): Promise<T | null> {
 		// look for tricks
 		if (typeof key !== 'string' || key == '') {
 			throw new TypeError('Invalid key of element');

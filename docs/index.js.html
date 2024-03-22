@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>index.js - Documentation</title>
+    
+    
+    <meta property="og:title" content="Jsoning"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content=""/>
+    <meta property="og:site_name" content="Jsoning"/>
+    <meta property="og:url" content="https://jsoning.js.org"/>
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Jsoning.html">Jsoning</a><ul class='methods'><li data-type='method'><a href="Jsoning.html#all">all</a></li><li data-type='method'><a href="Jsoning.html#all">all</a></li><li data-type='method'><a href="Jsoning.html#clear">clear</a></li><li data-type='method'><a href="Jsoning.html#clear">clear</a></li><li data-type='method'><a href="Jsoning.html#delete">delete</a></li><li data-type='method'><a href="Jsoning.html#delete">delete</a></li><li data-type='method'><a href="Jsoning.html#get">get</a></li><li data-type='method'><a href="Jsoning.html#get">get</a></li><li data-type='method'><a href="Jsoning.html#has">has</a></li><li data-type='method'><a href="Jsoning.html#has">has</a></li><li data-type='method'><a href="Jsoning.html#math">math</a></li><li data-type='method'><a href="Jsoning.html#math">math</a></li><li data-type='method'><a href="Jsoning.html#push">push</a></li><li data-type='method'><a href="Jsoning.html#push">push</a></li><li data-type='method'><a href="Jsoning.html#remove">remove</a></li><li data-type='method'><a href="Jsoning.html#remove">remove</a></li><li data-type='method'><a href="Jsoning.html#set">set</a></li><li data-type='method'><a href="Jsoning.html#set">set</a></li></ul></li><li></li></ul><h3>Events</h3><ul><li><a href="Jsoning.html#event:clear">clear</a></li><li></li><li><a href="Jsoning.html#event:copy">copy</a></li><li></li><li><a href="Jsoning.html#event:delete">delete</a></li><li></li><li><a href="Jsoning.html#event:get">get</a></li><li></li><li><a href="Jsoning.html#event:push">push</a></li><li></li><li><a href="Jsoning.html#event:remove">remove</a></li><li></li><li><a href="Jsoning.html#event:set">set</a></li><li></li></ul><h3>Global</h3><ul><li><a href="global.html#MathOps">MathOps</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">index.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { resolve } from 'path';
+import { existsSync, readFileSync, writeFileSync } from 'fs';
+import writeFileAtomic from 'write-file-atomic';
+import { readFile, writeFile } from 'fs/promises';
+import EventEmitter from 'events';
+/**
+ * @enum {string} MathOps
+ * @readonly
+ */
+export var MathOps;
+(function (MathOps) {
+    MathOps["Add"] = "add";
+    MathOps["Subtract"] = "subtract";
+    MathOps["Multiply"] = "multiply";
+    MathOps["Divide"] = "divide";
+})(MathOps || (MathOps = {}));
+export var Events;
+(function (Events) {
+    Events["Get"] = "get";
+    Events["Set"] = "set";
+    Events["Delete"] = "delete";
+    Events["Clear"] = "clear";
+    Events["Push"] = "push";
+    Events["Remove"] = "remove";
+    Events["Copy"] = "copy";
+})(Events || (Events = {}));
+/**
+ * The main class exported by the module.
+ * @extends EventEmitter
+ */
+export class Jsoning extends EventEmitter {
+    /**
+     * Emitted when the database is read.
+     * @event Jsoning#get
+     * @param {string} key The key of the element that was read.
+     * @param {JSONValue} value The value of the element that was read.
+     */
+    /**
+     * Emitted when an element is set.
+     * @event Jsoning#set
+     * @param {string} key The key of the element that was set.
+     * @param {JSONValue} oldValue The old value of the element.
+     * @param {JSONValue} newValue The new value of the element.
+     */
+    /**
+     * Emitted when an element is deleted.
+     * @event Jsoning#delete
+     * @param {string} key The key of the element that was deleted.
+     * @param {JSONValue} value The value of the element that was deleted.
+     */
+    /**
+     * Emitted when the database is cleared.
+     * @event Jsoning#clear
+     * @param {Record&lt;string, JSONValue>} data The data that was cleared.
+     */
+    /**
+     * Emitted when a value is pushed to an array.
+     * @event Jsoning#push
+     * @param {string} key The key of the element that was pushed to.
+     * @param {JSONValue} value The value that was pushed to the element.
+     * @param {JSONValue[]} array The array that was pushed to (before modification).
+     */
+    /**
+     * Emitted when a value is removed from an array.
+     * @event Jsoning#remove
+     * @param {string} key The key of the element that was removed from.
+     * @param {JSONValue} value The value that was removed from the element (before modification).
+     */
+    /**
+     * Emitted when the database is copied.
+     * @event Jsoning#copy
+     * @param {string} destination The path to which the database was copied.
+     * @param {Record&lt;string, JSONValue>} data The data that was copied.
+     */
+    database;
+    /**
+     * Create a new JSON file for storing or initialize an exisiting file to be used.
+     * @param {string} database Path to the JSON file to be created or used.
+     */
+    constructor(database) {
+        super();
+        // use an existing database or create a new one
+        if (!existsSync(resolve(process.cwd(), database)))
+            writeFileSync(resolve(process.cwd(), database), '{}');
+        else
+            try {
+                JSON.parse(readFileSync(resolve(process.cwd(), database), 'utf-8'));
+            }
+            catch (err) {
+                throw new Error('Invalid JSON file');
+            }
+        /**
+         * @property {string} database Path to the JSON file to be used.
+         */
+        this.database = database;
+    }
+    /**
+     * Adds an element to the database with the given value. If element with the given key exists, element value is updated.
+     * @param {string} key Key of the element to be set.
+     * @param {JSONValue} value Value of the element to be set.
+     * @returns {Promise&lt;boolean>} If element is set/updated successfully, returns true; else false.
+     * @fires Jsoning#set
+     */
+    async set(key, value) {
+        // check for tricks
+        if (typeof key !== 'string' || key === '') {
+            throw new TypeError('Invalid key');
+        }
+        const db = JSON.parse(await readFile(resolve(process.cwd(), this.database), 'utf-8'));
+        const oldValue = db[key];
+        db[key] = value;
+        try {
+            await writeFileAtomic(resolve(process.cwd(), this.database), JSON.stringify(db));
+            this.emit(Events.Set, key, oldValue, value);
+            return true;
+        }
+        catch (err) {
+            throw new Error(`Failed to set element: ${err}`);
+        }
+    }
+    /**
+     * Returns all the elements and their values of the JSON file.
+     * @returns {Promise&lt;Record&lt;string, JSONValue>>} All the key-value pairs of the database.
+     */
+    async all() {
+        return JSON.parse(await readFile(resolve(process.cwd(), this.database), 'utf-8'));
+    }
+    /**
+     * Deletes an element from the database based on its key.
+     * @param {string} key The key of the element to be deleted.
+     * @returns {Promise&lt;boolean>} Returns true if the value exists, else returns false.
+     */
+    async delete(key) {
+        // check for tricks
+        if (typeof key !== 'string' || key === '') {
+            throw new TypeError('Invalid key of element');
+        }
+        const db = JSON.parse(await readFile(resolve(process.cwd(), this.database), 'utf-8'));
+        if (key in db) {
+            try {
+                const removeProp = key;
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                const { [removeProp]: remove, ...rest } = db;
+                await writeFileAtomic(resolve(process.cwd(), this.database), JSON.stringify(rest));
+                this.emit(Events.Delete, key, db[key]);
+                return true;
+            }
+            catch (err) {
+                throw new Error(`Failed to delete element: ${err}`);
+            }
+        }
+        else {
+            return false;
+        }
+    }
+    /**
+     * Returns the value of an element by key.
+     * @param {string} key The key of the element to be fetched.
+     * @returns {Promise&lt;JSONValue | null>} Returns value if element exists, else returns null.
+     */
+    async get(key) {
+        // look for tricks
+        if (typeof key !== 'string' || key == '') {
+            throw new TypeError('Invalid key of element');
+        }
+        const db = JSON.parse(await readFile(resolve(process.cwd(), this.database), 'utf-8'));
+        if (key in db) {
+            this.emit(Events.Get, key, db[key]);
+            return db[key];
+        }
+        else {
+            return null;
+        }
+    }
+    /**
+     * Deletes the contents of the JSON file.
+     * @returns {Promise&lt;boolean>} Returns true if the file is cleared, else false.
+     */
+    async clear() {
+        try {
+            await writeFileAtomic(resolve(process.cwd(), this.database), JSON.stringify({}));
+            const data = JSON.parse(await readFile(resolve(process.cwd(), this.database), 'utf-8'));
+            this.emit(Events.Clear, data);
+            return true;
+        }
+        catch (err) {
+            throw new Error(`Failed to clear database: ${err}`);
+        }
+    }
+    /**
+     * Performs basic mathematical operations on values of elements.
+     * @param {string} key The key of the element on which the mathematical operation is to be performed.
+     * @param {MathOps} operation The operation to perform, one of add, subtract, multiply and divide.
+     * @param {number} operand The number for performing the mathematical operation (the operand).
+     * @returns {Promise&lt;boolean>} True if the operation succeeded, else false.
+     */
+    async math(key, operation, operand) {
+        // key types
+        if (typeof key !== 'string' || key == '') {
+            throw new TypeError('Invalid key of element');
+        }
+        // operation tricks
+        if (typeof operation !== 'string') {
+            throw new TypeError('Invalid Jsoning#math operation.');
+        }
+        // operand tricks
+        if (typeof operand !== 'number') {
+            throw new TypeError('Operand must be a number type!');
+        }
+        // see if value exists
+        const db = JSON.parse(await readFile(resolve(process.cwd(), this.database), 'utf-8'));
+        if (key in db) {
+            // key exists
+            const value = db[key];
+            if (typeof value !== 'number') {
+                throw new TypeError('Key of existing element must be a number for Jsoning#math to happen.');
+            }
+            let result;
+            switch (operation) {
+                case MathOps.Add:
+                    result = value + operand;
+                    break;
+                case MathOps.Subtract:
+                    result = value - operand;
+                    break;
+                case MathOps.Multiply:
+                    result = value * operand;
+                    break;
+                case MathOps.Divide:
+                    result = value / operand;
+                    break;
+                default:
+                    throw new Error('Operation not found!');
+            }
+            db[key] = result;
+            try {
+                await writeFileAtomic(resolve(process.cwd(), this.database), JSON.stringify(db));
+                this.emit(Events.Set, key, value, result);
+                return true;
+            }
+            catch (err) {
+                throw new Error(`Failed to perform math operation: ${err}`);
+            }
+        }
+        else {
+            // key doesn't exist
+            return false;
+        }
+    }
+    /**
+     * Check if a particular element exists by key.
+     * @param {string} key The key of the element to see if the element exists.
+     * @returns {Promise&lt;boolean>} True if the element exists, false if the element doesn't exist.
+     */
+    async has(key) {
+        // too many tricks
+        if (typeof key !== 'string' || key == '') {
+            throw new TypeError('Invalid key of element');
+        }
+        const db = JSON.parse(await readFile(resolve(process.cwd(), this.database), 'utf-8'));
+        if (key in db) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    /**
+     * Adds the given value into the provided element (if it's an array) in the database based on the key. If no such element exists, it will initialize a new element with an empty array.
+     * @param {string} key The key of the element.
+     * @param {JSONValue} value The value to be added to the element array.
+     * @returns {Promise&lt;true>} True if the the value was pushed to an array successfully, else false.
+     */
+    async push(key, value) {
+        // see if element exists
+        const db = JSON.parse(await readFile(resolve(process.cwd(), this.database), 'utf-8'));
+        if (key in db) {
+            if (!Array.isArray(db[key])) {
+                // it's not an array!
+                if (db[key] !== undefined || db[key] !== null) {
+                    // its not undefined or null
+                    throw new TypeError('Existing element must be of type Array for Jsoning#push to work.');
+                }
+                else if (db[key] === undefined || db[key] === null) {
+                    // it may not be an array, but its either undefined or null
+                    // so we initialize a new array
+                    db[key] = [];
+                    db[key].push(value);
+                    try {
+                        await writeFileAtomic(resolve(process.cwd(), this.database), JSON.stringify(db));
+                        this.emit(Events.Push, key, value, db[key]);
+                        return true;
+                    }
+                    catch (err) {
+                        throw new Error(`Failed to push element: ${err}`);
+                    }
+                }
+            }
+            else {
+                // but what if...? it was an array
+                db[key].push(value);
+                try {
+                    await writeFileAtomic(resolve(process.cwd(), this.database), JSON.stringify(db));
+                    return true;
+                }
+                catch (err) {
+                    throw new Error(`Failed to push element: ${err}`);
+                }
+            }
+        }
+        else {
+            // key doesn't exist, so let's make one and do the pushing
+            db[key] = [];
+            db[key].push(value);
+            try {
+                await writeFileAtomic(resolve(process.cwd(), this.database), JSON.stringify(db));
+                this.emit(Events.Push, key, value, db[key]);
+                return true;
+            }
+            catch (err) {
+                throw new Error(`Failed to push element: ${err}`);
+            }
+        }
+    }
+    /**
+     * Removes a given primitive value from an array in the database based on the key. If the value does not exist or is not an array, it will do nothing.
+     * @param {string} key The key of the element.
+     * @param {JSONValue} value The value to be removed from the element array.
+     * @returns {Promise&lt;boolean>} True if successfully removed or not found or the key does not exist, else false.
+     */
+    async remove(key, value) {
+        // see if element exists
+        const db = JSON.parse(await readFile(resolve(process.cwd(), this.database), 'utf-8'));
+        if (!(key in db)) {
+            return true;
+        }
+        if (!Array.isArray(db[key])) {
+            throw new Error('Existing element must be of type Array for Jsoning#remove to work.');
+        }
+        db[key] = db[key].filter((item) => item !== value);
+        try {
+            await writeFileAtomic(resolve(process.cwd(), this.database), JSON.stringify(db));
+            this.emit(Events.Remove, key, value);
+            return true;
+        }
+        catch (err) {
+            throw new Error(`Failed to remove element: ${err}`);
+        }
+    }
+    async copy(destination, createInstance) {
+        const data = await readFile(resolve(process.cwd(), this.database), 'utf-8');
+        try {
+            JSON.parse(data);
+        }
+        catch (err) {
+            throw new Error('Invalid JSON file, aborted copy to prevent malformed data');
+        }
+        await writeFile(resolve(process.cwd(), destination), data);
+        this.emit(Events.Copy, destination, JSON.parse(data));
+        if (createInstance)
+            return new Jsoning(destination);
+    }
+}
+export default Jsoning;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Fri Mar 22 2024 09:10:52 GMT-0700 (Pacific Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>
