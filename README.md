@@ -50,43 +50,41 @@ View the full documentation [here](https://jsoning.js.org/).
 import { Jsoning, MathOps } from 'jsoning';
 const db = new Jsoning('database.json');
 
-(async () => {
-	// Set some values with a key
-	await db.set('birthday', '07-aug');
-	await db.set('age', '13');
+// Set some values with a key
+await db.set('birthday', '07-aug');
+await db.set('age', '13');
 
-	// Push stuff to an array for a particular key
-	await db.push('transformers', 'optimus prime');
-	await db.push('transformers', 'bumblebee');
-	await db.push('transformers', 'iron hide');
+// Push stuff to an array for a particular key
+await db.push('transformers', 'optimus prime');
+await db.push('transformers', 'bumblebee');
+await db.push('transformers', 'iron hide');
 
-	// Get the value of a key
-	console.log(await db.get('transformers')); // [ 'optimus prime', 'bumblebee', 'iron hide' ]
+// Get the value of a key
+console.log(await db.get('transformers')); // [ 'optimus prime', 'bumblebee', 'iron hide' ]
 
-	// Get all the values
-	console.log(await db.all()); // { Record<string, JSONValue> of the whole database contents }
+// Get all the values
+console.log(await db.all()); // { Record<string, JSONValue> of the whole database contents }
 
-	// does such a value exist?
-	console.log(await db.has('value2')); // false
+// does such a value exist?
+console.log(await db.has('value2')); // false
 
-	// My age keeps changing, so I'm deleting it
-	console.log(await db.delete('age')); // true
+// My age keeps changing, so I'm deleting it
+console.log(await db.delete('age')); // true
 
-	// I got $100 for my birthday
-	await db.set('money', 100);
+// I got $100 for my birthday
+await db.set('money', 100);
 
-	// and someone gave me $200 more
-	await db.math('money', MathOps.Add, 200);
+// and someone gave me $200 more
+await db.math('money', MathOps.Add, 200);
 
-	// Just wanna make sure how much money I got
-	console.log(await db.get<number>('money')); // 300
+// Just wanna make sure how much money I got
+console.log(await db.get<number>('money')); // 300
 
-	// RIP iron hide, he died
-	await db.remove('transformers', 'iron hide');
+// RIP iron hide, he died
+await db.remove('transformers', 'iron hide');
 
-	// I'm getting bored, so I'm clearing the whole database
-	await db.clear();
-})();
+// I'm getting bored, so I'm clearing the whole database
+await db.clear();
 ```
 
 ## Contributing
@@ -117,7 +115,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://wh0.github.io/"><img src="https://avatars.githubusercontent.com/u/382796?v=4?s=100" width="100px;" alt="wh0"/><br /><sub><b>wh0</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=wh0" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://akpi.is-a.dev/"><img src="https://avatars.githubusercontent.com/u/111009970?v=4?s=100" width="100px;" alt="akpi816218"/><br /><sub><b>akpi816218</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=akpi816218" title="Code">💻</a> <a href="#content-akpi816218" title="Content">🖋</a> <a href="https://github.com/khalby786/jsoning/commits?author=akpi816218" title="Documentation">📖</a> <a href="#example-akpi816218" title="Examples">💡</a> <a href="#maintenance-akpi816218" title="Maintenance">🚧</a> <a href="https://github.com/khalby786/jsoning/commits?author=akpi816218" title="Tests">⚠️</a> <a href="#tool-akpi816218" title="Tools">🔧</a> <a href="#tutorial-akpi816218" title="Tutorials">✅</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://akpi.is-a.dev/"><img src="https://avatars.githubusercontent.com/u/111009970?v=4?s=100" width="100px;" alt="akpi816218"/><br /><sub><b>akpi816218</b></sub></a><br /><a href="https://github.com/khalby786/jsoning/commits?author=akpi816218" title="Code">💻</a> <a href="https://github.com/khalby786/jsoning/commits?author=akpi816218" title="Documentation">📖</a> <a href="#example-akpi816218" title="Examples">💡</a> <a href="#maintenance-akpi816218" title="Maintenance">🚧</a> <a href="https://github.com/khalby786/jsoning/commits?author=akpi816218" title="Tests">⚠️</a> <a href="#tool-akpi816218" title="Tools">🔧</a></td>
     </tr>
   </tbody>
 </table>

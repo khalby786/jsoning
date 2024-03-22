@@ -1,0 +1,16 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["./src/index.ts"],
+  "out": "./docs",
+  "cname": "jsoning.js.org",
+  "githubPages": true,
+  "includeVersion": true,
+  "name": "Jsoning",
+  "navigation": true,
+  "readme": "./README.md",
+  "sidebarLinks": {
+    "GitHub": "https://github.com/khalby786/jsoning"
+  },
+  "sitemapBaseUrl": "https://jsoning.js.org",
+  "plugin": ["typedoc-material-theme"]
+}

@@ -97,13 +97,11 @@
 			"profile": "https://akpi.is-a.dev/",
 			"contributions": [
 				"code",
-				"content",
 				"doc",
 				"example",
 				"maintenance",
 				"test",
-				"tool",
-				"tutorial"
+				"tool"
 			]
 		}
 	],
