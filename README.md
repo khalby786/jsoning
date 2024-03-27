@@ -32,9 +32,9 @@ Jsoning is a simplified wrapper for Node.js that lets you write and read data to
 - Easier to use than a toaster
 - TypeScript support for all the fixed-type addicts out there
 
-## Install 💾
+## Install
 
-**Node.js v18.x or greater is required for this package to work.**
+**Node.js v16.x or greater is required for this package to work.**
 
 ```bash
 npm i jsoning
