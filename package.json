@@ -1,52 +1,56 @@
 {
-  "name": "jsoning",
-  "version": "0.13.23",
-  "description": "A simple key-value JSON-based persistent lightweight database.",
-  "main": "src/jsoning.js",
-  "types": "src/jsoning.d.ts",
-  "scripts": {
-    "start": "node src/jsoning.js",
-    "test": "nyc ava",
-    "posttest": "npm run delete",
-    "test:npm": "node tests/npmtest.js",
-    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "docs:build": "node docma.js && bash scripts/createcname.sh",
-    "docs:serve": "cd tests && docma serve",
-    "delete": "rm *.test.json */*.test.json",
-    "lint": "eslint src/jsoning.js",
-    "tsc:types": "tsc src/jsoning.js"
-  },
-  "dependencies": {
-    "write-file-atomic": "^3.0.3"
-  },
-  "devDependencies": {
-    "all-contributors-cli": "^6.20.0",
-    "ava": "^3.15.0",
-    "clean-documentation-theme": "^0.5.2",
-    "codecov": "^3.8.1",
-    "docma": "^3.2.2",
-    "eslint": "^7.21.0",
-    "express": "*",
-    "minami": "^1.2.3",
-    "nyc": "^15.1.0",
-    "prettier": "2.2.1",
-    "typescript": "^4.2.4"
-  },
-  "repository": "khalby786/jsoning",
-  "homepage": "https://jsoning.js.org",
-  "license": "MIT",
-  "keywords": [
-    "json",
-    "database"
-  ],
-  "author": {
-    "name": "Khaleel Gibran",
-    "url": "https://github.com/khalby786/jsoning"
-  },
-  "engines": {
-    "node": ">=0.12"
-  },
-  "files": [
-    "src"
-  ]
+	"name": "jsoning",
+	"version": "1.0.0",
+	"description": "A simple key-value JSON-based persistent lightweight database.",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "npm run fmt && tsc && npm run gendocs",
+		"delete": "rm tests*/*.test.json",
+		"gendocs": "typedoc",
+		"fmt": "prettier -w src",
+		"lint": "eslint src/index.ts",
+		"prepack": "npm run build",
+		"prepublishOnly": "npm run build",
+		"pretest": "npm run build",
+		"test": "npx ava tests/test.js",
+		"upgrade": "ncu -u && npm i"
+	},
+	"dependencies": {
+		"write-file-atomic": "^5.0.1"
+	},
+	"devDependencies": {
+		"@types/node": "^20.11.30",
+		"@types/write-file-atomic": "^4.0.3",
+		"@typescript-eslint/eslint-plugin": "^7.3.1",
+		"@typescript-eslint/parser": "^7.3.1",
+		"all-contributors-cli": "^6.26.1",
+		"ava": "^6.1.2",
+		"docdash": "^2.0.2",
+		"eslint": "^8.57.0",
+		"jsdoc": "^4.0.2",
+		"npm-check-updates": "^16.14.17",
+		"prettier": "3.2.5",
+		"typedoc": "^0.25.12",
+		"typedoc-material-theme": "^1.0.2",
+		"typescript": "^5.4.3"
+	},
+	"repository": "khalby786/jsoning",
+	"homepage": "https://jsoning.js.org",
+	"license": "MIT",
+	"keywords": [
+		"json",
+		"database"
+	],
+	"author": {
+		"name": "Khaleel Gibran",
+		"url": "https://github.com/khalby786"
+	},
+	"contributors": [
+		{
+			"name": "Akhil Pillai",
+			"url": "https://akpi.is-a.dev/"
+		}
+	],
+	"type": "module"
 }

@@ -1,96 +1,110 @@
 {
-  "projectName": "jsoning",
-  "projectOwner": "khalby786",
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "files": [
-    "README.md"
-  ],
-  "imageSize": 100,
-  "commit": true,
-  "commitConvention": "angular",
-  "contributors": [
-    {
-      "login": "khalby786",
-      "name": "Khaleel Gibran",
-      "avatar_url": "https://avatars.githubusercontent.com/u/38468163?v=4",
-      "profile": "https://github.com/khalby786",
-      "contributions": [
-        "code",
-        "doc",
-        "design",
-        "infra",
-        "test",
-        "tutorial"
-      ]
-    },
-    {
-      "login": "aboutDavid",
-      "name": "David",
-      "avatar_url": "https://avatars.githubusercontent.com/u/62346025?v=4",
-      "profile": "https://aboutdavid.me/",
-      "contributions": [
-        "doc"
-      ]
-    },
-    {
-      "login": "Jonyk56",
-      "name": "Jonyk56",
-      "avatar_url": "https://avatars.githubusercontent.com/u/44901605?v=4",
-      "profile": "https://github.com/Jonyk56",
-      "contributions": [
-        "code"
-      ]
-    },
-    {
-      "login": "ayntee",
-      "name": "ayntee",
-      "avatar_url": "https://avatars.githubusercontent.com/u/34645569?v=4",
-      "profile": "https://github.com/ayntee",
-      "contributions": [
-        "code"
-      ]
-    },
-    {
-      "login": "oadpoaw",
-      "name": "undefine",
-      "avatar_url": "https://avatars.githubusercontent.com/u/46276781?v=4",
-      "profile": "https://xetha-bot.me/",
-      "contributions": [
-        "code",
-        "bug",
-        "security"
-      ]
-    },
-    {
-      "login": "adi-g15",
-      "name": "Aditya Gupta",
-      "avatar_url": "https://avatars.githubusercontent.com/u/37269665?v=4",
-      "profile": "https://github.com/adi-g15",
-      "contributions": [
-        "code"
-      ]
-    },
-    {
-      "login": "manmal",
-      "name": "Manuel Maly",
-      "avatar_url": "https://avatars.githubusercontent.com/u/142797?v=4",
-      "profile": "http://www.creativepragmatics.com",
-      "contributions": [
-        "code",
-        "bug"
-      ]
-    },
-    {
-      "login": "wh0",
-      "name": "wh0",
-      "avatar_url": "https://avatars.githubusercontent.com/u/382796?v=4",
-      "profile": "https://wh0.github.io/",
-      "contributions": [
-        "code"
-      ]
-    }
-  ],
-  "contributorsPerLine": 7,
-  "skipCi": true
+	"projectName": "jsoning",
+	"projectOwner": "khalby786",
+	"repoType": "github",
+	"repoHost": "https://github.com",
+	"files": [
+		"README.md"
+	],
+	"imageSize": 100,
+	"commit": true,
+	"commitConvention": "angular",
+	"contributors": [
+		{
+			"login": "khalby786",
+			"name": "Khaleel Gibran",
+			"avatar_url": "https://avatars.githubusercontent.com/u/38468163?v=4",
+			"profile": "https://github.com/khalby786",
+			"contributions": [
+				"code",
+				"doc",
+				"design",
+				"infra",
+				"test",
+				"tutorial"
+			]
+		},
+		{
+			"login": "aboutDavid",
+			"name": "David",
+			"avatar_url": "https://avatars.githubusercontent.com/u/62346025?v=4",
+			"profile": "https://aboutdavid.me/",
+			"contributions": [
+				"doc"
+			]
+		},
+		{
+			"login": "Jonyk56",
+			"name": "Jonyk56",
+			"avatar_url": "https://avatars.githubusercontent.com/u/44901605?v=4",
+			"profile": "https://github.com/Jonyk56",
+			"contributions": [
+				"code"
+			]
+		},
+		{
+			"login": "ayntee",
+			"name": "ayntee",
+			"avatar_url": "https://avatars.githubusercontent.com/u/34645569?v=4",
+			"profile": "https://github.com/ayntee",
+			"contributions": [
+				"code"
+			]
+		},
+		{
+			"login": "oadpoaw",
+			"name": "undefine",
+			"avatar_url": "https://avatars.githubusercontent.com/u/46276781?v=4",
+			"profile": "https://xetha-bot.me/",
+			"contributions": [
+				"code",
+				"bug",
+				"security"
+			]
+		},
+		{
+			"login": "adi-g15",
+			"name": "Aditya Gupta",
+			"avatar_url": "https://avatars.githubusercontent.com/u/37269665?v=4",
+			"profile": "https://github.com/adi-g15",
+			"contributions": [
+				"code"
+			]
+		},
+		{
+			"login": "manmal",
+			"name": "Manuel Maly",
+			"avatar_url": "https://avatars.githubusercontent.com/u/142797?v=4",
+			"profile": "http://www.creativepragmatics.com",
+			"contributions": [
+				"code",
+				"bug"
+			]
+		},
+		{
+			"login": "wh0",
+			"name": "wh0",
+			"avatar_url": "https://avatars.githubusercontent.com/u/382796?v=4",
+			"profile": "https://wh0.github.io/",
+			"contributions": [
+				"code"
+			]
+		},
+		{
+			"login": "akpi816218",
+			"name": "akpi816218",
+			"avatar_url": "https://avatars.githubusercontent.com/u/111009970?v=4",
+			"profile": "https://akpi.is-a.dev/",
+			"contributions": [
+				"code",
+				"doc",
+				"example",
+				"maintenance",
+				"test",
+				"tool"
+			]
+		}
+	],
+	"contributorsPerLine": 7,
+	"skipCi": true
 }
