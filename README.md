@@ -1,6 +1,6 @@
 <div align="center">
 
-![jsoning](https://raw.githubusercontent.com/khalby786/jsoning/master/media/jsoning.svg)
+<img src="https://raw.githubusercontent.com/khalby786/jsoning/master/media/jsoning.svg" alt="jsoning" width="250px">
 
 ✨ A simple key-value JSON-based lightweight database. ✨
 
