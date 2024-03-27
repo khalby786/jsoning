@@ -1,11 +1,11 @@
-.github
 docs
 src
 tests
+docma.js
+tsconfig.json
+scripts
+.github
 .all-contributorsrc
 .eslintrc
 .gitignore
 .prettierrc
-docma.js
-tsconfig.json
-scripts
