@@ -10,6 +10,12 @@ import { Jsoning } from '../dist/index.js';
 import { readdir, rm } from 'fs/promises';
 import { join, resolve } from 'path';
 
+test("New Jsoning with non-JSON file", async t => {
+	t.throws(
+    () => new Jsoning("./tests/test0.test.txt", { ignoreJsonFileCheck: false })
+  );
+});
+
 test('Jsoning#set', async t => {
 	const db = new Jsoning('./tests/test1.test.json');
 	t.is(await db.set('foo', 'bar'), true);

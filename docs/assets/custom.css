@@ -1,0 +1,7 @@
+@import url("https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css");
+@import url("https://rsms.me/inter/inter.css");
+
+:root {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  --font-mono: "Hack", "Fira Code", "Fira Mono", "Roboto Mono", monospace !important;
+}

@@ -12,5 +12,9 @@
     "GitHub": "https://github.com/khalby786/jsoning"
   },
   "sitemapBaseUrl": "https://jsoning.js.org",
-  "plugin": ["typedoc-material-theme"]
+  "plugin": ["typedoc-material-theme"],
+  "themeColor": "#6750A4",
+  "searchInComments": true,
+  "customCss": "./media/typedoc_css.css",
+  "hideGenerator": true
 }

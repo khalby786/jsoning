@@ -1,13 +1,13 @@
 {
-	"include": ["src/*.ts"],
+	"include": ["src/**/*"],
 	"compilerOptions": {
-		"allowSyntheticDefaultImports": true,
-		"target": "ESNext",
-		"moduleResolution": "node",
-		"allowJs": true,
-		"checkJs": true,
-		"declaration": true,
-		"declarationDir": "dist",
-		"outDir": "dist"
-	}
+    "allowSyntheticDefaultImports": true,
+		"module": "Node16",
+    "target": "ESNext",
+    "allowJs": true,
+    "checkJs": true,
+    "declaration": true,
+    "declarationDir": "dist",
+    "outDir": "dist"
+  }
 }

@@ -1,8 +1,8 @@
-import { resolve } from 'path';
-import { existsSync, readFileSync, writeFileSync } from 'fs';
-import writeFileAtomic from 'write-file-atomic';
-import { readFile, writeFile } from 'fs/promises';
-import EventEmitter from 'events';
+import { resolve } from "path";
+import { existsSync, readFileSync, writeFileSync } from "fs";
+import { readFile, writeFile } from "fs/promises";
+import EventEmitter from "events";
+import writeFileAtomic from "write-file-atomic";
 
 export interface JSONValueArray extends Array<JSONValue> {}
 export interface JSONValueRecord extends Record<string, JSONValue> {}
@@ -22,24 +22,37 @@ export type JSONValue =
   | null;
 
 /**
+ * Defines the types element values can be.
+ * @typedef JsoningOptions
+ * @type {{ignoreJsonFileCheck?: boolean}}
+ */
+export type JsoningOptions = {
+  /**
+   * Whether to ignore if the file is not a JSON file. Default is `true`.
+   * @type {boolean}
+   */
+  ignoreJsonFileCheck?: boolean;
+};
+
+/**
  * @enum {string} MathOps
  * @readonly
  */
 export enum MathOps {
-  Add = 'add',
-  Subtract = 'subtract',
-  Multiply = 'multiply',
-  Divide = 'divide'
+  Add = "add",
+  Subtract = "subtract",
+  Multiply = "multiply",
+  Divide = "divide"
 }
 
 export enum Events {
-  Get = 'get',
-  Set = 'set',
-  Delete = 'delete',
-  Clear = 'clear',
-  Push = 'push',
-  Remove = 'remove',
-  Copy = 'copy'
+  Get = "get",
+  Set = "set",
+  Delete = "delete",
+  Clear = "clear",
+  Push = "push",
+  Remove = "remove",
+  Copy = "copy"
 }
 
 /**
@@ -92,22 +105,41 @@ export class Jsoning extends EventEmitter {
    */
 
   database: string;
+  options: JsoningOptions;
 
   /**
    * Create a new JSON file for storing or initialize an exisiting file to be used.
    * @param {string} database Path to the JSON file to be created or used.
    */
-  constructor(database: string) {
+  constructor(
+    database: string,
+    options: JsoningOptions = {
+      ignoreJsonFileCheck: true
+    }
+  ) {
     super();
+
     // use an existing database or create a new one
     if (!existsSync(resolve(process.cwd(), database)))
-      writeFileSync(resolve(process.cwd(), database), '{}');
+      writeFileSync(resolve(process.cwd(), database), "{}");
     else
       try {
-        JSON.parse(readFileSync(resolve(process.cwd(), database), 'utf-8'));
+        JSON.parse(readFileSync(resolve(process.cwd(), database), "utf-8"));
       } catch (err) {
-        throw new Error('Invalid JSON file');
+        throw new Error("Invalid JSON file");
       }
+
+    /**
+     * @property {JsoningOptions} options Options for the Jsoning instance.
+     */
+    this.options = options;
+
+    if (!/\w+.json/.test(database) && !options.ignoreJsonFileCheck) {
+      // database name MUST be of the pattern "words.json" unless the user forces it
+      throw new TypeError(
+        "Invalid database file name. Make sure to provide a valid JSON database filename."
+      );
+    }
 
     /**
      * @property {string} database Path to the JSON file to be used.
@@ -123,21 +155,23 @@ export class Jsoning extends EventEmitter {
    * @fires Jsoning#set
    */
   async set(key: string, value: JSONValue): Promise<boolean> {
-    // check for tricks
-    if (typeof key !== 'string' || key === '') {
-      throw new TypeError('Invalid key');
+    if (typeof key !== "string" || key === "") {
+      throw new TypeError("Invalid key");
     }
 
     const db = JSON.parse(
-      await readFile(resolve(process.cwd(), this.database), 'utf-8')
+      await readFile(resolve(process.cwd(), this.database), "utf-8")
     );
+
     const oldValue = db[key];
     db[key] = value;
+
     try {
       await writeFileAtomic(
         resolve(process.cwd(), this.database),
         JSON.stringify(db)
       );
+
       this.emit(Events.Set, key, oldValue, value);
       return true;
     } catch (err) {
@@ -151,7 +185,7 @@ export class Jsoning extends EventEmitter {
    */
   async all(): Promise<Record<string, JSONValue>> {
     return JSON.parse(
-      await readFile(resolve(process.cwd(), this.database), 'utf-8')
+      await readFile(resolve(process.cwd(), this.database), "utf-8")
     );
   }
 
@@ -161,23 +195,25 @@ export class Jsoning extends EventEmitter {
    * @returns {Promise<boolean>} Returns true if the value exists, else returns false.
    */
   async delete(key: string): Promise<boolean> {
-    // check for tricks
-    if (typeof key !== 'string' || key === '') {
-      throw new TypeError('Invalid key of element');
+    if (typeof key !== "string" || key === "") {
+      throw new TypeError("Invalid key of element");
     }
 
     const db = JSON.parse(
-      await readFile(resolve(process.cwd(), this.database), 'utf-8')
+      await readFile(resolve(process.cwd(), this.database), "utf-8")
     );
+
     if (key in db) {
       try {
         const removeProp = key;
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { [removeProp]: remove, ...rest } = db;
+
         await writeFileAtomic(
           resolve(process.cwd(), this.database),
           JSON.stringify(rest)
         );
+
         this.emit(Events.Delete, key, db[key]);
         return true;
       } catch (err) {
@@ -195,13 +231,12 @@ export class Jsoning extends EventEmitter {
    * @returns {Promise<JSONValue | null>} Returns value if element exists, else returns null.
    */
   async get<T extends JSONValue>(key: string): Promise<T | null> {
-    // look for tricks
-    if (typeof key !== 'string' || key == '') {
-      throw new TypeError('Invalid key of element');
+    if (typeof key !== "string" || key == "") {
+      throw new TypeError("Invalid key of element");
     }
 
     const db = JSON.parse(
-      await readFile(resolve(process.cwd(), this.database), 'utf-8')
+      await readFile(resolve(process.cwd(), this.database), "utf-8")
     );
     if (key in db) {
       this.emit(Events.Get, key, db[key]);
@@ -222,8 +257,9 @@ export class Jsoning extends EventEmitter {
         JSON.stringify({})
       );
       const data = JSON.parse(
-        await readFile(resolve(process.cwd(), this.database), 'utf-8')
+        await readFile(resolve(process.cwd(), this.database), "utf-8")
       );
+
       this.emit(Events.Clear, data);
       return true;
     } catch (err) {
@@ -244,30 +280,25 @@ export class Jsoning extends EventEmitter {
     operand: number
   ): Promise<boolean> {
     // key types
-    if (typeof key !== 'string' || key == '') {
-      throw new TypeError('Invalid key of element');
+    if (typeof key !== "string" || key == "") {
+      throw new TypeError("Invalid key of element");
     }
 
-    // operation tricks
-    if (typeof operation !== 'string') {
-      throw new TypeError('Invalid Jsoning#math operation.');
-    }
-
-    // operand tricks
-    if (typeof operand !== 'number') {
-      throw new TypeError('Operand must be a number type!');
+    // operand check
+    if (typeof operand !== "number") {
+      throw new TypeError("Operand must be a number type!");
     }
 
     // see if value exists
     const db = JSON.parse(
-      await readFile(resolve(process.cwd(), this.database), 'utf-8')
+      await readFile(resolve(process.cwd(), this.database), "utf-8")
     );
     if (key in db) {
       // key exists
       const value = db[key];
-      if (typeof value !== 'number') {
+      if (typeof value !== "number") {
         throw new TypeError(
-          'Key of existing element must be a number for Jsoning#math to happen.'
+          "Key of existing element must be a number for Jsoning#math to happen."
         );
       }
       let result: number;
@@ -285,7 +316,7 @@ export class Jsoning extends EventEmitter {
           result = value / operand;
           break;
         default:
-          throw new Error('Operation not found!');
+          throw new Error("Operation not found!");
       }
       db[key] = result;
       try {
@@ -311,12 +342,12 @@ export class Jsoning extends EventEmitter {
    */
   async has(key: string): Promise<boolean> {
     // too many tricks
-    if (typeof key !== 'string' || key == '') {
-      throw new TypeError('Invalid key of element');
+    if (typeof key !== "string" || key == "") {
+      throw new TypeError("Invalid key of element");
     }
 
     const db = JSON.parse(
-      await readFile(resolve(process.cwd(), this.database), 'utf-8')
+      await readFile(resolve(process.cwd(), this.database), "utf-8")
     );
 
     if (key in db) {
@@ -335,18 +366,18 @@ export class Jsoning extends EventEmitter {
   async push(key: string, value: JSONValue): Promise<true> {
     // see if element exists
     const db = JSON.parse(
-      await readFile(resolve(process.cwd(), this.database), 'utf-8')
+      await readFile(resolve(process.cwd(), this.database), "utf-8")
     );
 
     if (key in db) {
       if (!Array.isArray(db[key])) {
         // it's not an array!
-        if (db[key] !== undefined || db[key] !== null) {
+        if (db[key] !== undefined && db[key] !== null) {
           // its not undefined or null
           throw new TypeError(
-            'Existing element must be of type Array for Jsoning#push to work.'
+            "Existing element must be of type Array for Jsoning#push to work."
           );
-        } else if (db[key] === undefined || db[key] === null) {
+        } else if (!db[key]) {
           // it may not be an array, but its either undefined or null
           // so we initialize a new array
           db[key] = [];
@@ -356,6 +387,7 @@ export class Jsoning extends EventEmitter {
               resolve(process.cwd(), this.database),
               JSON.stringify(db)
             );
+
             this.emit(Events.Push, key, value, db[key]);
             return true;
           } catch (err) {
@@ -384,6 +416,7 @@ export class Jsoning extends EventEmitter {
           resolve(process.cwd(), this.database),
           JSON.stringify(db)
         );
+
         this.emit(Events.Push, key, value, db[key]);
         return true;
       } catch (err) {
@@ -401,7 +434,7 @@ export class Jsoning extends EventEmitter {
   async remove(key: string, value: JSONValue): Promise<boolean> {
     // see if element exists
     const db = JSON.parse(
-      await readFile(resolve(process.cwd(), this.database), 'utf-8')
+      await readFile(resolve(process.cwd(), this.database), "utf-8")
     );
 
     if (!(key in db)) {
@@ -409,7 +442,7 @@ export class Jsoning extends EventEmitter {
     }
     if (!Array.isArray(db[key])) {
       throw new Error(
-        'Existing element must be of type Array for Jsoning#remove to work.'
+        "Existing element must be of type Array for Jsoning#remove to work."
       );
     }
     db[key] = db[key].filter((item: unknown) => item !== value);
@@ -440,12 +473,12 @@ export class Jsoning extends EventEmitter {
     destination: string,
     createInstance?: true
   ): Promise<void | Jsoning> {
-    const data = await readFile(resolve(process.cwd(), this.database), 'utf-8');
+    const data = await readFile(resolve(process.cwd(), this.database), "utf-8");
     try {
       JSON.parse(data);
     } catch (err) {
       throw new Error(
-        'Invalid JSON file, aborted copy to prevent malformed data'
+        "Invalid JSON file, aborted copy to prevent malformed data"
       );
     }
 

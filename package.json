@@ -6,7 +6,7 @@
 	"types": "dist/index.d.ts",
 	"scripts": {
 		"build": "npm run fmt && tsc && npm run gendocs",
-		"delete": "rm tests*/*.test.json",
+		"delete": "rm tests*/*.test.*",
 		"gendocs": "typedoc",
 		"fmt": "prettier -w src",
 		"lint": "eslint src/index.ts",
@@ -33,6 +33,7 @@
 		"prettier": "3.2.5",
 		"typedoc": "^0.25.12",
 		"typedoc-material-theme": "^1.0.2",
+		"typedoc-plugin-missing-exports": "^2.2.0",
 		"typescript": "^5.4.3"
 	},
 	"repository": "khalby786/jsoning",
@@ -52,5 +53,8 @@
 			"url": "https://akpi.is-a.dev/"
 		}
 	],
+	"engines": {
+		"node": ">=16.0.0"
+	},
 	"type": "module"
 }

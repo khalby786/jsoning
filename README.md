@@ -1,8 +1,8 @@
 <div align="center">
 
-![jsoning](./media/jsoning_smaller.svg)
+![jsoning](https://raw.githubusercontent.com/khalby786/jsoning/master/media/jsoning.svg)
 
-✨ A simple key-value JSON-based persistent lightweight database. ✨
+✨ A simple key-value JSON-based lightweight database. ✨
 
 <br />
 
@@ -17,34 +17,38 @@
 
 [View Demo](https://glitch.com/edit/#!/jsoning) · [Report Bug](https://github.com/khalby786/jsoning/issues) · [Request Feature](https://github.com/khalby786/jsoning/issues)
 
-Loved the project? Please consider [donating](https://buymeacoffee.com/khaleelgibran) to help it improve!
-
 </div>
 
 ---
 
-**🚨 Since v0.10.19, JSON files are generated in the current working directory, rather than within the node_modules which resulted in loss of the JSON files whenever packages were re-installed!**
+Jsoning is a simplified wrapper for Node.js that lets you write and read data to and from JSON files. It's designed to be beginner-friendly and easy to use, with a simple API that makes it easy to get started with. It's perfect for small projects, prototyping, and learning how to work with databases.
 
-## Features ✨
 
-- Uses JSON files to modify and write key-value elements.
-  - This allows for the usage of pre-existing JSON files by specifying the path when creating a new instance of Jsoning.
-- Easy to use, beginner-friendly and lightweight.
-- Writes atomically to prevent file corruption.
+## Features
+
+- Use existing JSON files to read and write key-value pairs
+- EventEmitters to listen to changes in the database
+- Atomic file writing to prevent data corruption
+- Easier to use than a toaster
+- TypeScript support for all the fixed-type addicts out there
 
 ## Install 💾
 
-**Node.js v12.x or greater is required for this package to work.**
+**Node.js v18.x or greater is required for this package to work.**
 
 ```bash
 npm i jsoning
-yarn add jsoning
+
+# pnpm if you're feeling fast
 pnpm i jsoning
+
+# yarn if you're feeling fancy
+yarn add jsoning
 ```
 
 View the full documentation [here](https://jsoning.js.org/).
 
-## Basic Usage 📑
+## Basic Usage 
 
 ```ts
 import { Jsoning, MathOps } from 'jsoning';
