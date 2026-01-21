@@ -29,7 +29,7 @@
 		"docdash": "^2.0.2",
 		"eslint": "^8.57.0",
 		"jsdoc": "^4.0.2",
-		"npm-check-updates": "^16.14.17",
+		"npm-check-updates": "^19.3.1",
 		"prettier": "3.2.5",
 		"typedoc": "^0.25.12",
 		"typedoc-material-theme": "^1.0.2",
